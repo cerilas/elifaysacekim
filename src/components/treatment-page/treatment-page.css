@@ -1,0 +1,940 @@
+/* ==========================================================================
+   Treatment Page Styles - Elif Ay Hair Transplant (Luxury Medical Aesthetic)
+   ========================================================================== */
+
+.treatment-page-root {
+  min-height: 100vh;
+  background: #0d0c0b;
+  color: #f0e9dd;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.treatment-page-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 86px;
+  padding: 0 5.5%;
+  background: rgba(13, 12, 11, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(216, 187, 145, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.treatment-header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.treatment-brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #f7ead5;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.treatment-brand-badge {
+  font-size: 8px;
+  letter-spacing: 0.22em;
+  color: #c2a582;
+  border-left: 1px solid rgba(214, 195, 166, 0.3);
+  padding-left: 14px;
+}
+
+/* Breadcrumb */
+.treatment-breadcrumb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 5.5% 16px;
+}
+
+.treatment-breadcrumbs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #8c7e6b;
+  letter-spacing: 0.05em;
+}
+
+.treatment-breadcrumbs a {
+  color: #bfae95;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.treatment-breadcrumbs a:hover {
+  color: #e5d1b3;
+}
+
+.treatment-breadcrumb-current {
+  color: #e5d1b3;
+  font-weight: 500;
+}
+
+/* Hero Banner */
+.treatment-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 5.5% 60px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.treatment-badge {
+  display: inline-block;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: #c2a582;
+  background: rgba(194, 165, 130, 0.1);
+  border: 1px solid rgba(194, 165, 130, 0.28);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.treatment-title {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: clamp(34px, 4.2vw, 54px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  color: #f7ead5;
+  margin: 0 0 20px;
+}
+
+.treatment-lead {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #b8aba0;
+  margin: 0 0 28px;
+}
+
+.treatment-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.treatment-cta-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.treatment-cta-wa:hover {
+  background: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.treatment-cta-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(214, 195, 166, 0.3);
+  color: #e6d8c3;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.treatment-cta-phone:hover {
+  border-color: #c2a582;
+  color: #ffffff;
+  background: rgba(194, 165, 130, 0.1);
+}
+
+.treatment-hero-card {
+  background: rgba(22, 19, 16, 0.85);
+  border: 1px solid rgba(216, 187, 145, 0.22);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.treatment-hero-card h3 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 20px;
+  color: #f7ead5;
+  margin: 0 0 18px;
+}
+
+.treatment-highlights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.treatment-highlights-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cfc2b0;
+}
+
+.treatment-highlights-list li::before {
+  content: '✓';
+  color: #c2a582;
+  font-weight: bold;
+}
+
+/* Steps Section */
+.treatment-steps-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 5.5%;
+  border-top: 1px solid rgba(216, 187, 145, 0.12);
+}
+
+.treatment-section-kicker {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: #c2a582;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.treatment-section-title {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 42px);
+  color: #f7ead5;
+  margin: 0 0 36px;
+}
+
+.treatment-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.treatment-step-card {
+  background: rgba(22, 19, 16, 0.7);
+  border: 1px solid rgba(216, 187, 145, 0.16);
+  border-radius: 8px;
+  padding: 28px 24px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.treatment-step-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(194, 165, 130, 0.4);
+}
+
+.treatment-step-num {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 28px;
+  color: #c2a582;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.treatment-step-card h4 {
+  font-size: 16px;
+  color: #f7ead5;
+  margin: 0 0 10px;
+}
+
+.treatment-step-card p {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #a89a88;
+  margin: 0;
+}
+
+/* Candidate Criteria Box */
+.treatment-candidates-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 5.5% 60px;
+}
+
+.treatment-candidates-box {
+  background: linear-gradient(135deg, rgba(28, 24, 20, 0.9) 0%, rgba(18, 16, 14, 0.95) 100%);
+  border: 1px solid rgba(216, 187, 145, 0.2);
+  border-radius: 12px;
+  padding: 36px 40px;
+}
+
+.treatment-candidates-box h3 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 24px;
+  color: #f7ead5;
+  margin: 0 0 20px;
+}
+
+.treatment-candidates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.treatment-candidate-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #cfc2b0;
+  line-height: 1.6;
+}
+
+.treatment-candidate-item::before {
+  content: '✦';
+  color: #c2a582;
+  flex-shrink: 0;
+}
+
+/* Content Body */
+.treatment-content-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 5.5% 60px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #d1c4b2;
+}
+
+.treatment-content-body h2 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 28px;
+  color: #f7ead5;
+  margin: 40px 0 18px;
+}
+
+.treatment-content-body h3 {
+  font-size: 20px;
+  color: #e5d4bc;
+  margin: 30px 0 14px;
+}
+
+.treatment-content-body p {
+  margin: 0 0 20px;
+}
+
+/* FAQ Accordion */
+.treatment-faq-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 5.5% 70px;
+}
+
+.treatment-faq-item {
+  border-bottom: 1px solid rgba(216, 187, 145, 0.16);
+  padding: 20px 0;
+}
+
+.treatment-faq-q {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: 18px;
+  color: #f7ead5;
+  text-align: left;
+  cursor: pointer;
+  padding: 0;
+}
+
+.treatment-faq-icon {
+  font-size: 20px;
+  color: #c2a582;
+  transition: transform 0.2s ease;
+}
+
+.treatment-faq-item.open .treatment-faq-icon {
+  transform: rotate(45deg);
+}
+
+.treatment-faq-a {
+  padding-top: 14px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #b8aba0;
+}
+
+/* Bottom In-Depth CTA */
+.treatment-bottom-cta {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 5.5%;
+}
+
+.treatment-bottom-card {
+  background: linear-gradient(135deg, rgba(32, 28, 23, 0.95), rgba(18, 16, 14, 0.95));
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: 12px;
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(37, 211, 102, 0.08);
+}
+
+.treatment-bottom-info h3 {
+  font-family: 'Iowan Old Style', Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 34px);
+  color: #f7ead5;
+  margin: 0 0 12px;
+}
+
+.treatment-bottom-info p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #bfb2a0;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* ==========================================================================
+   Light Mode Overrides for Treatment Page
+   ========================================================================== */
+[data-theme="light"] .treatment-page-root {
+  background: #fbf9f5;
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-page-header {
+  background: rgba(251, 249, 245, 0.95);
+  border-bottom-color: rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .treatment-brand-link {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-brand-badge {
+  color: #7a6e5e;
+  border-left-color: rgba(74, 58, 41, 0.18);
+}
+
+[data-theme="light"] .treatment-breadcrumbs {
+  color: #7a6e5e;
+}
+
+[data-theme="light"] .treatment-breadcrumbs a {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-breadcrumbs a:hover {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-breadcrumb-current {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-badge {
+  color: #7a5a2b;
+  background: rgba(148, 110, 56, 0.08);
+  border-color: rgba(148, 110, 56, 0.25);
+}
+
+[data-theme="light"] .treatment-title {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-lead {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-cta-phone {
+  background: #ffffff;
+  border-color: rgba(74, 58, 41, 0.2);
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-cta-phone:hover {
+  background: rgba(148, 110, 56, 0.08);
+  border-color: #946e38;
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-hero-card {
+  background: #ffffff;
+  border-color: rgba(74, 58, 41, 0.14);
+  box-shadow: 0 12px 32px rgba(60, 45, 30, 0.06);
+}
+
+[data-theme="light"] .treatment-hero-card h3 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-highlights-list li {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-highlights-list li::before {
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-steps-section {
+  border-top-color: rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .treatment-section-kicker {
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-section-title {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-step-card {
+  background: #ffffff;
+  border-color: rgba(74, 58, 41, 0.14);
+  box-shadow: 0 8px 24px rgba(60, 45, 30, 0.05);
+}
+
+[data-theme="light"] .treatment-step-card:hover {
+  border-color: rgba(148, 110, 56, 0.4);
+}
+
+[data-theme="light"] .treatment-step-num {
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-step-card h4 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-step-card p {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-candidates-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(244, 239, 230, 0.95));
+  border-color: rgba(74, 58, 41, 0.15);
+  box-shadow: 0 12px 32px rgba(60, 45, 30, 0.06);
+}
+
+[data-theme="light"] .treatment-candidates-box h3 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-candidate-item {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-candidate-item::before {
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-content-body {
+  color: #42382d;
+}
+
+[data-theme="light"] .treatment-content-body h2 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-content-body h3 {
+  color: #2b241c;
+}
+
+[data-theme="light"] .treatment-faq-item {
+  border-bottom-color: rgba(74, 58, 41, 0.14);
+}
+
+[data-theme="light"] .treatment-faq-q {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-faq-icon {
+  color: #946e38;
+}
+
+[data-theme="light"] .treatment-faq-a {
+  color: #5c5245;
+}
+
+[data-theme="light"] .treatment-bottom-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(244, 239, 230, 0.95));
+  border-color: rgba(37, 211, 102, 0.35);
+  box-shadow: 0 16px 40px rgba(60, 45, 30, 0.08), 0 0 20px rgba(37, 211, 102, 0.08);
+}
+
+[data-theme="light"] .treatment-bottom-info h3 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .treatment-bottom-info p {
+  color: #5c5245;
+}
+
+/* ==========================================================================
+   Med Mode Overrides for Treatment Page
+   Palette:
+   #FFFFFF (white), #FBE7F1 (pink), #D7C6FF (lavender), #8FA9FF (blue),
+   #2D3A5E (navy), #4A587D (secondary), #6B7A9F (muted)
+   ========================================================================== */
+
+[data-theme="med"] .treatment-page-root {
+  background-color: #FFFFFF;
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-page-header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom-color: #D7C6FF;
+}
+
+[data-theme="med"] .treatment-brand-link {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-brand-link .brand-symbol i {
+  border-left-color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-brand-badge {
+  border-left-color: #D7C6FF;
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-header-back {
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+  background: #FFFFFF;
+}
+
+[data-theme="med"] .treatment-header-back span {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-header-back:hover {
+  background: #FBE7F1;
+  border-color: #8FA9FF;
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-header-theme {
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+  background: #FFFFFF;
+}
+
+[data-theme="med"] .treatment-header-theme:hover {
+  border-color: #8FA9FF;
+  color: #8FA9FF;
+  background: #FBE7F1;
+}
+
+/* Breadcrumbs */
+[data-theme="med"] .treatment-breadcrumbs {
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .treatment-breadcrumbs a,
+[data-theme="med"] .treatment-breadcrumb a {
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .treatment-breadcrumbs a:hover,
+[data-theme="med"] .treatment-breadcrumb a:hover {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-breadcrumb-current {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-breadcrumb span {
+  color: #D7C6FF;
+}
+
+/* Badge */
+[data-theme="med"] .treatment-badge {
+  background: #FBE7F1;
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+  font-weight: 600;
+}
+
+/* Title */
+[data-theme="med"] .treatment-title {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-title em {
+  color: #8FA9FF;
+}
+
+/* Lead / Summary text */
+[data-theme="med"] .treatment-lead,
+[data-theme="med"] .treatment-summary {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-lead em,
+[data-theme="med"] .treatment-summary em {
+  color: #8FA9FF;
+}
+
+/* CTA Buttons */
+[data-theme="med"] .treatment-cta-phone {
+  background: #FFFFFF;
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-cta-phone:hover {
+  border-color: #8FA9FF;
+  color: #8FA9FF;
+  background: #FBE7F1;
+}
+
+[data-theme="med"] .treatment-image-wrapper {
+  border-color: #D7C6FF;
+}
+
+/* Hero Card (Highlights Box) */
+[data-theme="med"] .treatment-hero-card,
+[data-theme="med"] .treatment-highlights-box {
+  background: #FFFFFF;
+  border-color: #D7C6FF;
+  box-shadow: 0 12px 32px rgba(143, 169, 255, 0.12);
+}
+
+[data-theme="med"] .treatment-hero-card h3,
+[data-theme="med"] .treatment-highlights-box h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-highlights-list li {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-highlights-list li::before {
+  color: #8FA9FF;
+  font-weight: bold;
+}
+
+/* Steps Section */
+[data-theme="med"] .treatment-steps-section {
+  border-top-color: #D7C6FF;
+}
+
+[data-theme="med"] .treatment-section-kicker {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+
+[data-theme="med"] .treatment-section-title {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-step-card {
+  background: #FFFFFF;
+  border-color: #D7C6FF;
+  box-shadow: 0 8px 24px rgba(45, 58, 94, 0.06);
+}
+
+[data-theme="med"] .treatment-step-card:hover {
+  border-color: #8FA9FF;
+  box-shadow: 0 12px 32px rgba(143, 169, 255, 0.2);
+}
+
+[data-theme="med"] .treatment-step-num {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+
+[data-theme="med"] .treatment-step-card h4 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-step-card p {
+  color: #4A587D;
+}
+
+/* Candidates Box */
+[data-theme="med"] .treatment-candidates-box {
+  background: #FBE7F1;
+  border-color: #D7C6FF;
+  box-shadow: 0 12px 32px rgba(143, 169, 255, 0.12);
+}
+
+[data-theme="med"] .treatment-candidates-box h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-candidate-item {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-candidate-item::before {
+  color: #8FA9FF;
+  font-weight: bold;
+}
+
+/* Content Body (rich HTML from dangerouslySetInnerHTML) */
+[data-theme="med"] .treatment-content-body {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-content-body h2 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-content-body h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-content-body p {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-content-body strong,
+[data-theme="med"] .treatment-content-body b {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-content-body a {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-content-body a:hover {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-content-body ul,
+[data-theme="med"] .treatment-content-body ol {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-content-body li {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-content-body li::marker {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-content-body hr {
+  border-color: #D7C6FF;
+}
+
+[data-theme="med"] .treatment-content-body blockquote {
+  border-left-color: #D7C6FF;
+  background: #FBE7F1;
+  color: #4A587D;
+}
+
+/* FAQ Section */
+[data-theme="med"] .treatment-faq-section {
+  border-top-color: #D7C6FF;
+}
+
+[data-theme="med"] .treatment-faq-item {
+  border-bottom-color: #D7C6FF;
+}
+
+[data-theme="med"] .treatment-faq-q {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-faq-icon {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .treatment-faq-a {
+  color: #4A587D;
+}
+
+[data-theme="med"] .treatment-faq-a p {
+  color: #4A587D;
+}
+
+/* Bottom CTA Card */
+[data-theme="med"] .treatment-bottom-card {
+  background: #FFFFFF;
+  border-color: #D7C6FF;
+  box-shadow: 0 16px 45px rgba(143, 169, 255, 0.16);
+}
+
+[data-theme="med"] .treatment-bottom-info h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .treatment-bottom-info p {
+  color: #4A587D;
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .treatment-page-header {
+    height: 70px;
+    padding: 0 16px;
+  }
+  .treatment-brand-badge {
+    display: none;
+  }
+  .treatment-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding: 20px 16px 40px;
+  }
+  .treatment-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .treatment-cta-wa,
+  .treatment-cta-phone {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .treatment-bottom-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 30px 24px;
+    gap: 24px;
+  }
+  .treatment-bottom-card .treatment-cta-wa {
+    width: 100%;
+    justify-content: center;
+  }
+}

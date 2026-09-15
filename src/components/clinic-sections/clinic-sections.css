@@ -1,0 +1,237 @@
+.specialist-section,.treatments-section{position:relative;isolation:isolate;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif}.section-kicker{display:flex;justify-content:space-between;gap:20px;font-size:9px;letter-spacing:.17em;padding-bottom:24px;border-bottom:1px solid #8f795d30}.specialist-section{background:#e9e2d6;color:#332d23;padding:55px 7% 100px}.specialist-layout{display:grid;grid-template-columns:1fr 1fr;gap:12%;align-items:center;max-width:1450px;margin:85px auto 0}.specialist-visual{position:relative;padding:10px 20px 40px;perspective:1000px}.specialist-portrait{position:relative;aspect-ratio:4/5;background:#b8a88f;transform-origin:center bottom;overflow:hidden;border-radius:6px}.pt-moving-portrait{position:absolute;top:0;left:0;transform-origin:0 0;pointer-events:none;z-index:1000;overflow:hidden;will-change:transform,clip-path;backface-visibility:hidden;display:none}.pt-moving-portrait img,.pt-moving-portrait svg{width:100%;height:100%;object-fit:cover;display:block}.specialist-portrait .specialist-image{visibility:hidden}.specialist-portrait .portrait-caption{visibility:visible}.specialist-image{width:100%;height:100%;object-fit:cover;object-position:50% 35%;display:block}.specialist-empty{background:radial-gradient(ellipse at 60% 25%,#c5b79f,#a3937b 65%,#8b7961);position:relative}.specialist-empty svg{width:100%;height:100%;object-fit:cover}.portrait-pending{position:absolute;left:0;right:0;top:45%;text-align:center;font-size:10px;letter-spacing:.25em;color:#4d4132}.portrait-caption{position:absolute;bottom:25px;left:25px;font-size:8px;letter-spacing:.2em;color:#f2e9d9}.specialist-orbit{position:absolute;inset:-30px -25px 35px;border:1px solid #9c856b55;border-radius:50%}.specialist-signature{position:absolute;bottom:-1px;right:-30px;font:italic 62px 'Iowan Old Style',Georgia,serif;letter-spacing:-.05em;color:#6e5d45}.pt-moving-signature{position:absolute;top:0;left:0;transform-origin:0 0;pointer-events:none;z-index:999;will-change:transform,opacity;display:none}.pt-sig-source{position:absolute;top:0;left:0;font-family:'Iowan Old Style',Georgia,serif;font-size:62px;font-style:italic;font-weight:400;letter-spacing:-.05em;color:#6e5d45;white-space:nowrap;line-height:normal;margin:0;padding:0;transform-origin:0 0;will-change:opacity,transform,filter;display:block}.pt-sig-target{position:absolute;top:0;left:0;font:400 clamp(50px,5vw,80px)/1.04 'Iowan Old Style','Palatino Linotype',Georgia,serif;letter-spacing:-.045em;color:#332d23;margin:0;padding:0;transform-origin:0 0;will-change:opacity,transform,filter;opacity:0;display:block}.pt-sig-target em{color:#88724d;font-style:italic}.pt-moving-care-heading{position:absolute;top:0;left:0;transform-origin:0 0;pointer-events:none;z-index:999;will-change:transform,opacity;display:none}.pt-heading-source{position:absolute;top:0;left:0;font:400 clamp(50px,5vw,80px)/1.04 'Iowan Old Style','Palatino Linotype',Georgia,serif;letter-spacing:-.045em;color:#332d23;margin:0;padding:0;transform-origin:0 0;will-change:opacity,transform,filter;display:block;line-height:1.04}.pt-heading-source em{color:#88724d}.pt-heading-target{position:absolute;top:0;left:0;font:400 clamp(43px,4vw,65px)/1.05 'Iowan Old Style',Georgia,serif;letter-spacing:-.05em;color:#eee4d4;margin:0;padding:0;transform-origin:0 0;will-change:opacity,transform,filter;opacity:0;display:block;line-height:1.05}.pt-heading-target em{color:#c2a582}.clinic-eyebrow{font-size:9px;letter-spacing:.22em;color:#998263;margin:0 0 26px}.specialist-copy h2,.treatments-intro h2{font:400 clamp(45px,4.8vw,78px)/1.05 'Iowan Old Style',Georgia,serif;letter-spacing:-.05em;margin:0 0 32px}.specialist-copy h2 em{color:#88724d;font-weight:400}.specialist-copy h3{font-size:20px;font-weight:400;margin:0 0 15px}.specialist-copy>p:not(.clinic-eyebrow){font-size:13px;line-height:1.95;color:#776958;max-width:360px;margin-bottom:32px}.specialist-principle{display:flex;gap:24px;padding:18px 0;border-top:1px solid #9b856735}.specialist-principle>span{font-size:9px;color:#998263}.specialist-principle strong{font-size:12px;font-weight:400}.specialist-principle p{font-size:11px;line-height:1.7;color:#80715e;margin:8px 0 0}.specialist-link{display:inline-flex;justify-content:space-between;gap:50px;color:#675237;text-decoration:none;border-bottom:1px solid #9b856780;padding:15px 0;font-size:11px;margin-top:12px}.treatments-section{height:300svh;background:#11100e;color:#eee4d4}.treatments-stage{height:100svh;min-height:740px;position:relative;padding:48px 7%;background:radial-gradient(ellipse at 75% 55%,#5d493c16,transparent 55%),#11100e}.treatments-stage>.section-kicker{color:#af9f87}.treatments-intro{position:absolute;top:16%;left:59%}.treatments-intro h2{font-size:clamp(43px,4vw,65px);margin-bottom:24px;opacity:0;visibility:hidden;transition:opacity 250ms ease}.treatments-intro h2 em{color:#c2a582}.treatment-tabs{position:absolute;left:59%;top:39%;width:34%;display:flex;border-bottom:1px solid #d3b78c30;gap:20px}.treatment-tabs button{font:inherit;font-size:11px;border:0;border-bottom:1px solid transparent;padding:19px 0;background:transparent;color:#9b8e7b;cursor:pointer;display:flex;gap:12px;flex:1;align-items:center;min-height:44px}.treatment-tabs button span:first-child{font-size:9px;color:#947e5b}.treatment-tabs button span:last-child{margin-left:auto}.treatment-tabs button[aria-pressed=true]{color:#f0dec0;border-bottom-color:#c1a17c}.treatment-content{position:absolute;left:59%;top:49%;width:32%;max-width:410px}.treatment-counter{font-size:9px;letter-spacing:.18em;color:#9e8767}.treatment-content h3{font:400 29px/1.2 'Iowan Old Style',Georgia,serif;letter-spacing:-.025em;margin:20px 0}.treatment-content>p:not(.treatment-counter){font-size:12px;line-height:1.9;color:#ad9f8c}.treatment-content ul{display:flex;gap:25px;padding:20px 0 0;list-style:none;color:#c8b495;font-size:9px;letter-spacing:.06em}.treatment-content li:before{content:'·';margin-right:7px}.treatment-visual{position:absolute;left:-2%;right:43%;top:15%;bottom:15%;pointer-events:none}.treatment-visual-caption{position:absolute;left:16%;bottom:17%;font-size:11px;color:#d1bfa5}.treatment-visual-caption>span{display:block;width:28px;height:1px;background:#af926b;margin-bottom:18px}.treatment-visual-caption small{display:block;font-size:8px;letter-spacing:.15em;color:#a29683;margin-top:12px}.treatment-bottom{position:absolute;bottom:5%;left:7%;right:7%;display:flex;justify-content:space-between;gap:20px;font-size:9px;color:#a89a85}.treatment-fallback{position:absolute;inset:25% 10%;border-bottom:1px solid #b1997266;border-radius:50%;display:flex;justify-content:center;gap:35px}.treatment-fallback span{height:80%;width:30px;border-left:1px solid #c0a57d;border-radius:50%;transform:rotate(20deg)}.treatments-reduced{height:100svh;min-height:740px}.specialist-section :focus-visible,.treatments-section :focus-visible{outline:2px solid #ac8c60;outline-offset:6px}
+@media(max-width:767px){.section-kicker{font-size:8px;padding-bottom:20px}.section-kicker span:last-child{display:none}.specialist-section{padding:35px 7% 65px}.specialist-layout{grid-template-columns:1fr;gap:55px;margin-top:45px}.specialist-visual{max-width:400px;margin:auto;width:100%;padding:0 15px 25px}.specialist-signature{font-size:50px;right:5px;bottom:-10px}.pt-sig-source{font-size:50px}.pt-sig-target{font-size:60px}.pt-heading-source{font-size:60px}.pt-heading-target{font-size:43px}.specialist-orbit{inset:-15px 0 20px}.specialist-copy h2{font-size:50px}.specialist-copy>p:not(.clinic-eyebrow){max-width:none}.specialist-copy h3{font-size:18px}.treatments-stage{padding:30px 7%;min-height:830px}.treatments-intro{top:90px;left:7%}.treatments-intro .clinic-eyebrow{margin-bottom:15px}.treatments-intro h2{font-size:43px}.treatment-tabs{top:245px;width:86%;gap:22px;left:7%}.treatment-content{top:320px;width:86%;max-width:none;left:7%}.treatment-content h3{font-size:24px;margin:14px 0}.treatment-content>p:not(.treatment-counter){font-size:11px;max-width:350px}.treatment-content ul{padding-top:5px}.treatment-visual{top:490px;bottom:65px;left:0;right:0}.treatment-visual-caption{left:auto;right:7%;bottom:65px;font-size:9px;text-align:right}.treatment-visual-caption>span,.treatment-visual-caption small{display:none}.treatment-bottom{bottom:25px;font-size:8px}.treatment-bottom span:last-child{max-width:150px;text-align:right;line-height:1.6}.treatments-reduced{min-height:830px}}
+@media(prefers-reduced-motion:reduce){.specialist-section *{transform:none!important;clip-path:none!important}.specialist-portrait{visibility:visible!important}.specialist-signature{visibility:visible!important}.pt-moving-portrait,.pt-moving-signature,.pt-moving-care-heading{display:none!important}.treatments-intro h2{opacity:1!important;visibility:visible!important}.treatments-section{height:auto}.treatments-stage{height:100svh}}
+@media(max-width:767px){.treatment-tabs{gap:14px;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.treatment-tabs button{font-size:10px;gap:6px;white-space:nowrap}.specialist-orbit{max-width:100%}}
+
+/* Light Mode Overrides for Treatments & Clinic Sections */
+[data-theme="light"] .treatments-section {
+  background: #f4efe6;
+  color: #1c1814;
+}
+[data-theme="light"] .treatments-stage {
+  background: radial-gradient(ellipse at 75% 55%, rgba(148, 110, 56, 0.08), transparent 55%), #f4efe6;
+}
+[data-theme="light"] .treatments-stage > .section-kicker {
+  color: #7a6a54;
+  border-bottom-color: rgba(74, 58, 41, 0.15);
+}
+[data-theme="light"] .treatments-intro h2 {
+  color: #1c1814;
+}
+[data-theme="light"] .treatments-intro h2 em {
+  color: #946e38;
+}
+[data-theme="light"] .treatment-tabs {
+  border-bottom-color: rgba(74, 58, 41, 0.15);
+}
+[data-theme="light"] .treatment-tabs button {
+  color: #6b5d49;
+}
+[data-theme="light"] .treatment-tabs button span:first-child {
+  color: #946e38;
+}
+[data-theme="light"] .treatment-tabs button[aria-pressed=true] {
+  color: #1c1814;
+  border-bottom-color: #946e38;
+  font-weight: 500;
+}
+[data-theme="light"] .treatment-counter {
+  color: #946e38;
+}
+[data-theme="light"] .treatment-content h3 {
+  color: #1c1814;
+}
+[data-theme="light"] .treatment-content > p:not(.treatment-counter) {
+  color: #594d3f;
+}
+[data-theme="light"] .treatment-content ul {
+  color: #6d5d4a;
+}
+[data-theme="light"] .treatment-visual-caption {
+  color: #4a3e30;
+}
+[data-theme="light"] .treatment-visual-caption > span {
+  background: #946e38;
+}
+[data-theme="light"] .treatment-visual-caption small {
+  color: #736450;
+}
+[data-theme="light"] .treatment-bottom {
+  color: #6d5e4b;
+}
+[data-theme="light"] .specialist-section {
+  background: #fbf9f5;
+  color: #1c1814;
+}
+[data-theme="light"] .specialist-section .section-kicker {
+  border-bottom-color: rgba(74, 58, 41, 0.15);
+}
+[data-theme="light"] .specialist-signature {
+  color: #946e38;
+}
+[data-theme="light"] .pt-sig-source {
+  color: #946e38;
+}
+[data-theme="light"] .pt-heading-target {
+  color: #1c1814;
+}
+[data-theme="light"] .pt-heading-target em {
+  color: #946e38;
+}
+
+/* Med Mode Overrides for Treatments & Clinic Sections */
+[data-theme="med"] .treatments-section {
+  background: #FFFFFF;
+  color: #2D3A5E;
+}
+[data-theme="med"] .treatments-stage {
+  background: radial-gradient(ellipse at 75% 55%, rgba(143, 169, 255, 0.12), transparent 55%), #FFFFFF;
+}
+[data-theme="med"] .treatments-stage > .section-kicker {
+  color: #8FA9FF;
+  border-bottom-color: #D7C6FF;
+}
+[data-theme="med"] .treatments-intro h2 {
+  color: #2D3A5E;
+}
+[data-theme="med"] .treatments-intro h2 em {
+  color: #8FA9FF;
+}
+[data-theme="med"] .treatment-tabs {
+  border-bottom-color: #D7C6FF;
+}
+[data-theme="med"] .treatment-tabs button {
+  color: #4A587D;
+}
+[data-theme="med"] .treatment-tabs button span:first-child {
+  color: #8FA9FF;
+}
+[data-theme="med"] .treatment-tabs button[aria-pressed=true] {
+  color: #2D3A5E;
+  border-bottom-color: #8FA9FF;
+  font-weight: 600;
+}
+[data-theme="med"] .treatment-counter {
+  color: #8FA9FF;
+}
+[data-theme="med"] .treatment-content h3 {
+  color: #2D3A5E;
+}
+[data-theme="med"] .treatment-content > p:not(.treatment-counter) {
+  color: #4A587D;
+}
+[data-theme="med"] .treatment-content ul {
+  color: #4A587D;
+}
+[data-theme="med"] .treatment-visual-caption {
+  color: #2D3A5E;
+}
+[data-theme="med"] .treatment-visual-caption > span {
+  background: #8FA9FF;
+}
+[data-theme="med"] .treatment-visual-caption small {
+  color: #6B7A9F;
+}
+[data-theme="med"] .treatment-bottom {
+  color: #4A587D;
+}
+[data-theme="med"] .treatment-fallback {
+  border-bottom-color: #D7C6FF;
+}
+[data-theme="med"] .treatment-fallback span {
+  border-left-color: #8FA9FF;
+}
+
+/* Highlighted Specialist Section in Med Mode */
+[data-theme="med"] .specialist-section {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBE7F1 30%, #FBE7F1 85%, #FFFFFF 100%);
+  color: #2D3A5E;
+}
+[data-theme="med"] .specialist-section .section-kicker {
+  color: #8FA9FF;
+  border-bottom-color: #D7C6FF;
+}
+[data-theme="med"] .clinic-eyebrow {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+[data-theme="med"] .specialist-copy h2 {
+  color: #2D3A5E;
+}
+[data-theme="med"] .specialist-copy h2 em {
+  color: #8FA9FF;
+  font-style: italic;
+}
+[data-theme="med"] .specialist-copy h3 {
+  color: #2D3A5E;
+}
+[data-theme="med"] .specialist-copy > p:not(.clinic-eyebrow) {
+  color: #4A587D;
+}
+[data-theme="med"] .specialist-portrait {
+  background: #FBE7F1;
+  border: 2px solid #D7C6FF;
+  box-shadow: 0 20px 45px rgba(45, 58, 94, 0.12);
+}
+[data-theme="med"] .specialist-orbit {
+  border-color: rgba(215, 198, 255, 0.6);
+}
+[data-theme="med"] .portrait-pending {
+  color: #6B7A9F;
+}
+[data-theme="med"] .portrait-caption {
+  color: #2D3A5E;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+[data-theme="med"] .specialist-principle {
+  border-top: 1px solid #D7C6FF;
+}
+[data-theme="med"] .specialist-principle > span {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+[data-theme="med"] .specialist-principle strong {
+  color: #2D3A5E;
+}
+[data-theme="med"] .specialist-principle p {
+  color: #4A587D;
+}
+[data-theme="med"] .specialist-link {
+  color: #2D3A5E;
+  border-bottom: 1px solid #8FA9FF;
+}
+[data-theme="med"] .specialist-link:hover {
+  color: #8FA9FF;
+}
+[data-theme="med"] .specialist-signature {
+  color: #8FA9FF;
+}
+[data-theme="med"] .pt-sig-source {
+  color: #8FA9FF;
+}
+[data-theme="med"] .pt-sig-target {
+  color: #2D3A5E;
+}
+[data-theme="med"] .pt-sig-target em {
+  color: #8FA9FF;
+}
+[data-theme="med"] .pt-heading-source {
+  color: #2D3A5E;
+}
+[data-theme="med"] .pt-heading-source em {
+  color: #8FA9FF;
+}
+[data-theme="med"] .pt-heading-target {
+  color: #2D3A5E;
+}
+[data-theme="med"] .pt-heading-target em {
+  color: #8FA9FF;
+}
+[data-theme="med"] .specialist-section :focus-visible,
+[data-theme="med"] .treatments-section :focus-visible {
+  outline: 2px solid #8FA9FF;
+}
+
+

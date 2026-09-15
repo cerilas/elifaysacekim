@@ -1,0 +1,1171 @@
+/* Article Page Styles - Elif Ay Luxury Medical Aesthetic */
+
+.article-page-root {
+  min-height: 100vh;
+  background: #0d0c0b;
+  color: #eee7db;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Header */
+.article-page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(13, 12, 11, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(216, 187, 145, 0.12);
+}
+
+.article-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.article-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #f7f4ee;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.16em;
+}
+
+.article-brand-link:hover {
+  color: #c2a582;
+}
+
+.article-brand-badge {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #a89984;
+  padding-left: 14px;
+  border-left: 1px solid rgba(216, 187, 145, 0.2);
+  text-transform: uppercase;
+}
+
+.article-page-header .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.article-page-header .header-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-radius: 4px;
+  font-size: 11px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  min-height: 40px;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.article-page-header .header-phone-btn {
+  border: 1px solid rgba(214, 195, 166, 0.25);
+  color: #dfd0ba;
+  background: rgba(22, 20, 18, 0.6);
+}
+
+.article-page-header .header-phone-btn:hover {
+  border-color: #c2a582;
+  color: #f7ead5;
+  background: rgba(194, 165, 130, 0.14);
+}
+
+.article-page-header .header-whatsapp-btn {
+  border: 1px solid #20ba59;
+  color: #ffffff;
+  background: #25d366;
+  box-shadow: 0 2px 12px rgba(37, 211, 102, 0.35);
+  font-weight: 600;
+  opacity: 1 !important;
+}
+
+.article-page-header .header-whatsapp-btn:hover {
+  background: #20ba59;
+  border-color: #1a9e4b;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+}
+
+.article-page-header .header-whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.article-page-header .header-contact-text {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.article-page-header .header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid rgba(196, 172, 133, 0.35);
+  text-decoration: none;
+  color: #dfd0ba;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  min-height: 40px;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  background: rgba(196, 172, 133, 0.06);
+}
+
+.article-page-header .header-cta:hover {
+  background: rgba(196, 172, 133, 0.16);
+  border-color: #c4ac85;
+  color: #f7ead5;
+}
+
+/* Breadcrumbs */
+.article-breadcrumb-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px 16px;
+}
+
+.article-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: #8c7e6b;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-breadcrumbs li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.article-breadcrumbs a {
+  color: #b5a48f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-breadcrumbs a:hover {
+  color: #d8bb91;
+  text-decoration: underline;
+}
+
+.article-breadcrumbs .breadcrumb-sep {
+  color: #554d42;
+}
+
+.article-breadcrumbs .breadcrumb-current {
+  color: #eee7db;
+  font-weight: 500;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Main Article Container */
+.article-main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* Article Hero Header */
+.article-post-header {
+  margin-bottom: 36px;
+}
+
+.article-category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #d8bb91;
+  background: rgba(216, 187, 145, 0.1);
+  border: 1px solid rgba(216, 187, 145, 0.25);
+  margin-bottom: 20px;
+}
+
+.article-main-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.22;
+  font-weight: 400;
+  color: #f7f4ee;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px 0;
+}
+
+.article-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(216, 187, 145, 0.12);
+  border-bottom: 1px solid rgba(216, 187, 145, 0.12);
+  font-size: 13px;
+  color: #9c8e7c;
+}
+
+.article-author-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.article-author-chip img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(216, 187, 145, 0.4);
+}
+
+.article-author-name {
+  font-weight: 600;
+  color: #eee7db;
+  display: block;
+}
+
+.article-author-role {
+  font-size: 11px;
+  color: #a89984;
+}
+
+.article-meta-divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #554d42;
+}
+
+/* Cover Image */
+.article-cover-wrapper {
+  margin: 32px 0 44px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(216, 187, 145, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  background: #141312;
+  max-height: 520px;
+}
+
+.article-cover-wrapper img {
+  width: 100%;
+  height: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Article Rich Content Body */
+.article-rich-content {
+  font-size: 17px;
+  line-height: 1.82;
+  color: #d1c7b8;
+  margin-bottom: 60px;
+}
+
+.article-rich-content p {
+  margin: 0 0 22px;
+}
+
+.article-rich-content h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  color: #f7f4ee;
+  margin: 44px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(216, 187, 145, 0.15);
+}
+
+.article-rich-content h3 {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: #e5dac9;
+  margin: 32px 0 14px;
+  font-weight: 600;
+}
+
+.article-rich-content ul, .article-rich-content ol {
+  margin: 0 0 24px;
+  padding-left: 28px;
+}
+
+.article-rich-content li {
+  margin-bottom: 10px;
+}
+
+.article-rich-content strong {
+  color: #f4eee2;
+  font-weight: 600;
+}
+
+.article-rich-content a {
+  color: #d8bb91;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.article-rich-content a:hover {
+  color: #f0d5af;
+}
+
+.article-rich-content hr {
+  border: none;
+  border-top: 1px solid rgba(216, 187, 145, 0.15);
+  margin: 40px 0;
+}
+
+/* In-Article WhatsApp CTA Box */
+.article-inline-cta {
+  background: radial-gradient(circle at 100% 0%, rgba(37, 211, 102, 0.12) 0%, transparent 60%),
+              linear-gradient(135deg, rgba(28, 26, 24, 0.95), rgba(18, 17, 16, 0.95));
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  border-radius: 20px;
+  padding: 36px 40px;
+  margin: 50px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.article-inline-cta-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #25d366;
+  margin: 0;
+}
+
+.article-inline-cta h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  color: #f7f4ee;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.article-inline-cta p {
+  margin: 0;
+  font-size: 15px;
+  color: #bfb2a0;
+  line-height: 1.6;
+}
+
+.article-inline-cta-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.article-cta-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #ffffff !important;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
+  transition: all 0.25s ease;
+}
+
+.article-cta-btn-wa:hover {
+  background: #20ba59;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.38);
+}
+
+.article-cta-btn-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(216, 187, 145, 0.08);
+  border: 1px solid rgba(216, 187, 145, 0.3);
+  color: #eee7db;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.article-cta-btn-phone:hover {
+  background: rgba(216, 187, 145, 0.16);
+  color: #fff;
+  border-color: rgba(216, 187, 145, 0.5);
+}
+
+/* Related Articles */
+.article-related-section {
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 1px solid rgba(216, 187, 145, 0.15);
+}
+
+.article-related-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  color: #f7f4ee;
+  margin: 0 0 28px;
+}
+
+.article-related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.article-related-card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(22, 20, 18, 0.7);
+  border: 1px solid rgba(216, 187, 145, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.article-related-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(216, 187, 145, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+.article-related-thumb {
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.article-related-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.article-related-card:hover .article-related-thumb img {
+  transform: scale(1.05);
+}
+
+.article-related-body {
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-related-card-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #d8bb91;
+  margin-bottom: 8px;
+}
+
+.article-related-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #eee7db;
+  margin: 0 0 12px;
+  flex: 1;
+}
+
+.article-related-card:hover .article-related-card-title {
+  color: #d8bb91;
+}
+
+.article-related-card-action {
+  font-size: 12px;
+  color: #a89984;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .article-page-header {
+    padding: 12px 16px;
+  }
+  .article-brand-link {
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    gap: 8px;
+  }
+  .article-brand-badge {
+    display: none;
+  }
+  .article-page-header .header-actions {
+    gap: 6px;
+  }
+  .article-page-header .header-contact-text {
+    display: none;
+  }
+  .article-page-header .header-icon-btn {
+    padding: 8px 10px;
+    min-height: 36px;
+    gap: 0;
+  }
+  .article-page-header .header-cta {
+    font-size: 10px;
+    padding: 8px 11px;
+    min-height: 36px;
+    gap: 4px;
+  }
+  .article-breadcrumb-container {
+    padding: 20px 16px 12px;
+  }
+  .article-main-container {
+    padding: 0 16px 60px;
+  }
+  .article-inline-cta {
+    padding: 24px 20px;
+  }
+  .article-inline-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .article-cta-btn-wa,
+  .article-cta-btn-phone {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .article-cover-wrapper {
+    max-height: 280px;
+    border-radius: 12px;
+  }
+}
+
+/* ==========================================================================
+   Light Mode Overrides for Article Single Page (Kusursuz Uyum)
+   ========================================================================== */
+[data-theme="light"] .article-page-root {
+  background: #fbf9f5;
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-page-header {
+  background: rgba(251, 249, 245, 0.94);
+  border-bottom: 1px solid rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .article-brand-link {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-brand-badge {
+  border-left: 1px solid rgba(74, 58, 41, 0.2);
+  color: #6d5e4b;
+}
+
+[data-theme="light"] .article-breadcrumbs a {
+  color: #7a6c58;
+}
+
+[data-theme="light"] .article-breadcrumbs a:hover {
+  color: #946e38;
+}
+
+[data-theme="light"] .article-breadcrumbs .breadcrumb-sep {
+  color: #9c8e7c;
+}
+
+[data-theme="light"] .article-breadcrumbs .breadcrumb-current {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-category-badge {
+  background: rgba(148, 110, 56, 0.09);
+  border-color: rgba(148, 110, 56, 0.28);
+  color: #7a5a2b;
+}
+
+[data-theme="light"] .article-main-title {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-meta-row {
+  border-top-color: rgba(74, 58, 41, 0.12);
+  border-bottom-color: rgba(74, 58, 41, 0.12);
+  color: #7a6c58;
+}
+
+[data-theme="light"] .article-author-chip img {
+  border-color: rgba(148, 110, 56, 0.35);
+}
+
+[data-theme="light"] .article-author-name {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-author-role {
+  color: #7a6c58;
+}
+
+[data-theme="light"] .article-meta-divider {
+  background: rgba(74, 58, 41, 0.25);
+}
+
+[data-theme="light"] .article-cover-wrapper {
+  background: #f4efe6;
+  border-color: rgba(74, 58, 41, 0.14);
+  box-shadow: 0 16px 40px rgba(60, 45, 30, 0.08);
+}
+
+/* Rich Content in Light Mode */
+[data-theme="light"] .article-rich-content {
+  color: #2b241c;
+}
+
+[data-theme="light"] .article-rich-content p {
+  color: #332b21;
+}
+
+[data-theme="light"] .article-rich-content h2 {
+  color: #1c1814;
+  border-bottom-color: rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .article-rich-content h3 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-rich-content h4 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-rich-content strong {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-rich-content a {
+  color: #946e38;
+}
+
+[data-theme="light"] .article-rich-content a:hover {
+  color: #755424;
+}
+
+[data-theme="light"] .article-rich-content hr {
+  border-top-color: rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .article-rich-content ul,
+[data-theme="light"] .article-rich-content ol {
+  color: #332b21;
+}
+
+[data-theme="light"] .article-rich-content li {
+  color: #332b21;
+}
+
+[data-theme="light"] .article-rich-content blockquote {
+  background: rgba(244, 239, 230, 0.7);
+  border-left: 3px solid #946e38;
+  color: #4a3e30;
+}
+
+[data-theme="light"] .article-rich-content table th {
+  background: #f4efe6;
+  color: #1c1814;
+  border-color: rgba(74, 58, 41, 0.15);
+}
+
+[data-theme="light"] .article-rich-content table td {
+  border-color: rgba(74, 58, 41, 0.1);
+  color: #3d352c;
+}
+
+[data-theme="light"] .article-rich-content tr:nth-child(even) td {
+  background: rgba(244, 239, 230, 0.45);
+}
+
+/* In-Article WhatsApp CTA Box Light Mode */
+[data-theme="light"] .article-inline-cta {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(244, 239, 230, 0.95));
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  box-shadow: 0 16px 40px rgba(60, 45, 30, 0.08), 0 0 20px rgba(37, 211, 102, 0.08);
+}
+
+[data-theme="light"] .article-inline-cta h3 {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-inline-cta p {
+  color: #5c5245;
+}
+
+[data-theme="light"] .article-cta-btn-wa {
+  background: #25D366 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .article-cta-btn-wa:hover {
+  background: #20ba59 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .article-cta-btn-phone {
+  background: #ffffff;
+  border-color: rgba(74, 58, 41, 0.2);
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-cta-btn-phone:hover {
+  background: rgba(148, 110, 56, 0.08);
+  border-color: #946e38;
+  color: #946e38;
+}
+
+/* Related Articles Section Light Mode */
+[data-theme="light"] .article-related-section {
+  border-top-color: rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .article-related-title {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-related-card {
+  background: #ffffff;
+  border: 1px solid rgba(74, 58, 41, 0.14);
+  box-shadow: 0 10px 30px rgba(60, 45, 30, 0.06);
+}
+
+[data-theme="light"] .article-related-card:hover {
+  border-color: rgba(148, 110, 56, 0.45);
+  box-shadow: 0 16px 36px rgba(60, 45, 30, 0.12);
+}
+
+[data-theme="light"] .article-related-thumb {
+  background: #f4efe6;
+}
+
+[data-theme="light"] .article-related-card-title {
+  color: #1c1814;
+}
+
+[data-theme="light"] .article-related-card-meta {
+  color: #7a6c58;
+}
+
+/* Regional Disclosure Box for Surrounding Cities */
+.regional-disclosure-box {
+  margin: 28px 0;
+  padding: 22px 24px;
+  border-radius: 12px;
+  background: rgba(181, 164, 143, 0.08);
+  border: 1px solid rgba(181, 164, 143, 0.22);
+  border-left: 4px solid #d4af37;
+}
+
+.regional-disclosure-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #e5c977;
+}
+
+.regional-disclosure-header h4 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.regional-disclosure-box p {
+  margin: 0 0 14px 0;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.regional-disclosure-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e5c977;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+
+.regional-disclosure-link:hover {
+  opacity: 0.8;
+}
+
+[data-theme="light"] .regional-disclosure-box {
+  background: #fdfbf7;
+  border-color: rgba(74, 58, 41, 0.16);
+  border-left-color: #946e38;
+}
+
+[data-theme="light"] .regional-disclosure-header {
+  color: #835c24;
+}
+
+[data-theme="light"] .regional-disclosure-box p {
+  color: #4a3a29;
+}
+
+[data-theme="light"] .regional-disclosure-link {
+  color: #835c24;
+}
+
+/* ==========================================================================
+   Med Mode Overrides for Article Single Page
+   Palette: Pure White (#FFFFFF), Deep Medical Navy Slate (#2D3A5E),
+   Medical Periwinkle Blue (#8FA9FF), Lavender Lilac (#D7C6FF),
+   Soft Blush Pink (#FBE7F1), Slate Secondary (#4A587D / #6B7A9F)
+   ========================================================================== */
+
+[data-theme="med"] .article-page-root {
+  background: #FFFFFF;
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-page-header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #D7C6FF;
+}
+
+[data-theme="med"] .article-brand-link {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-brand-link .brand-symbol i {
+  border-left-color: #8FA9FF;
+}
+
+[data-theme="med"] .article-brand-badge {
+  border-left-color: #D7C6FF;
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .article-page-header .header-contact-text {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-page-header .header-phone-btn {
+  background: #FFFFFF;
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+  border-radius: 999px;
+}
+
+[data-theme="med"] .article-page-header .header-phone-btn:hover {
+  background: #FBE7F1;
+  border-color: #8FA9FF;
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .article-page-header .header-whatsapp-btn {
+  border-radius: 999px;
+}
+
+[data-theme="med"] .article-page-header .header-cta {
+  background: #8FA9FF;
+  border-color: #8FA9FF;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(143, 169, 255, 0.35);
+}
+
+[data-theme="med"] .article-page-header .header-cta:hover {
+  background: #6C8DFC;
+  border-color: #6C8DFC;
+  color: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(143, 169, 255, 0.45);
+}
+
+/* Breadcrumbs */
+[data-theme="med"] .article-breadcrumbs a {
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .article-breadcrumbs a:hover {
+  color: #8FA9FF;
+  text-decoration: underline;
+}
+
+[data-theme="med"] .article-breadcrumbs .breadcrumb-sep {
+  color: #D7C6FF;
+}
+
+[data-theme="med"] .article-breadcrumbs .breadcrumb-category {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-breadcrumbs .breadcrumb-current {
+  color: #2D3A5E;
+  font-weight: 600;
+}
+
+/* Category Badge */
+[data-theme="med"] .article-category-badge {
+  background: #FBE7F1;
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+  font-weight: 600;
+}
+
+/* Main Article Title (Tekil Sayfa Başlığı) */
+[data-theme="med"] .article-main-title {
+  color: #2D3A5E !important;
+  font-weight: 500;
+}
+
+/* Meta Row & Author */
+[data-theme="med"] .article-meta-row {
+  border-top-color: #D7C6FF;
+  border-bottom-color: #D7C6FF;
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .article-author-chip img {
+  border-color: #D7C6FF;
+}
+
+[data-theme="med"] .article-author-name {
+  color: #2D3A5E;
+  font-weight: 600;
+}
+
+[data-theme="med"] .article-author-role {
+  color: #6B7A9F;
+}
+
+[data-theme="med"] .article-meta-divider {
+  background: #D7C6FF;
+}
+
+/* Cover Image */
+[data-theme="med"] .article-cover-wrapper {
+  background: #F7F9FD;
+  border: 1px solid #D7C6FF;
+  box-shadow: 0 16px 40px rgba(45, 58, 94, 0.08);
+}
+
+/* Regional Disclosure Box */
+[data-theme="med"] .regional-disclosure-box {
+  background: #FBE7F1;
+  border: 1px solid #D7C6FF;
+  border-left: 4px solid #8FA9FF;
+}
+
+[data-theme="med"] .regional-disclosure-header {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .regional-disclosure-header svg {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .regional-disclosure-box p {
+  color: #4A587D;
+}
+
+[data-theme="med"] .regional-disclosure-link {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+
+[data-theme="med"] .regional-disclosure-link:hover {
+  color: #6C8DFC;
+}
+
+/* Article Rich Content Body (Makale Metni) */
+[data-theme="med"] .article-rich-content {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-rich-content p {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-rich-content h2 {
+  color: #2D3A5E;
+  border-bottom-color: #D7C6FF;
+}
+
+[data-theme="med"] .article-rich-content h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-rich-content h4 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-rich-content strong {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-rich-content a {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .article-rich-content a:hover {
+  color: #6C8DFC;
+}
+
+[data-theme="med"] .article-rich-content ul,
+[data-theme="med"] .article-rich-content ol {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-rich-content li {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-rich-content blockquote {
+  background: #FBE7F1;
+  border-left-color: #8FA9FF;
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-rich-content hr {
+  border-top-color: #D7C6FF;
+}
+
+[data-theme="med"] .article-rich-content table th {
+  background: #FBE7F1;
+  color: #2D3A5E;
+  border-color: #D7C6FF;
+}
+
+[data-theme="med"] .article-rich-content table td {
+  border-color: #D7C6FF;
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-rich-content tr:nth-child(even) td {
+  background: rgba(251, 231, 241, 0.4);
+}
+
+/* In-Article WhatsApp CTA Box */
+[data-theme="med"] .article-inline-cta {
+  background: #FFFFFF;
+  border: 1px solid #D7C6FF;
+  box-shadow: 0 16px 45px rgba(45, 58, 94, 0.08), 0 0 20px rgba(143, 169, 255, 0.1);
+}
+
+[data-theme="med"] .article-inline-cta-kicker {
+  color: #25d366;
+}
+
+[data-theme="med"] .article-inline-cta h3 {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-inline-cta p {
+  color: #4A587D;
+}
+
+[data-theme="med"] .article-cta-btn-phone {
+  background: #FBE7F1;
+  border-color: #D7C6FF;
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-cta-btn-phone:hover {
+  background: #8FA9FF;
+  border-color: #8FA9FF;
+  color: #FFFFFF;
+}
+
+/* Related Articles Section */
+[data-theme="med"] .article-related-section {
+  border-top-color: #D7C6FF;
+}
+
+[data-theme="med"] .article-related-title {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-related-card {
+  background: #FFFFFF;
+  border: 1px solid #D7C6FF;
+  box-shadow: 0 8px 24px rgba(45, 58, 94, 0.06);
+}
+
+[data-theme="med"] .article-related-card:hover {
+  border-color: #8FA9FF;
+  box-shadow: 0 16px 36px rgba(143, 169, 255, 0.2);
+}
+
+[data-theme="med"] .article-related-thumb {
+  background: #F7F9FD;
+}
+
+[data-theme="med"] .article-related-card-tag {
+  color: #8FA9FF;
+  font-weight: 600;
+}
+
+[data-theme="med"] .article-related-card-title {
+  color: #2D3A5E;
+}
+
+[data-theme="med"] .article-related-card:hover .article-related-card-title {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .article-related-card-action {
+  color: #6B7A9F;
+}
+
+
+
+

@@ -50,8 +50,8 @@ function createMorphableGeo(): THREE.BufferGeometry {
 
 /**
  * Pre-compute world-space vertex positions for each treatment mode.
- *   u = col / SEGS  (0 → 1, along primary axis)
- *   v = row / SEGS  (0 → 1, across thickness)
+ *   u = col / SEGS  (0 →︎ 1, along primary axis)
+ *   v = row / SEGS  (0 →︎ 1, across thickness)
  */
 function computeModeVerts(mode: number): Float32Array {
   const out = new Float32Array(VERT_COUNT * 3);

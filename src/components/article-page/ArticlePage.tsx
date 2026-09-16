@@ -303,7 +303,7 @@ export function ArticlePage({
               onNavigate('/#care');
             }}
           >
-            Ücretsiz Analiz <span aria-hidden="true">↗</span>
+            Ücretsiz Analiz <span aria-hidden="true">↗︎</span>
           </a>
         </div>
       </header>
@@ -423,7 +423,7 @@ export function ArticlePage({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {t.ctaSendPhoto} ↗
+                {t.ctaSendPhoto} ↗︎
               </a>
             </aside>
           )}
@@ -529,7 +529,7 @@ export function ArticlePage({
                     <div className="article-related-body">
                       <span className="article-related-card-tag">{rel.category}</span>
                       <h3 className="article-related-card-title">{rel.title}</h3>
-                      <span className="article-related-card-action">Makaleyi Oku ↗</span>
+                      <span className="article-related-card-action">Makaleyi Oku ↗︎</span>
                     </div>
                   </a>
                 );

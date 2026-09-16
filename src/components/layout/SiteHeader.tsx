@@ -155,7 +155,7 @@ export function SiteHeader({
           href={isSubpage ? '/#care' : '#care'}
           onClick={(e) => handleLinkClick(e, '/#care')}
         >
-          Ücretsiz Analiz <span aria-hidden="true">↗</span>
+          Ücretsiz Analiz <span aria-hidden="true">↗︎</span>
         </a>
       </div>
     </header>

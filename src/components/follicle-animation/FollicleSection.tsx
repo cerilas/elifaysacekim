@@ -275,7 +275,7 @@ export function FollicleSection({
               {i === 6 && (
                 onAnalysisRequest ? (
                   <button type="button" className="ht-cta" onClick={onAnalysisRequest}>
-                    Ücretsiz Saç Analizi Alın <span>↗</span>
+                    Ücretsiz Saç Analizi Alın <span>↗︎</span>
                   </button>
                 ) : (
                   <a
@@ -284,7 +284,7 @@ export function FollicleSection({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Ücretsiz Saç Analizi Alın <span>↗</span>
+                    Ücretsiz Saç Analizi Alın <span>↗︎</span>
                   </a>
                 )
               )}

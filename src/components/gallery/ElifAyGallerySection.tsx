@@ -323,8 +323,8 @@ export function ElifAyGallerySection({
       stagePrefix: 'AŞAMA',
       scrollHint: 'KEŞFETMEK İÇİN KAYDIRIN',
       modalClose: 'Kapat',
-      modalAnalysis: 'Ücretsiz Analiz Alın ↗',
-      modalWa: 'WhatsApp ile Danışın ↗',
+      modalAnalysis: 'Ücretsiz Analiz Alın ↗︎',
+      modalWa: 'WhatsApp ile Danışın ↗︎',
     },
     en: {
       aria: 'Elif Ay Clinic & Restoration Gallery',
@@ -338,8 +338,8 @@ export function ElifAyGallerySection({
       stagePrefix: 'STAGE',
       scrollHint: 'SCROLL TO EXPLORE',
       modalClose: 'Close',
-      modalAnalysis: 'Get Free Analysis ↗',
-      modalWa: 'Contact on WhatsApp ↗',
+      modalAnalysis: 'Get Free Analysis ↗︎',
+      modalWa: 'Contact on WhatsApp ↗︎',
     },
     ar: {
       aria: 'معرض عيادة إليف آي وإجراءات الزراعة',
@@ -353,8 +353,8 @@ export function ElifAyGallerySection({
       stagePrefix: 'المرحلة',
       scrollHint: 'مرر للاستكشاف',
       modalClose: 'إغلاق',
-      modalAnalysis: 'احصل على تحليل مجاني ↗',
-      modalWa: 'استشر عبر واتساب ↗',
+      modalAnalysis: 'احصل على تحليل مجاني ↗︎',
+      modalWa: 'استشر عبر واتساب ↗︎',
     },
     de: {
       aria: 'Elif Ay Klinik & Behandlungsgalerie',
@@ -368,8 +368,8 @@ export function ElifAyGallerySection({
       stagePrefix: 'PHASE',
       scrollHint: 'SCROLLEN ZUM ENTDECKEN',
       modalClose: 'Schließen',
-      modalAnalysis: 'Kostenlose Analyse erhalten ↗',
-      modalWa: 'Über WhatsApp beraten ↗',
+      modalAnalysis: 'Kostenlose Analyse erhalten ↗︎',
+      modalWa: 'Über WhatsApp beraten ↗︎',
     },
   }[currentLang] || {
     aria: 'Elif Ay Klinik ve Uygulama Galerisi',
@@ -383,8 +383,8 @@ export function ElifAyGallerySection({
     stagePrefix: 'AŞAMA',
     scrollHint: 'KEŞFETMEK İÇİN KAYDIRIN',
     modalClose: 'Kapat',
-    modalAnalysis: 'Ücretsiz Analiz Alın ↗',
-    modalWa: 'WhatsApp ile Danışın ↗',
+    modalAnalysis: 'Ücretsiz Analiz Alın ↗︎',
+    modalWa: 'WhatsApp ile Danışın ↗︎',
   };
 
   const jumpToSlide = (index: number) => {
@@ -493,7 +493,7 @@ export function ElifAyGallerySection({
                     className="gallery-card-btn"
                     onClick={() => setActiveModal(slide)}
                   >
-                    {headerI18n.detailBtn} <span>↗</span>
+                    {headerI18n.detailBtn} <span>↗︎</span>
                   </button>
                 </div>
               </article>

@@ -494,7 +494,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
                         <span>Elif Ay</span>
                       </div>
                       <span className="article-read-btn">
-                        {currentLang === 'en' ? 'Read ↗' : currentLang === 'ar' ? 'اقرأ ↗' : currentLang === 'de' ? 'Lesen ↗' : 'İncele ↗'}
+                        {currentLang === 'en' ? 'Read ↗︎' : currentLang === 'ar' ? 'اقرأ ↗︎' : currentLang === 'de' ? 'Lesen ↗︎' : 'İncele ↗︎'}
                       </span>
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
               onClick={() => handlePageChange(currentPage + 1)}
               aria-label="Sonraki Sayfa"
             >
-              Sonraki →
+              Sonraki →︎
             </button>
           </nav>
         )}
@@ -658,7 +658,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
                     rel="noopener noreferrer"
                     className="modal-cta-primary"
                   >
-                    WhatsApp ile Danışın ↗
+                    WhatsApp ile Danışın ↗︎
                   </a>
                   <a
                     href="#care"

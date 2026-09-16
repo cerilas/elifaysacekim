@@ -36,7 +36,7 @@ const SPECIALIST_I18N: Record<Language, {
     p1Desc: 'Beklentilerinizi, donör kapasitenizi ve 3000-5000 greft ihtiyacınızı bilimsel olarak değerlendiriyoruz.',
     p2Title: 'Doğal Ön Çizgi & Ağrısız Uygulama.',
     p2Desc: 'İğnesiz lokal anestezi ve Safir / DHI teknikleriyle ömür boyu kalıcı, doğal açılı saç ekimi planlıyoruz.',
-    linkText: 'Gaziantep Saç, Sakal ve Kaş Ekimi Uygulamalarımız ↗',
+    linkText: 'Gaziantep Saç, Sakal ve Kaş Ekimi Uygulamalarımız ↗︎',
     imageAlt: 'Saç Ekim Uzmanı Elif Ay - Gaziantep Saç Ekim Merkezi',
   },
   en: {
@@ -50,7 +50,7 @@ const SPECIALIST_I18N: Record<Language, {
     p1Desc: 'We scientifically assess your aesthetic aspirations, donor density, and custom 3,000–5,000 graft requirement.',
     p2Title: 'Natural Hairline & Painless Care.',
     p2Desc: 'With needle-free comfort anesthesia and precision Sapphire / DHI tools, we deliver lifelong, natural-density hair restoration.',
-    linkText: 'Explore Our Hair, Beard and Eyebrow Procedures ↗',
+    linkText: 'Explore Our Hair, Beard and Eyebrow Procedures ↗︎',
     imageAlt: 'Hair Transplant Specialist Elif Ay - Gaziantep Clinic',
   },
   ar: {
@@ -64,7 +64,7 @@ const SPECIALIST_I18N: Record<Language, {
     p1Desc: 'نقيم أهدافكم الجمالية، وطاقة المنطقة المانحة، واحتياجكم الدقيق من 3000 إلى 5000 بصيلة وفق أسس علمية.',
     p2Title: 'خط شعر طبيعي وإجراء بدون ألم.',
     p2Desc: 'نضمن لكم زراعة شعر دائمة مدى الحياة بزوايا نمو طبيعية 38 درجة وتخدير مريح بدون إبر.',
-    linkText: 'استكشف إجراءات زراعة الشعر واللحية والحواجب ↗',
+    linkText: 'استكشف إجراءات زراعة الشعر واللحية والحواجب ↗︎',
     imageAlt: 'أخصائية زراعة الشعر إليف آي - مركز غازي عنتاب',
   },
   de: {
@@ -78,7 +78,7 @@ const SPECIALIST_I18N: Record<Language, {
     p1Desc: 'Wir analysieren Ihre Erwartungen, die Spenderhaardichte und Ihren Bedarf von 3.000–5.000 Grafts wissenschaftlich exakt.',
     p2Title: 'Natürlicher Haaransatz & Schmerzfreie Methode.',
     p2Desc: 'Mit nadelfreier Lokalanästhesie und modernen Saphir / DHI Methoden planen wir ein dauerhaftes, natürliches Ergebnis.',
-    linkText: 'Unsere Behandlungen für Haar, Bart und Augenbrauen ↗',
+    linkText: 'Unsere Behandlungen für Haar, Bart und Augenbrauen ↗︎',
     imageAlt: 'Haartransplantations-Spezialistin Elif Ay - Klinik Gaziantep',
   },
 };
@@ -152,7 +152,7 @@ export function SpecialistSection({
             </div>
           </div>
           <a className="specialist-link" href="#treatments">
-            {i18n.linkText} <span aria-hidden="true">↗</span>
+            {i18n.linkText} <span aria-hidden="true">↗︎</span>
           </a>
         </div>
       </div>

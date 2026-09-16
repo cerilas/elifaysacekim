@@ -172,11 +172,11 @@ export function HairHero({
           <p className="hh-description">{resolvedDescription}</p>
           <div className="hh-actions">
             {ctaHref
-              ? <a className="hh-cta" href={ctaHref} aria-label={resolvedCtaLabel}>{resolvedCtaLabel}<span aria-hidden="true">↗</span></a>
+              ? <a className="hh-cta" href={ctaHref} aria-label={resolvedCtaLabel}>{resolvedCtaLabel}<span aria-hidden="true">↗︎</span></a>
               : <button className="hh-cta" type="button" aria-label={resolvedCtaLabel} onClick={() => {
                 if (staticMode) window.scrollTo({ top: window.scrollY + (section.current?.getBoundingClientRect().bottom ?? window.innerHeight), behavior: 'instant' });
                 else seek(0.45);
-              }}>{resolvedCtaLabel}<span aria-hidden="true">↗</span></button>}
+              }}>{resolvedCtaLabel}<span aria-hidden="true">↗︎</span></button>}
             <a className="hh-mini-profile" id="hero-mini-profile" href="#specialist" aria-label={i18n.profileAria}>
               <div className="hh-mini-profile-img-wrapper" id="hero-mini-profile-img-wrapper">
                 <img src="/elif-ay-portrait.jpg" alt="Elif Ay" style={{ objectPosition: '50% 35%' }} />
@@ -185,7 +185,7 @@ export function HairHero({
                 <strong>Elif Ay</strong>
                 <span>{i18n.expertTitle}</span>
               </div>
-              <span className="hh-mini-profile-arrow" aria-hidden="true">↗</span>
+              <span className="hh-mini-profile-arrow" aria-hidden="true">↗︎</span>
             </a>
           </div>
         </>}

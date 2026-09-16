@@ -1,407 +1,426 @@
-import { useEffect, useMemo, useRef, useState, type RefObject } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import React, { Suspense, useMemo, useRef, useEffect, type RefObject } from 'react';
+import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import { pose, smooth } from './story';
+import { smooth } from './story';
+import {
+  headGeometry,
+  headPoint,
+  headNormal,
+  donorSite,
+  donorNormal,
+  recipientSite,
+  recipientNormal,
+  graftTransform,
+} from './head';
+import normalURL from './assets/head-normal.jpg';
+import colorURL from './assets/head-color.jpg';
 
-const mix = THREE.MathUtils.lerp;
 const rand = (i: number) => {
-  const x = Math.sin(i * 127.1 + 31.7) * 43758.5453;
-  return x - Math.floor(x);
+  const n = Math.sin(i * 127.1 + 31.7) * 43758.5453;
+  return n - Math.floor(n);
 };
 
-function hairGeometry() {
-  const c = new THREE.CatmullRomCurve3([
-    new THREE.Vector3(0, 0, 0),
-    new THREE.Vector3(0.035, 0.4, 0.02),
-    new THREE.Vector3(0.18, 0.85, 0.07),
-    new THREE.Vector3(0.42, 1.2, 0.11),
-    new THREE.Vector3(0.7, 1.45, 0.15),
-  ]);
-  return new THREE.TubeGeometry(c, 14, 0.016, 5, false);
-}
+const up = new THREE.Vector3(0, 1, 0);
 
-function patchGeometry() {
-  const s = new THREE.Shape();
-  const w = 3.5, h = 2.5, r = 0.48;
-  s.moveTo(-w + r, -h);
-  s.lineTo(w - r, -h);
-  s.quadraticCurveTo(w, -h, w, -h + r);
-  s.lineTo(w, h - r);
-  s.quadraticCurveTo(w, h, w - r, h);
-  s.lineTo(-w + r, h);
-  s.quadraticCurveTo(-w, h, -w, h - r);
-  s.lineTo(-w, -h + r);
-  s.quadraticCurveTo(-w, -h, -w + r, -h);
-  const g = new THREE.ExtrudeGeometry(s, {
-    depth: 1.2,
-    bevelEnabled: true,
-    bevelSegments: 5,
-    steps: 1,
-    bevelSize: 0.15,
-    bevelThickness: 0.15,
-    curveSegments: 18,
-  });
-  g.rotateX(-Math.PI / 2);
-  g.translate(0, -1.2, 0);
-  return g;
-}
-
-interface SkinProps {
-  meshRef?: RefObject<THREE.Mesh | null>;
-  geometry: THREE.BufferGeometry;
-  opacity?: number;
-  color?: string;
-  [key: string]: unknown;
-}
-
-function Skin({ meshRef, geometry, opacity = 1, color = '#ce9f88', ...props }: SkinProps) {
-  const material = useMemo(() => {
-    const m = new THREE.MeshPhysicalMaterial({
-      color,
-      roughness: 0.57,
-      metalness: 0,
-      clearcoat: 0.08,
-      transparent: true,
-      opacity,
-    });
-    m.onBeforeCompile = (s) => {
-      s.fragmentShader = s.fragmentShader
-        .replace(
-          '#include <roughnessmap_fragment>',
-          `#include <roughnessmap_fragment>\n float pore = fract(sin(dot(vViewPosition.xy * 115.0, vec2(12.9898,78.233))) * 43758.5453); roughnessFactor = clamp(roughnessFactor + (pore - .5) * .15, .1, 1.);`
-        )
-        .replace(
-          '#include <color_fragment>',
-          `#include <color_fragment>\nfloat grain = fract(sin(dot(vViewPosition.xy * 180.0, vec2(12.9898,78.233))) * 43758.5453); diffuseColor.rgb *= .97 + grain * .06;`
-        );
-    };
-    return m;
-  }, [color, opacity]);
-
-  useEffect(() => () => material.dispose(), [material]);
-
-  return <mesh ref={meshRef} geometry={geometry} material={material} {...props} />;
+function strand(): THREE.TubeGeometry {
+  return new THREE.TubeGeometry(
+    new THREE.CatmullRomCurve3([
+      new THREE.Vector3(),
+      new THREE.Vector3(0, 0.15, 0),
+      new THREE.Vector3(0.055, 0.34, 0.01),
+      new THREE.Vector3(0.16, 0.47, 0.025),
+      new THREE.Vector3(0.24, 0.5, 0.045),
+    ]),
+    12,
+    0.006,
+    5,
+    false
+  );
 }
 
 interface WorldProps {
   progress: RefObject<{ value: number; invalidate?: () => void }>;
   low: boolean;
-  reduced: boolean;
+  reduced?: boolean;
 }
 
 function World({ progress, low }: WorldProps) {
   const { camera, size, invalidate, gl } = useThree();
-  const donor = useRef<THREE.Group>(null);
-  const recipient = useRef<THREE.Group>(null);
-  const top = useRef<THREE.Group>(null);
   const skin = useRef<THREE.Mesh>(null);
+  const existing = useRef<THREE.InstancedMesh>(null);
+  const newHair = useRef<THREE.InstancedMesh>(null);
   const graft = useRef<THREE.Group>(null);
   const tool = useRef<THREE.Group>(null);
-  const hairs = useRef<THREE.InstancedMesh>(null);
-  const newHairs = useRef<THREE.InstancedMesh>(null);
-  const roots = useRef<THREE.InstancedMesh>(null);
-  const guides = useRef<THREE.Mesh>(null);
-  const particles = useRef<THREE.Points>(null);
-  const keyLight = useRef<THREE.DirectionalLight>(null);
+  const rootUnits = useRef<THREE.InstancedMesh>(null);
+  const fineHairs = useRef<THREE.InstancedMesh>(null);
+  const donorZone = useRef<THREE.Mesh>(null);
+  const recipientZone = useRef<THREE.Mesh>(null);
+  const route = useRef<THREE.Line>(null);
+  const headGroup = useRef<THREE.Group>(null);
 
-  const [adaptive, setAdaptive] = useState(false);
-  const frameStats = useRef({ sum: 0, n: 0 });
+  const [normalMap, colorMap] = useLoader(THREE.TextureLoader, [normalURL, colorURL]);
 
-  const geom = useMemo(
+  useMemo(() => {
+    normalMap.flipY = true;
+    colorMap.flipY = true;
+    colorMap.colorSpace = THREE.SRGBColorSpace;
+  }, [normalMap, colorMap]);
+
+  const cutaway = useMemo(() => ({ value: 0 }), []);
+
+  const skinMaterial = useMemo(() => {
+    const material = new THREE.MeshPhysicalMaterial({
+      color: '#e6cdb7',
+      map: colorMap,
+      normalMap,
+      normalScale: new THREE.Vector2(0.5, 0.5),
+      roughness: 0.64,
+      transparent: true,
+      side: THREE.FrontSide,
+    });
+    material.onBeforeCompile = (shader) => {
+      shader.uniforms.uCutaway = cutaway;
+      shader.uniforms.uDonor = { value: donorSite };
+      shader.vertexShader = 'varying vec3 vHeadPosition;\n' + shader.vertexShader;
+      shader.vertexShader = shader.vertexShader.replace(
+        '#include <begin_vertex>',
+        '#include <begin_vertex>\nvHeadPosition = position;'
+      );
+      shader.fragmentShader =
+        'uniform float uCutaway; uniform vec3 uDonor; varying vec3 vHeadPosition;\n' +
+        shader.fragmentShader;
+      shader.fragmentShader = shader.fragmentShader.replace(
+        '#include <color_fragment>',
+        '#include <color_fragment>\ndiffuseColor.a *= 1.0 - uCutaway * (1.0 - smoothstep(0.55, 1.0, distance(vHeadPosition, uDonor)));'
+      );
+    };
+    return material;
+  }, [cutaway, normalMap, colorMap]);
+
+  useEffect(() => () => skinMaterial.dispose(), [skinMaterial]);
+
+  const n = low ? 1000 : 2400;
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  const stats = useRef({ n: 0, sum: 0, low: false });
+
+  const geometry = useMemo(
     () => ({
-      patch: patchGeometry(),
-      hair: hairGeometry(),
-      root: new THREE.SphereGeometry(1, 12, 10),
-      tube: new THREE.CylinderGeometry(0.15, 0.2, 0.95, 14),
-      punch: new THREE.CylinderGeometry(0.22, 0.22, 1.55, 32, 1, true),
+      head: headGeometry(),
+      hair: strand(),
+      bulb: new THREE.SphereGeometry(1, 14, 12),
+      sheath: new THREE.CylinderGeometry(0.035, 0.05, 0.28, 16),
+      punch: new THREE.CylinderGeometry(0.065, 0.065, 0.53, 32, 1, true),
     }),
     []
   );
 
-  const count = low ? 240 : 620;
-  const placements = useMemo(
+  const data = useMemo(
     () =>
-      Array.from({ length: count }, (_, i) => {
-        const x = (rand(i * 3) - 0.5) * 6.6;
-        const z = (rand(i * 3 + 1) - 0.5) * 4.6;
+      Array.from({ length: n }, (_, i) => {
+        const theta = 0.93 + rand(i * 5) * 4.42;
+        const y = -0.13 + rand(i * 5 + 1) * 1.6;
         return {
-          x,
-          z,
-          s: 0.55 + rand(i * 3 + 2) * 0.65,
-          rot: (rand(i + 999) - 0.5) * 0.6,
+          p: headPoint(y, theta),
+          normal: headNormal(y, theta),
+          scale:
+            (Math.abs(Math.sin(theta)) > 0.85 && y < 0.55) || (Math.cos(theta) > 0.2 && y < 0.8)
+              ? 0
+              : 0.35 + rand(i * 5 + 2) * 0.38,
         };
       }),
-    [count]
+    [n]
   );
 
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-  const target = useMemo(() => new THREE.Vector3(), []);
+  const planted = useMemo(
+    () =>
+      Array.from({ length: n }, (_, i) => {
+        const theta = (rand(i * 7 + 8) - 0.5) * Math.PI * 2;
+        const y = 1.25 + rand(i * 7 + 9) * 0.93;
+        const edge = 1.48 + 0.035 * Math.sin(theta * 17) + 0.06 * Math.abs(Math.sin(theta));
+        const visible = Math.cos(theta) < 0.35 || y > edge;
+        return {
+          p: headPoint(y, theta),
+          normal: headNormal(y, theta),
+          scale: visible ? 0.65 + rand(i + 900) * 0.7 : 0,
+        };
+      }),
+    [n]
+  );
 
-  const follicles = useMemo(
+  const roots = useMemo(
     () =>
       Array.from({ length: 16 }, (_, i) => {
-        const x = ((i % 8) - 3.5) * 0.76;
-        const z = i < 8 ? -0.85 : 1.05;
-        return { x, z };
+        const y = -0.12 + (i % 4) * 0.18;
+        const angle = 2.3 + Math.floor(i / 4) * 0.19;
+        const p = headPoint(y, angle);
+        const normal = headNormal(y, angle);
+        return { p, normal };
       }),
     []
   );
 
-  const rootMatrices = useMemo(
-    () =>
-      follicles.map(({ x, z }) => {
-        const o = new THREE.Object3D();
-        o.position.set(x, -0.58, z);
-        o.scale.set(0.1, 0.53, 0.1);
-        o.rotation.z = -0.14;
-        o.updateMatrix();
-        return o.matrix.clone();
-      }),
-    [follicles]
-  );
-
-  const particlePos = useMemo(
-    () => new Float32Array(Array.from({ length: low ? 90 : 210 }, (_, i) => (rand(i + 900) - 0.5) * 11)),
-    [low]
-  );
+  const routeLine = useMemo(() => {
+    const geo = new THREE.BufferGeometry().setFromPoints(
+      Array.from({ length: 70 }, (_, i) => graftTransform(0.51 + (i / 69) * 0.18).position)
+    );
+    const mat = new THREE.LineDashedMaterial({
+      color: '#d8bb91',
+      transparent: true,
+      dashSize: 0.08,
+      gapSize: 0.1,
+    });
+    const line = new THREE.Line(geo, mat);
+    line.computeLineDistances();
+    return line;
+  }, []);
 
   useEffect(() => {
     if (progress.current) {
       progress.current.invalidate = invalidate;
-      invalidate();
     }
+    gl.domElement.dataset.sceneReady = 'true';
+    invalidate();
     return () => {
       if (progress.current) {
-        progress.current.invalidate = undefined;
+        progress.current.invalidate = () => {};
       }
+      delete gl.domElement.dataset.sceneReady;
     };
-  }, [invalidate, progress]);
+  }, [invalidate, progress, gl]);
 
-  useEffect(() => () => Object.values(geom).forEach((g) => g.dispose()), [geom]);
+  useEffect(
+    () => () => {
+      Object.values(geometry).forEach((g) => g.dispose());
+      routeLine.geometry.dispose();
+      (routeLine.material as THREE.Material).dispose();
+    },
+    [geometry, routeLine]
+  );
 
   useFrame((_, delta) => {
-    if (!progress.current) return;
-    const p = progress.current.value;
-    const s = pose(p);
+    const p = progress.current ? progress.current.value : 0;
     const mobile = size.width < 700;
+    const macro = smooth(0.13, 0.25, p) * (1 - smooth(0.49, 0.56, p));
+    const travel = smooth(0.5, 0.7, p);
+    const finish = smooth(0.88, 1, p);
+    const state = graftTransform(p);
 
-    if (delta < 0.12 && delta > 0.004 && !adaptive) {
-      const f = frameStats.current;
-      f.sum += delta;
-      f.n++;
-      if (f.n === 100 && f.sum / f.n > 0.029) {
-        setAdaptive(true);
+    if (delta > 0.004 && delta < 0.12 && !stats.current.low) {
+      stats.current.n++;
+      stats.current.sum += delta;
+      if (stats.current.n === 100 && stats.current.sum / 100 > 0.029) {
+        stats.current.low = true;
         gl.setPixelRatio(1);
       }
     }
 
-    if (donor.current) {
-      donor.current.visible = p < 0.565;
-      donor.current.scale.setScalar(Math.max(0.001, s.donor));
-      donor.current.position.y = -smooth(0.5, 0.59, p) * 2;
+    cutaway.value = macro * 0.82;
+
+    if (existing.current && newHair.current) {
+      for (let i = 0; i < n; i++) {
+        const h = data[i];
+        dummy.position.copy(h.p);
+        const down = new THREE.Vector3(0, -1, -0.15);
+        down.addScaledVector(h.normal, -down.dot(h.normal)).normalize();
+        dummy.quaternion.setFromUnitVectors(
+          up,
+          h.normal.clone().multiplyScalar(0.45).addScaledVector(down, 0.7).normalize()
+        );
+        const distance = h.p.distanceTo(donorSite);
+        const clear = 1 - macro * (distance < 1.1 ? 0.92 : 0.25);
+        dummy.scale.setScalar(h.scale * clear);
+        dummy.updateMatrix();
+        existing.current.setMatrixAt(i, dummy.matrix);
+
+        const a = planted[i];
+        const growth = smooth(0.82 + (i / n) * 0.085, 0.89 + (i / n) * 0.08, p);
+        dummy.position.copy(a.p);
+        const sweep = new THREE.Vector3(0.3, 0.1, -1);
+        sweep.addScaledVector(a.normal, -sweep.dot(a.normal)).normalize();
+        dummy.quaternion.setFromUnitVectors(
+          up,
+          a.normal.clone().multiplyScalar(0.6).addScaledVector(sweep, 0.75).normalize()
+        );
+        dummy.scale.setScalar(Math.max(0.000001, a.scale * growth));
+        dummy.updateMatrix();
+        newHair.current.setMatrixAt(i, dummy.matrix);
+      }
+      existing.current.count = stats.current.low ? Math.floor(n * 0.7) : n;
+      newHair.current.count = existing.current.count;
+      existing.current.instanceMatrix.needsUpdate = true;
+      newHair.current.instanceMatrix.needsUpdate = true;
     }
 
-    if (skin.current && skin.current.material instanceof THREE.MeshPhysicalMaterial) {
-      skin.current.material.opacity = 1 - s.cut * 0.82;
-      skin.current.material.depthWrite = s.cut < 0.5;
-    }
+    if (rootUnits.current && fineHairs.current) {
+      rootUnits.current.visible = macro > 0.01;
+      fineHairs.current.visible = macro > 0.01;
+      for (let i = 0; i < 16; i++) {
+        const r = roots[i];
+        dummy.position.copy(r.p).addScaledVector(r.normal, -0.15);
+        dummy.quaternion.setFromUnitVectors(up, r.normal);
+        dummy.scale.set(0.024, 0.15, 0.024);
+        dummy.updateMatrix();
+        rootUnits.current.setMatrixAt(i, dummy.matrix);
 
-    if (top.current) {
-      top.current.scale.y = Math.max(0.025, 1 - s.cut * 0.97);
-      top.current.position.y = -0.13;
-    }
-
-    if (recipient.current) {
-      recipient.current.visible = s.recipient > 0.001;
-      recipient.current.scale.setScalar(Math.max(0.001, s.recipient));
-      recipient.current.position.set(1.3, -1.8 + 1.8 * s.recipient, 0);
+        dummy.position.copy(r.p);
+        dummy.scale.setScalar(0.52);
+        dummy.updateMatrix();
+        fineHairs.current.setMatrixAt(i, dummy.matrix);
+      }
+      rootUnits.current.instanceMatrix.needsUpdate = true;
+      fineHairs.current.instanceMatrix.needsUpdate = true;
     }
 
     if (graft.current) {
-      graft.current.position.set(s.graftX, s.graftY, 0);
-      graft.current.rotation.set(0, s.travel * 0.7, -s.graftAngle);
-      graft.current.scale.setScalar(1 + smooth(0.51, 0.58, p) * 0.18 - smooth(0.65, 0.72, p) * 0.18);
+      graft.current.position.copy(state.position);
+      graft.current.quaternion.copy(state.quaternion);
+      graft.current.scale.setScalar(1 + Math.sin(state.travel * Math.PI) * 0.7);
       if (graft.current.children[0]) {
-        graft.current.children[0].scale.y = 1 + s.growth * 0.8;
+        graft.current.children[0].scale.y = 1 + smooth(0.82, 0.95, p) * 0.7;
       }
     }
 
     if (tool.current) {
-      const approach = smooth(0.35, 0.405, p);
-      const withdraw = smooth(0.445, 0.505, p);
-      tool.current.visible = p > 0.35 && p < 0.525;
-      tool.current.position.set(0, 4 - approach * 3.1 + withdraw * 4.2, 0);
+      const punchOffset = 0.85 - smooth(0.35, 0.415, p) * 0.57 + smooth(0.45, 0.52, p) * 1.3;
+      tool.current.visible = p > 0.35 && p < 0.52;
+      tool.current.position.copy(donorSite).addScaledVector(donorNormal, punchOffset);
+      tool.current.quaternion.setFromUnitVectors(up, donorNormal);
     }
 
-    if (hairs.current && newHairs.current) {
-      for (let i = 0; i < count; i++) {
-        const h = placements[i];
-        const dome = 0.7 * Math.sqrt(Math.max(0, 1 - (h.x / 3.5) ** 2 - (h.z / 2.5) ** 2)) * (1 - s.cut);
-        dummy.position.set(h.x, dome, h.z);
-        dummy.rotation.set(0, h.rot, -0.12);
-        const macro = i < 16 ? 1 : 1 - s.cut;
-        dummy.scale.set(h.s * macro, h.s * macro, h.s * macro);
-        if (i < 16 && s.cut > 0.01) {
-          const f = follicles[i];
-          dummy.position.x = mix(h.x, f.x, s.cut);
-          dummy.position.z = mix(h.z, f.z, s.cut);
-        }
-        dummy.updateMatrix();
-        hairs.current.setMatrixAt(i, dummy.matrix);
-
-        // Natural hairline leading edge
-        const edge = -1.45 + 0.15 * Math.cos(h.x * 1.8) + 0.08 * Math.sin(h.x * 8);
-        const available = h.z > edge;
-        const g = smooth(0.82 + (i / count) * 0.09, 0.88 + (i / count) * 0.095, p);
-        dummy.position.set(h.x, 0, h.z);
-        dummy.rotation.set(0.1, h.rot, -0.48);
-        dummy.scale.setScalar(available ? Math.max(0.00001, g) * h.s : 0.00001);
-        dummy.updateMatrix();
-        newHairs.current.setMatrixAt(i, dummy.matrix);
-      }
-      hairs.current.count = adaptive ? Math.floor(count * 0.65) : count;
-      newHairs.current.count = hairs.current.count;
-      hairs.current.instanceMatrix.needsUpdate = true;
-      newHairs.current.instanceMatrix.needsUpdate = true;
+    if (donorZone.current) {
+      const mat = donorZone.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = (1 - smooth(0.49, 0.56, p)) * (0.25 + macro * 0.3);
     }
 
-    if (roots.current) {
-      roots.current.visible = p > 0.13 && p < 0.59;
-      roots.current.scale.y = Math.max(0.001, s.cut);
+    if (recipientZone.current) {
+      const mat = recipientZone.current.material as THREE.MeshBasicMaterial;
+      mat.opacity = smooth(0.61, 0.68, p) * (1 - smooth(0.83, 0.93, p)) * 0.48;
     }
 
-    if (guides.current && guides.current.material instanceof THREE.Material) {
-      guides.current.visible = p > 0.65 && p < 0.83;
-      guides.current.material.opacity = smooth(0.65, 0.69, p) * (1 - smooth(0.78, 0.83, p)) * 0.35;
+    if (route.current) {
+      route.current.visible = p > 0.51 && p < 0.72;
+      const mat = route.current.material as THREE.LineDashedMaterial;
+      mat.opacity = Math.sin(travel * Math.PI) * 0.22;
     }
 
-    if (particles.current && particles.current.material instanceof THREE.Material) {
-      particles.current.visible = p > 0.49 && p < 0.68;
-      particles.current.rotation.y = p * 0.5;
-      particles.current.material.opacity = smooth(0.49, 0.54, p) * (1 - smooth(0.62, 0.68, p)) * 0.3;
-    }
+    // The camera starts behind the ear, follows the graft over the crown, then reveals the forehead.
+    const startTarget = donorSite.clone().multiplyScalar(macro * 0.78);
+    startTarget.y += 0.16;
+    const focus = state.position.clone().addScaledVector(up, 0.12);
+    const follow = smooth(0.43, 0.54, p) * (1 - smooth(0.8, 0.96, p));
+    const target = startTarget.lerp(focus, follow);
+    target.lerp(new THREE.Vector3(0, 0.32, 0.18), finish);
 
-    const focus = smooth(0.08, 0.3, p);
-    const journey = smooth(0.49, 0.58, p);
-    const landing = smooth(0.61, 0.73, p);
-    const finish = smooth(0.93, 1, p);
-    const aimX = mix(0.0, 0.2, focus) + s.graftX * 0.65;
-    const aimY = mix(0.2, 0.35, focus) + journey * 2.4 - landing * 2.4;
-    const distance = mix(15, 12, focus) - journey * 1.0 + landing * 0.2 + finish * 3;
+    const azimuth = 2.52 * (1 - travel) + 0.52 * travel;
+    const distance =
+      THREE.MathUtils.lerp(11, 5.9, macro) - Math.sin(travel * Math.PI) * 2.4 + finish * 0.3;
+    const height = 1.45 + Math.sin(travel * Math.PI) * 2.4;
 
-    target.set(aimX + (mobile ? 0.8 : 0), aimY + (mobile ? 1.35 : 0), 0);
-    camera.position.set(
-      target.x + 3.8 * (1 - journey * 0.45) + landing * 0.9,
-      target.y + 4.7 - journey * 2 + landing * 1.4,
-      distance * (mobile ? 1.33 : 1)
+    const offset = new THREE.Vector3(
+      Math.sin(azimuth) * distance,
+      height,
+      Math.cos(azimuth) * distance
     );
+    if (mobile) offset.multiplyScalar(1.35);
+    camera.position.copy(target).add(offset);
+    target.y += mobile ? 0.35 : 0;
     camera.lookAt(target);
     camera.updateProjectionMatrix();
-
-    if (keyLight.current) {
-      keyLight.current.intensity = 2.4 + journey * 0.6 - landing * 0.6;
-    }
   });
+
+  const zoneQuaternion = new THREE.Quaternion().setFromUnitVectors(
+    new THREE.Vector3(0, 0, 1),
+    donorNormal
+  );
+  const recipientZoneQ = new THREE.Quaternion().setFromUnitVectors(
+    new THREE.Vector3(0, 0, 1),
+    recipientNormal
+  );
 
   return (
     <>
-      <ambientLight intensity={0.7} />
-      <hemisphereLight args={['#fffaf1', '#aa8b77', 0.8]} />
-      <directionalLight ref={keyLight} position={[-4, 8, 7]} intensity={3.8} color="#fff9f0" />
-      <directionalLight position={[5, 3, -4]} intensity={1.4} color="#ffffff" />
-
-      <group position={[0.3, 0, 0]} rotation={[0, -0.12, 0]}>
-        <group ref={donor}>
-          <Skin meshRef={skin} geometry={geom.patch} color="#c9957e" />
-          <group ref={top}>
-            <mesh position={[0, 0.08, 0]} scale={[3.48, 0.8, 2.48]}>
-              <sphereGeometry args={[1, 48, 24]} />
-              <meshPhysicalMaterial color="#d4ab94" roughness={0.62} />
-            </mesh>
-          </group>
-          <instancedMesh ref={hairs} args={[geom.hair, undefined, count]} frustumCulled={false}>
-            <meshStandardMaterial color="#30271f" roughness={0.43} />
-          </instancedMesh>
-          <group>
-            <instancedMesh
-              ref={(m) => {
-                roots.current = m;
-                if (m) {
-                  rootMatrices.forEach((a, i) => m.setMatrixAt(i, a));
-                  m.instanceMatrix.needsUpdate = true;
-                }
-              }}
-              args={[geom.root, undefined, 16]}
-            >
-              <meshPhysicalMaterial color="#92624b" roughness={0.55} />
-            </instancedMesh>
-            <mesh position={[0, -1.07, 0]} scale={[3.48, 0.06, 2.47]}>
-              <boxGeometry />
-              <meshStandardMaterial color="#e6c2a4" />
-            </mesh>
-          </group>
-        </group>
-
-        <group ref={recipient}>
-          <Skin geometry={geom.patch} color="#dbb29a" />
-          <instancedMesh ref={newHairs} args={[geom.hair, undefined, count]} frustumCulled={false}>
-            <meshStandardMaterial color="#30271f" roughness={0.45} />
-          </instancedMesh>
-          <mesh position={[0, 0.015, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={[0.11, 0.24, 1]}>
-            <circleGeometry args={[1, 24]} />
-            <meshBasicMaterial color="#986f59" transparent opacity={0.4} />
-          </mesh>
-          <mesh ref={guides} position={[0.1, 0.045, 0]} rotation={[-Math.PI / 2, 0, 0.66]}>
-            <ringGeometry args={[0.42, 0.43, 40, 1, 0, Math.PI * 1.3]} />
-            <meshBasicMaterial color="#727863" transparent depthWrite={false} side={THREE.DoubleSide} />
-          </mesh>
-        </group>
-
+      <ambientLight intensity={0.8} />
+      <hemisphereLight args={['#fffaf2', '#a89180', 1]} />
+      <directionalLight position={[4, 7, -5]} intensity={1.9} />
+      <directionalLight position={[-4, 3, 6]} intensity={2.3} />
+      <directionalLight position={[1, 6, 5]} intensity={0.5} />
+      <group ref={headGroup}>
+        <mesh ref={skin} geometry={geometry.head} material={skinMaterial} />
+        <instancedMesh ref={existing} args={[geometry.hair, undefined, n]} frustumCulled={false}>
+          <meshStandardMaterial color="#30261f" roughness={0.58} />
+        </instancedMesh>
+        <instancedMesh ref={newHair} args={[geometry.hair, undefined, n]} frustumCulled={false}>
+          <meshStandardMaterial color="#30261f" roughness={0.52} />
+        </instancedMesh>
+        <instancedMesh ref={fineHairs} args={[geometry.hair, undefined, 16]} frustumCulled={false}>
+          <meshStandardMaterial color="#39271e" roughness={0.6} />
+        </instancedMesh>
+        <instancedMesh ref={rootUnits} args={[geometry.bulb, undefined, 16]} frustumCulled={false}>
+          <meshPhysicalMaterial color="#986d51" roughness={0.48} />
+        </instancedMesh>
+        <mesh
+          ref={donorZone}
+          position={donorSite.clone().addScaledVector(donorNormal, 0.025)}
+          quaternion={zoneQuaternion}
+          scale={[0.47, 0.32, 1]}
+        >
+          <ringGeometry args={[0.96, 1, 64]} />
+          <meshBasicMaterial
+            color="#d8bb91"
+            transparent
+            depthWrite={false}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
+        <mesh
+          ref={recipientZone}
+          position={recipientSite.clone().addScaledVector(recipientNormal, 0.018)}
+          quaternion={recipientZoneQ}
+          scale={[0.23, 0.16, 1]}
+        >
+          <ringGeometry args={[0.96, 1, 48]} />
+          <meshBasicMaterial
+            color="#c4ac85"
+            transparent
+            depthWrite={false}
+            side={THREE.DoubleSide}
+          />
+        </mesh>
         <group ref={graft}>
           <group>
-            <mesh geometry={geom.hair} scale={[1.15, 1.35, 1.15]}>
-              <meshStandardMaterial color="#2b241d" roughness={0.34} />
+            <mesh geometry={geometry.hair} scale={[1.4, 1.3, 1.4]}>
+              <meshStandardMaterial color="#2c201a" roughness={0.42} />
             </mesh>
-            <mesh geometry={geom.hair} rotation={[0, 0.7, 0.1]} scale={[0.9, 1.05, 0.9]}>
-              <meshStandardMaterial color="#392b20" roughness={0.4} />
+            <mesh geometry={geometry.hair} rotation={[0, 0.9, 0.15]}>
+              <meshStandardMaterial color="#39271d" roughness={0.44} />
             </mesh>
           </group>
-          <mesh geometry={geom.tube} position={[0, -0.47, 0]}>
-            <meshPhysicalMaterial color="#ecc19c" roughness={0.35} transparent opacity={0.9} clearcoat={0.25} />
+          <mesh position={[0, -0.13, 0]} geometry={geometry.sheath}>
+            <meshPhysicalMaterial color="#e4b88e" transparent opacity={0.8} roughness={0.4} />
           </mesh>
-          <mesh position={[0, -0.54, 0.012]} scale={[0.066, 0.49, 0.066]} geometry={geom.root}>
-            <meshStandardMaterial color="#785240" roughness={0.45} />
+          <mesh position={[0, -0.15, 0]} scale={[0.017, 0.15, 0.017]} geometry={geometry.bulb}>
+            <meshStandardMaterial color="#795039" />
           </mesh>
-          <mesh position={[0, -0.98, 0]} scale={[0.15, 0.2, 0.14]} geometry={geom.root}>
-            <meshPhysicalMaterial color="#ba825c" roughness={0.36} />
-          </mesh>
-          <mesh position={[0, 0.012, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <ringGeometry args={[0.26, 0.276, 48]} />
-            <meshBasicMaterial color="#a88d4b" transparent opacity={0.7} side={THREE.DoubleSide} />
+          <mesh position={[0, -0.28, 0]} scale={[0.043, 0.056, 0.04]} geometry={geometry.bulb}>
+            <meshPhysicalMaterial color="#b68054" roughness={0.42} />
           </mesh>
         </group>
-
         <group ref={tool}>
-          <mesh geometry={geom.punch}>
-            <meshPhysicalMaterial color="#d9dedd" metalness={0.85} roughness={0.23} side={THREE.DoubleSide} />
+          <mesh geometry={geometry.punch}>
+            <meshPhysicalMaterial
+              color="#d8bb91"
+              metalness={0.85}
+              roughness={0.2}
+              side={THREE.DoubleSide}
+            />
           </mesh>
-          <mesh position={[0, 0.94, 0]}>
-            <cylinderGeometry args={[0.32, 0.26, 0.4, 32]} />
-            <meshStandardMaterial color="#949e9d" metalness={0.8} roughness={0.25} />
-          </mesh>
-          <mesh position={[0, -0.78, 0]} rotation={[Math.PI / 2, 0, 0]}>
-            <torusGeometry args={[0.22, 0.018, 8, 32]} />
-            <meshStandardMaterial color="#e7ecec" metalness={0.85} roughness={0.19} />
+          <mesh position={[0, 0.35, 0]}>
+            <cylinderGeometry args={[0.1, 0.074, 0.18, 24]} />
+            <meshStandardMaterial color="#8f9897" metalness={0.8} roughness={0.25} />
           </mesh>
         </group>
+        <primitive ref={route} object={routeLine} />
       </group>
-
-      <points ref={particles}>
-        <bufferGeometry>
-          <bufferAttribute attach="attributes-position" args={[particlePos, 3]} />
-        </bufferGeometry>
-        <pointsMaterial color="#b8a58e" size={0.026} transparent depthWrite={false} />
-      </points>
     </>
   );
 }
@@ -411,32 +430,32 @@ export interface FollicleSceneProps {
   reduced?: boolean;
 }
 
-export default function FollicleScene({ progress, reduced = false }: FollicleSceneProps) {
-  const low = useMemo(
-    () =>
-      typeof navigator !== 'undefined' &&
-      (navigator.hardwareConcurrency <= 4 ||
-        ((navigator as unknown as { deviceMemory?: number }).deviceMemory ?? 8) <= 4 ||
-        (typeof window !== 'undefined' && window.matchMedia('(max-width: 700px)').matches)),
-    []
-  );
+export default function FollicleScene({ progress, reduced }: FollicleSceneProps) {
+  const low = useMemo(() => {
+    if (typeof window === 'undefined') return false;
+    const nav = navigator as unknown as { hardwareConcurrency?: number; deviceMemory?: number };
+    return (
+      (nav.hardwareConcurrency !== undefined && nav.hardwareConcurrency <= 4) ||
+      (nav.deviceMemory !== undefined && nav.deviceMemory <= 4) ||
+      window.matchMedia('(max-width:700px)').matches
+    );
+  }, []);
 
   return (
     <Canvas
       frameloop="demand"
       dpr={[1, low ? 1.25 : 1.75]}
-      camera={{ position: [3, 5, 12], fov: 38, near: 0.1, far: 60 }}
+      camera={{ position: [6, 2, -8], fov: 38, near: 0.05, far: 60 }}
       gl={{ antialias: !low, alpha: true, powerPreference: 'high-performance' }}
-      onCreated={({ gl, invalidate }) => {
+      onCreated={({ gl }) => {
         gl.toneMapping = THREE.ACESFilmicToneMapping;
-        gl.toneMappingExposure = 1.12;
-        if (progress.current) {
-          progress.current.invalidate = invalidate;
-        }
+        gl.toneMappingExposure = 1;
       }}
-      fallback={<div className="ht-fallback">Adımları kullanarak saç restorasyon sürecini keşfedin.</div>}
+      fallback={<div className="ht-fallback">Kalıcı ve doğal saç restorasyon aşamaları.</div>}
     >
-      <World progress={progress} low={Boolean(low)} reduced={reduced} />
+      <Suspense fallback={null}>
+        <World progress={progress} low={low} reduced={reduced} />
+      </Suspense>
     </Canvas>
   );
 }

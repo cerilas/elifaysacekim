@@ -368,10 +368,6 @@ export function FollicleSection({
             : currentLang === 'de'
             ? 'Repräsentative biomedizinische 3D-Visualisierung.'
             : 'Temsili biyomedikal 3D görselleştirmedir.'}
-          <span aria-hidden="true"> · </span>
-          <a href="/model-credits.html" target="_blank" rel="noopener noreferrer">
-            3D model credits
-          </a>
         </span>
       </div>
     </section>

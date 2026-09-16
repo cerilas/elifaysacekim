@@ -520,13 +520,6 @@
   font-size: 8px;
   color: var(--ht-text-dim);
   letter-spacing: 0.08em;
-  z-index: 6;
-}
-
-.ht-disclaimer a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .ht-loading,

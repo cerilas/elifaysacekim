@@ -8,6 +8,7 @@ import { KnowledgeBaseSection, openArticleBySlug, type Article } from './compone
 import { ElifAyGallerySection } from './components/gallery';
 import { ArticlePage } from './components/article-page';
 import { TreatmentPage } from './components/treatment-page';
+import { BlogPage } from './components/blog-page';
 import { SiteHeader, MobileStickyBar, SiteFooter } from './components/layout';
 import articlesDataRaw from './data/articles.json';
 import { getTreatmentBySlug } from './data/treatmentData';
@@ -156,12 +157,14 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  // Route matching: Check for /bilgi-bankasi/:slug, /tedaviler/:slug or legacy #article-:slug
+  // Route matching: Check for /bilgi-bankasi (hub), /blog (hub), /bilgi-bankasi/:slug, /tedaviler/:slug or legacy #article-:slug
   const pathOnly = currentPath.split('?')[0].split('#')[0];
   let articleSlug = '';
   let treatmentSlug = '';
 
-  if (pathOnly.startsWith('/bilgi-bankasi/')) {
+  const isBlogHub = pathOnly === '/bilgi-bankasi' || pathOnly === '/bilgi-bankasi/' || pathOnly === '/blog' || pathOnly === '/blog/';
+
+  if (!isBlogHub && pathOnly.startsWith('/bilgi-bankasi/')) {
     articleSlug = pathOnly.replace(/^\/bilgi-bankasi\/?/, '').replace(/\/$/, '');
   } else if (pathOnly.startsWith('/tedaviler/')) {
     treatmentSlug = pathOnly.replace(/^\/tedaviler\/?/, '').replace(/\/$/, '');
@@ -177,7 +180,7 @@ function App() {
   const activeTreatment = treatmentSlug ? getTreatmentBySlug(treatmentSlug) : null;
 
   useEffect(() => {
-    if (activeArticle || activeTreatment) return; // Dedicated subpage handles its own scroll/tween
+    if (activeArticle || activeTreatment || isBlogHub) return; // Dedicated subpage handles its own scroll/tween
 
     let activeTween: gsap.core.Tween | null = null;
 
@@ -261,6 +264,19 @@ function App() {
       window.removeEventListener('touchmove', stopScroll);
     };
   }, [activeArticle, activeTreatment]);
+
+  if (isBlogHub) {
+    return (
+      <BlogPage
+        onNavigate={navigateTo}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+        onSelectTheme={setTheme}
+        currentLang={lang}
+        onLanguageChange={setLang}
+      />
+    );
+  }
 
   if (activeArticle) {
     return (

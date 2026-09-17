@@ -389,7 +389,7 @@ function main() {
         <nav class="article-breadcrumb-container" aria-label="Ekmek kırıntısı">
           <ol class="article-breadcrumbs">
             <li><a href="/">Ana Sayfa</a> /</li>
-            <li><a href="/#knowledge-base">Bilgi Bankası</a> /</li>
+            <li><a href="/bilgi-bankasi">Bilgi Bankası</a> /</li>
             <li><span>${escapeHtml(article.category)}</span> /</li>
             <li class="breadcrumb-current">${escapeHtml(article.title)}</li>
           </ol>
@@ -446,6 +446,205 @@ function main() {
   console.log(`Successfully generated ${articles.length} static article pages in dist/bilgi-bankasi/`);
 
   // ==========================================
+  // 2.5 PRE-RENDER BILGI-BANKASI & BLOG HUB
+  // ==========================================
+  const hubCanonical = `${BASE_URL}/bilgi-bankasi`;
+  const hubTitle = 'Saç Ekimi Rehberi & Bilgi Bankası 2026 | Elif Ay Gaziantep';
+  const hubDesc = 'Gaziantep saç ekimi, Safir FUE, DHI, sakal & kaş ekimi, greft hesaplama, operasyon öncesi ve sonrası bakım hakkında 112+ kapsamlı uzman makalesi ve rehber.';
+  const hubImg = `${BASE_URL}/elif-ay-portrait.jpg`;
+
+  const hubJsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${hubCanonical}#webpage`,
+        'url': hubCanonical,
+        'name': hubTitle,
+        'description': hubDesc,
+        'isPartOf': {
+          '@type': 'WebSite',
+          '@id': `${BASE_URL}/#website`,
+          'url': `${BASE_URL}/`,
+          'name': 'Elif Ay Saç Ekim Merkezi'
+        }
+      },
+      {
+        '@type': 'Blog',
+        '@id': `${hubCanonical}#blog`,
+        'name': 'Elif Ay Saç Ekimi Bilgi Bankası & Blog',
+        'description': 'Saç ekimi cerrahisi, medikal estetik ve saç sağlığı alanında uzman rehberler.',
+        'url': hubCanonical,
+        'publisher': {
+          '@type': 'MedicalOrganization',
+          'name': 'Elif Ay Saç Ekim Merkezi',
+          'url': `${BASE_URL}/`,
+          'logo': {
+            '@type': 'ImageObject',
+            'url': `${BASE_URL}/elif-ay-portrait.jpg`
+          }
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${hubCanonical}#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Ana Sayfa',
+            'item': `${BASE_URL}/`
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Bilgi Bankası',
+            'item': hubCanonical
+          }
+        ]
+      }
+    ]
+  };
+
+  const hubHeadMeta = `
+    <title>${escapeHtml(hubTitle)}</title>
+    <meta name="description" content="${escapeHtml(hubDesc)}" />
+    <link rel="canonical" href="${hubCanonical}" />
+    <meta property="og:title" content="${escapeHtml(hubTitle)}" />
+    <meta property="og:description" content="${escapeHtml(hubDesc)}" />
+    <meta property="og:url" content="${hubCanonical}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="${hubImg}" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${escapeHtml(hubTitle)}" />
+    <meta name="twitter:description" content="${escapeHtml(hubDesc)}" />
+    <meta name="twitter:image" content="${hubImg}" />
+    <link rel="alternate" hreflang="tr" href="${hubCanonical}" />
+    <link rel="alternate" hreflang="en" href="${hubCanonical}?lang=en" />
+    <link rel="alternate" hreflang="ar" href="${hubCanonical}?lang=ar" />
+    <link rel="alternate" hreflang="de" href="${hubCanonical}?lang=de" />
+    <link rel="alternate" hreflang="x-default" href="${hubCanonical}" />
+    <script type="application/ld+json">${JSON.stringify(hubJsonLd)}</script>`;
+
+  const firstPageArticles = articles.slice(0, 12);
+  const totalPages = Math.ceil(articles.length / 12);
+
+  const hubCardsHtml = firstPageArticles.map(art => {
+    const readingTime = art.readTime || getReadingTime(art.contentHtml || '');
+    const dateFormatted = formatDate(art.publishedAt);
+    const summaryClean = art.summary ? escapeHtml(art.summary) : '';
+    const cover = art.coverImage || '/sac-ekimi-bilgi-bankasi-gorsel.jpg';
+    return `
+      <article class="blog-card">
+        <a href="/bilgi-bankasi/${art.slug}" class="blog-card-thumb-link" aria-label="${escapeHtml(art.title)}">
+          <div class="blog-card-thumb">
+            <img src="${cover}" alt="${escapeHtml(art.title)}" loading="lazy" width="380" height="210" />
+            <span class="blog-card-tag">${escapeHtml(art.category)}</span>
+          </div>
+        </a>
+        <div class="blog-card-body">
+          <div class="blog-card-meta-top">
+            <span class="blog-card-time">${readingTime}</span>
+            <time datetime="${art.publishedAt}">${dateFormatted}</time>
+          </div>
+          <h3 class="blog-card-title">
+            <a href="/bilgi-bankasi/${art.slug}">${escapeHtml(art.title)}</a>
+          </h3>
+          <p class="blog-card-snippet">${summaryClean}</p>
+          <div class="blog-card-footer">
+            <div class="blog-card-author">
+              <img src="/elif-ay-portrait.jpg" alt="Elif Ay" width="28" height="28" />
+              <span>Saç Ekim Uzmanı Elif Ay</span>
+            </div>
+            <a href="/bilgi-bankasi/${art.slug}" class="blog-read-btn">
+              Rehberi Oku <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  const hubStaticBody = `
+    <div class="blog-page-root">
+      <header class="blog-page-header">
+        <div class="blog-header-left">
+          <a href="/" class="blog-brand-link">
+            <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+            ELİF AY
+          </a>
+          <span class="blog-brand-badge">SAÇ EKİM MERKEZİ</span>
+        </div>
+        <div class="header-actions">
+          <a class="header-icon-btn header-phone-btn" href="tel:+905364916040" aria-label="Telefonla ara: 0 536 491 60 40">
+            <span class="header-contact-text">0 536 491 60 40</span>
+          </a>
+          <a class="header-icon-btn header-whatsapp-btn" href="https://wa.me/905364916040" aria-label="WhatsApp ile Danışın">
+            <span class="header-contact-text">WhatsApp</span>
+          </a>
+          <a class="header-cta" href="/#care">Ücretsiz Analiz ↗</a>
+        </div>
+      </header>
+
+      <div class="blog-breadcrumb-wrapper">
+        <nav aria-label="Ekmek Kırıntısı">
+          <ol class="blog-breadcrumb">
+            <li><a href="/">Ana Sayfa</a></li>
+            <li class="breadcrumb-sep" aria-hidden="true">/</li>
+            <li aria-current="page">Bilgi Bankası</li>
+          </ol>
+        </nav>
+      </div>
+
+      <main class="blog-hub-container">
+        <header class="blog-hero-section">
+          <div class="blog-hero-content">
+            <span class="blog-hero-badge">UZMAN SAÇ SAĞLIĞI &amp; EKİM KÜTÜPHANESİ</span>
+            <h1 class="blog-main-title">Saç Ekimi Rehberi &amp; Bilgi Bankası</h1>
+            <p class="blog-main-lead">
+              Gaziantep Elif Ay Saç Ekim Merkezi klinik tecrübesiyle hazırlanan; Safir FUE, DHI saç ekimi, kadınlarda saç dökülmesi, sakal &amp; kaş ekimi, operasyon süreçleri ve greft hesaplama hakkında güncel, kanıta dayalı ve kapsamlı rehberler.
+            </p>
+            <div class="blog-topic-chips" aria-label="Popüler Başlıklar">
+              <span class="topic-chip-label">Öne Çıkan Başlıklar:</span>
+              <a href="/bilgi-bankasi?q=Safir%20FUE" class="topic-chip-btn"><span>#</span>Safir FUE vs DHI</a>
+              <a href="/bilgi-bankasi?q=%C5%9Eok%20D%C3%B6k%C3%BClme" class="topic-chip-btn"><span>#</span>Şok Dökülme Takvimi</a>
+              <a href="/bilgi-bankasi?q=Fiyatlar%C4%B1" class="topic-chip-btn"><span>#</span>2026 Saç Ekimi Fiyatları</a>
+              <a href="/bilgi-bankasi?q=Greft" class="topic-chip-btn"><span>#</span>Greft Hesaplama</a>
+              <a href="/bilgi-bankasi?q=Y%C4%B1kama" class="topic-chip-btn"><span>#</span>İlk Yıkama Protokolü</a>
+              <a href="/bilgi-bankasi?q=Kad%C4%B1nlarda" class="topic-chip-btn"><span>#</span>Kadınlarda Saç Ekimi</a>
+            </div>
+          </div>
+        </header>
+
+        <section class="blog-list-section" aria-label="Tüm Makaleler">
+          <div class="blog-articles-grid" id="articles-grid">
+            ${hubCardsHtml}
+          </div>
+          <nav class="blog-pagination" aria-label="Sayfalama">
+            <span class="page-status">Sayfa 1 / ${totalPages} (${articles.length} Rehber)</span>
+          </nav>
+        </section>
+      </main>
+    </div>
+  `;
+
+  let hubHtml = baseHtml;
+  hubHtml = hubHtml.replace(/<title>.*?<\/script>/s, hubHeadMeta);
+  hubHtml = hubHtml.replace('<html lang="en">', '<html lang="tr">');
+  hubHtml = hubHtml.replace('<div id="root"></div>', `<div id="root">${hubStaticBody}</div>`);
+
+  fs.writeFileSync(path.join(bbDistDir, 'index.html'), hubHtml, 'utf8');
+
+  const blogDistDir = path.join(DIST_DIR, 'blog');
+  if (!fs.existsSync(blogDistDir)) {
+    fs.mkdirSync(blogDistDir, { recursive: true });
+  }
+  fs.writeFileSync(path.join(blogDistDir, 'index.html'), hubHtml, 'utf8');
+
+  console.log('Successfully generated static hub pages in dist/bilgi-bankasi/index.html and dist/blog/index.html');
+
+  // ==========================================
   // 3. SITEMAP.XML GENERATION
   // ==========================================
   const today = new Date().toISOString().split('T')[0];
@@ -456,6 +655,12 @@ function main() {
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${BASE_URL}/bilgi-bankasi</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
 `;
 

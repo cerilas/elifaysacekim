@@ -1,4 +1,4 @@
-import React, { Suspense, useMemo, useRef, useEffect, type RefObject } from 'react';
+import { Suspense, useMemo, useRef, useEffect, type RefObject } from 'react';
 import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
 import { smooth } from './story';
@@ -12,13 +12,10 @@ import {
   recipientNormal,
   graftTransform,
 } from './head';
+import { createHairCover } from './HairCover';
+import { createHairLocks } from './HairLocks';
 import normalURL from './assets/head-normal.jpg';
 import colorURL from './assets/head-color.jpg';
-
-const rand = (i: number) => {
-  const n = Math.sin(i * 127.1 + 31.7) * 43758.5453;
-  return n - Math.floor(n);
-};
 
 const up = new THREE.Vector3(0, 1, 0);
 
@@ -47,8 +44,6 @@ interface WorldProps {
 function World({ progress, low }: WorldProps) {
   const { camera, size, invalidate, gl } = useThree();
   const skin = useRef<THREE.Mesh>(null);
-  const existing = useRef<THREE.InstancedMesh>(null);
-  const newHair = useRef<THREE.InstancedMesh>(null);
   const graft = useRef<THREE.Group>(null);
   const tool = useRef<THREE.Group>(null);
   const rootUnits = useRef<THREE.InstancedMesh>(null);
@@ -99,7 +94,19 @@ function World({ progress, low }: WorldProps) {
 
   useEffect(() => () => skinMaterial.dispose(), [skinMaterial]);
 
-  const n = low ? 1000 : 2400;
+  const hairCover = useMemo(() => createHairCover(), []);
+  const hairLocks = useMemo(() => createHairLocks(hairCover.uniforms, low), [hairCover, low]);
+
+  useEffect(() => () => {
+    hairLocks.geometry.dispose();
+    hairLocks.material.dispose();
+  }, [hairLocks]);
+
+  useEffect(() => () => {
+    hairCover.geometry.dispose();
+    hairCover.material.dispose();
+  }, [hairCover]);
+
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const stats = useRef({ n: 0, sum: 0, low: false });
 
@@ -112,39 +119,6 @@ function World({ progress, low }: WorldProps) {
       punch: new THREE.CylinderGeometry(0.065, 0.065, 0.53, 32, 1, true),
     }),
     []
-  );
-
-  const data = useMemo(
-    () =>
-      Array.from({ length: n }, (_, i) => {
-        const theta = 0.93 + rand(i * 5) * 4.42;
-        const y = -0.13 + rand(i * 5 + 1) * 1.6;
-        return {
-          p: headPoint(y, theta),
-          normal: headNormal(y, theta),
-          scale:
-            (Math.abs(Math.sin(theta)) > 0.85 && y < 0.55) || (Math.cos(theta) > 0.2 && y < 0.8)
-              ? 0
-              : 0.35 + rand(i * 5 + 2) * 0.38,
-        };
-      }),
-    [n]
-  );
-
-  const planted = useMemo(
-    () =>
-      Array.from({ length: n }, (_, i) => {
-        const theta = (rand(i * 7 + 8) - 0.5) * Math.PI * 2;
-        const y = 1.25 + rand(i * 7 + 9) * 0.93;
-        const edge = 1.48 + 0.035 * Math.sin(theta * 17) + 0.06 * Math.abs(Math.sin(theta));
-        const visible = Math.cos(theta) < 0.35 || y > edge;
-        return {
-          p: headPoint(y, theta),
-          normal: headNormal(y, theta),
-          scale: visible ? 0.65 + rand(i + 900) * 0.7 : 0,
-        };
-      }),
-    [n]
   );
 
   const roots = useMemo(
@@ -215,40 +189,11 @@ function World({ progress, low }: WorldProps) {
     }
 
     cutaway.value = macro * 0.82;
+    hairCover.uniforms.uGrowth.value = smooth(0.82, 0.975, p);
+    hairCover.uniforms.uCut.value = macro;
 
-    if (existing.current && newHair.current) {
-      for (let i = 0; i < n; i++) {
-        const h = data[i];
-        dummy.position.copy(h.p);
-        const down = new THREE.Vector3(0, -1, -0.15);
-        down.addScaledVector(h.normal, -down.dot(h.normal)).normalize();
-        dummy.quaternion.setFromUnitVectors(
-          up,
-          h.normal.clone().multiplyScalar(0.45).addScaledVector(down, 0.7).normalize()
-        );
-        const distance = h.p.distanceTo(donorSite);
-        const clear = 1 - macro * (distance < 1.1 ? 0.92 : 0.25);
-        dummy.scale.setScalar(h.scale * clear);
-        dummy.updateMatrix();
-        existing.current.setMatrixAt(i, dummy.matrix);
-
-        const a = planted[i];
-        const growth = smooth(0.82 + (i / n) * 0.085, 0.89 + (i / n) * 0.08, p);
-        dummy.position.copy(a.p);
-        const sweep = new THREE.Vector3(0.3, 0.1, -1);
-        sweep.addScaledVector(a.normal, -sweep.dot(a.normal)).normalize();
-        dummy.quaternion.setFromUnitVectors(
-          up,
-          a.normal.clone().multiplyScalar(0.6).addScaledVector(sweep, 0.75).normalize()
-        );
-        dummy.scale.setScalar(Math.max(0.000001, a.scale * growth));
-        dummy.updateMatrix();
-        newHair.current.setMatrixAt(i, dummy.matrix);
-      }
-      existing.current.count = stats.current.low ? Math.floor(n * 0.7) : n;
-      newHair.current.count = existing.current.count;
-      existing.current.instanceMatrix.needsUpdate = true;
-      newHair.current.instanceMatrix.needsUpdate = true;
+    if (graft.current) {
+      graft.current.visible = p < 0.90;
     }
 
     if (rootUnits.current && fineHairs.current) {
@@ -346,12 +291,8 @@ function World({ progress, low }: WorldProps) {
       <directionalLight position={[1, 6, 5]} intensity={0.5} />
       <group ref={headGroup}>
         <mesh ref={skin} geometry={geometry.head} material={skinMaterial} />
-        <instancedMesh ref={existing} args={[geometry.hair, undefined, n]} frustumCulled={false}>
-          <meshStandardMaterial color="#30261f" roughness={0.58} />
-        </instancedMesh>
-        <instancedMesh ref={newHair} args={[geometry.hair, undefined, n]} frustumCulled={false}>
-          <meshStandardMaterial color="#30261f" roughness={0.52} />
-        </instancedMesh>
+        <mesh geometry={hairCover.geometry} material={hairCover.material} renderOrder={2} />
+        <mesh geometry={hairLocks.geometry} material={hairLocks.material} renderOrder={3} />
         <instancedMesh ref={fineHairs} args={[geometry.hair, undefined, 16]} frustumCulled={false}>
           <meshStandardMaterial color="#39271e" roughness={0.6} />
         </instancedMesh>

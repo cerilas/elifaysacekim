@@ -7,6 +7,18 @@ import './follicle.css';
 
 const FollicleScene = lazy(() => import('./FollicleScene'));
 
+// Preload the 3D scene module during idle time
+if (typeof window !== 'undefined') {
+  const preloadScene = () => {
+    import('./FollicleScene');
+  };
+  if ('requestIdleCallback' in window) {
+    (window as any).requestIdleCallback(preloadScene);
+  } else {
+    setTimeout(preloadScene, 800);
+  }
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 class SceneBoundary extends React.Component<
@@ -55,7 +67,7 @@ export function FollicleSection({
   const percent = useRef<HTMLSpanElement>(null);
 
   const [active, setActive] = useState<number>(0);
-  const [ready, setReady] = useState<boolean>(false);
+  const [ready, setReady] = useState<boolean>(true);
   const [reduced, setReduced] = useState<boolean>(false);
 
   useEffect(() => {
@@ -64,21 +76,6 @@ export function FollicleSection({
     sync();
     mq.addEventListener('change', sync);
     return () => mq.removeEventListener('change', sync);
-  }, []);
-
-  useEffect(() => {
-    if (!root.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setReady(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '400px' }
-    );
-    observer.observe(root.current);
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {

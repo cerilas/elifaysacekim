@@ -87,12 +87,14 @@ export const KB_I18N = {
     badge: 'KLİNİK REHBERİ & GAZİANTEP SAÇ EKİMİ BİLGİ BANKASI',
     stats: (n: number) => `TOPLAM ${n} BİLİMSEL VE UZMAN İÇERİK`,
     title: <>Gaziantep Saç Ekimi Rehberi &amp;<br /><em>Uzman Görüşleri.</em></>,
-    lead: "Gaziantep saç ekimi fiyatları 2026, Safir FUE ve DHI yöntemleri, köselik tedavisi sakal ekimi, kadınlarda kaş ekimi ve şok dökülme evreleri; Saç Ekim Uzmanı Elif Ay'ın deneyimiyle aydınlanıyor.",
+    lead: "Gaziantep saç ekimi fiyatları 2026, Safir FUE و DHI yöntemleri, köselik tedavisi sakal ekimi, kadınlarda kaş ekimi ve şok dökülme evreleri; Saç Ekim Uzmanı Elif Ay'ın deneyimiyle aydınlanıyor.",
     placeholder: 'Konu, şehir veya yöntem arayın (Örn: Gaziantep saç ekimi fiyatları, Şanlıurfa, DHI, Sakal ekimi, 3000 greft...)',
     resultsCount: (n: number) => `${n} makale listeleniyor`,
     noArticles: 'Aradığınız kriterlere uygun makale bulunamadı',
     noArticlesDesc: 'Farklı anahtar kelimeler deneyebilir veya kategori filtresini değiştirebilirsiniz.',
     showAll: 'Tüm Makaleleri Göster',
+    viewAll: 'Tümünü Göster',
+    viewAllCount: (n: number) => `(${n} Yazı)`,
   },
   en: {
     badge: 'CLINICAL GUIDE & RESTORATION KNOWLEDGE BASE',
@@ -104,6 +106,8 @@ export const KB_I18N = {
     noArticles: 'No articles found matching your criteria',
     noArticlesDesc: 'Try different keywords or switch your category filter.',
     showAll: 'Show All Articles',
+    viewAll: 'View All Articles & Guides',
+    viewAllCount: (n: number) => `(${n} Articles)`,
   },
   ar: {
     badge: 'الدليل السريري وبنك معلومات زراعة الشعر',
@@ -115,6 +119,8 @@ export const KB_I18N = {
     noArticles: 'لم يتم العثور على مقالات مطابقة لبحثكم',
     noArticlesDesc: 'يمكنكم تجربة كلمات مفتاحية أخرى أو تغيير تصنيف البحث.',
     showAll: 'عرض كافة المقالات',
+    viewAll: 'عرض جميع المقالات والأدلة',
+    viewAllCount: (n: number) => `(${n} مقال)`,
   },
   de: {
     badge: 'KLINISCHER RATGEBER & WISSENSDATENBANK',
@@ -126,6 +132,8 @@ export const KB_I18N = {
     noArticles: 'Keine passenden Artikel gefunden',
     noArticlesDesc: 'Versuchen Sie andere Suchbegriffe oder wechseln Sie die Kategorie.',
     showAll: 'Alle Artikel anzeigen',
+    viewAll: 'Alle Artikel & Leitfäden ansehen',
+    viewAllCount: (n: number) => `(${n} Artikel)`,
   },
 };
 
@@ -176,7 +184,6 @@ export interface KnowledgeBaseSectionProps {
 export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: KnowledgeBaseSectionProps = {}) {
   const [selectedCategory, setSelectedCategory] = useState<string>('Tümü');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -285,19 +292,10 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
     });
   }, [selectedCategory, searchQuery]);
 
-  // Total pages
-  const totalPages = Math.ceil(filteredArticles.length / ITEMS_PER_PAGE) || 1;
-
-  // Paginated articles
+  // Homepage articles: first 6 items of filtered results
   const paginatedArticles = useMemo(() => {
-    const start = (currentPage - 1) * ITEMS_PER_PAGE;
-    return filteredArticles.slice(start, start + ITEMS_PER_PAGE);
-  }, [filteredArticles, currentPage]);
-
-  // Reset to page 1 on filter or search changes
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, searchQuery]);
+    return filteredArticles.slice(0, ITEMS_PER_PAGE);
+  }, [filteredArticles]);
 
   // Handle ESC key
   useEffect(() => {
@@ -322,13 +320,6 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
     };
   }, [selectedArticle]);
 
-  const handlePageChange = (newPage: number) => {
-    setCurrentPage(newPage);
-    if (sectionRef.current) {
-      const topOffset = sectionRef.current.getBoundingClientRect().top + window.scrollY - 70;
-      window.scrollTo({ top: topOffset, behavior: 'smooth' });
-    }
-  };
 
   const kbI18n = KB_I18N[currentLang] || KB_I18N.tr;
   const categoryLabels = CATEGORY_LABELS[currentLang] || CATEGORY_LABELS.tr;
@@ -522,55 +513,25 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
           </div>
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <nav className="knowledge-pagination" aria-label={currentLang === 'en' ? 'Article Pages' : currentLang === 'ar' ? 'صفحات المقالات' : currentLang === 'de' ? 'Artikelseiten' : 'Makale Sayfaları'}>
-            <button
-              type="button"
-              className="page-btn page-nav"
-              disabled={currentPage === 1}
-              onClick={() => handlePageChange(currentPage - 1)}
-              aria-label={currentLang === 'en' ? 'Previous Page' : currentLang === 'ar' ? 'الصفحة السابقة' : currentLang === 'de' ? 'Vorherige Seite' : 'Önceki Sayfa'}
-            >
-              {currentLang === 'en' ? '← Prev' : currentLang === 'ar' ? '← السابق' : currentLang === 'de' ? '← Zurück' : '← Önceki'}
-            </button>
-
-            {Array.from({ length: totalPages }, (_, i) => i + 1)
-              .filter((page) => {
-                return (
-                  page === 1 ||
-                  page === totalPages ||
-                  Math.abs(page - currentPage) <= 1
-                );
-              })
-              .map((page, index, array) => {
-                const showEllipsis = index > 0 && page - array[index - 1] > 1;
-                return (
-                  <span key={page} style={{ display: 'inline-flex', alignItems: 'center' }}>
-                    {showEllipsis && <span style={{ padding: '0 4px', color: '#665c4f' }}>…</span>}
-                    <button
-                      type="button"
-                      className={`page-btn ${page === currentPage ? 'active' : ''}`}
-                      onClick={() => handlePageChange(page)}
-                      aria-current={page === currentPage ? 'page' : undefined}
-                    >
-                      {page}
-                    </button>
-                  </span>
-                );
-              })}
-
-            <button
-              type="button"
-              className="page-btn page-nav"
-              disabled={currentPage === totalPages}
-              onClick={() => handlePageChange(currentPage + 1)}
-              aria-label="Sonraki Sayfa"
-            >
-              Sonraki →︎
-            </button>
-          </nav>
-        )}
+        {/* View All Button */}
+        <div className="knowledge-view-all">
+          <a
+            href="/bilgi-bankasi"
+            className="btn-view-all-articles"
+            onClick={(e) => {
+              e.preventDefault();
+              if (onNavigate) {
+                onNavigate('/bilgi-bankasi');
+              } else {
+                window.location.href = '/bilgi-bankasi';
+              }
+            }}
+          >
+            <span className="btn-view-all-text">{kbI18n.viewAll}</span>
+            <span className="view-all-count">{kbI18n.viewAllCount(articlesData.length)}</span>
+            <span className="view-all-arrow" aria-hidden="true">↗︎</span>
+          </a>
+        </div>
       </div>
 
       {/* Article Reader Modal */}

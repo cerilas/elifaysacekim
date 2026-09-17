@@ -180,13 +180,13 @@ export function ArticlePage({
               '@type': 'ListItem',
               'position': 2,
               'name': t.breadcrumbKnowledge,
-              'item': 'https://elifaysacekim.com/#knowledge-base'
+              'item': 'https://elifaysacekim.com/bilgi-bankasi'
             },
             {
               '@type': 'ListItem',
               'position': 3,
               'name': article.category,
-              'item': 'https://elifaysacekim.com/#knowledge-base'
+              'item': `https://elifaysacekim.com/bilgi-bankasi?kategori=${encodeURIComponent(article.category)}`
             },
             {
               '@type': 'ListItem',
@@ -327,14 +327,14 @@ export function ArticlePage({
           <li className="breadcrumb-sep" aria-hidden="true">/</li>
           <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
             <a
-              href="/#knowledge-base"
+              href="/bilgi-bankasi"
               itemProp="item"
               onClick={(e) => {
                 e.preventDefault();
-                onNavigate('/#knowledge-base');
+                onNavigate('/bilgi-bankasi');
               }}
             >
-              <span itemProp="name">Bilgi Bankası</span>
+              <span itemProp="name">{t.breadcrumbKnowledge}</span>
             </a>
             <meta itemProp="position" content="2" />
           </li>

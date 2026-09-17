@@ -14,6 +14,7 @@ interface ScalpSurface {
 
 interface HeadScan {
   POSITION: number[];
+  NORMAL?: number[];
   TEXCOORD_0: number[];
   indices: number[];
 }
@@ -54,6 +55,14 @@ export function headGeometry(): THREE.BufferGeometry {
   g.setAttribute('uv', new THREE.Float32BufferAttribute(scanData.TEXCOORD_0, 2));
   g.setIndex(scanData.indices);
   g.computeVertexNormals();
+  if (scanData.NORMAL) {
+    const normals = g.attributes.normal;
+    for (let i = 0; i < normals.count; i++) {
+      if (scanData.POSITION[i * 3 + 1] > -1.85) {
+        normals.setXYZ(i, scanData.NORMAL[i * 3], scanData.NORMAL[i * 3 + 1], scanData.NORMAL[i * 3 + 2]);
+      }
+    }
+  }
   return g;
 }
 

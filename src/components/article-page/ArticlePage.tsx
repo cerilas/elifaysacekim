@@ -153,7 +153,7 @@ export function ArticlePage({
           'author': {
             '@type': 'Person',
             'name': 'Elif Ay',
-            'jobTitle': 'Saç Ekim Uzmanı',
+            'jobTitle': 'Saç Ekim Koordinatörü ve Danışmanı',
             'url': 'https://elifaysacekim.com/#specialist'
           },
           'publisher': {
@@ -362,12 +362,12 @@ export function ArticlePage({
               <div className="article-author-chip">
                 <img
                   src="/elif-ay-portrait.jpg"
-                  alt="Saç Ekim Uzmanı Elif Ay"
+                  alt="Saç Ekim Koordinatörü ve Danışmanı Elif Ay"
                   width="38"
                   height="38"
                 />
                 <div>
-                  <span className="article-author-name">Saç Ekim Uzmanı Elif Ay</span>
+                  <span className="article-author-name">Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
                   <span className="article-author-role">12+ Yıl Klinik Deneyim • Gold FUE</span>
                 </div>
               </div>
@@ -410,12 +410,12 @@ export function ArticlePage({
               </div>
               <p>
                 {currentLang === 'en'
-                  ? "Elif Ay Hair Transplant Center performs all consultations and procedures exclusively at our main clinic in Gaziantep. Patients traveling from surrounding cities can easily complete their procedure and return with convenient regional transport. Free online digital pre-analysis via WhatsApp is provided before your visit. All procedures are personally supervised by Specialist Elif Ay in Gaziantep."
+                  ? "Elif Ay Hair Transplant Center performs all consultations and procedures exclusively at our main clinic in Gaziantep. Patients traveling from surrounding cities can easily complete their procedure and return with convenient regional transport. Free online digital pre-analysis via WhatsApp is provided before your visit. All procedures are personally supervised by Hair Transplant Coordinator & Consultant Elif Ay in Gaziantep."
                   : currentLang === 'ar'
-                  ? "يقوم مركز إليف آي لزراعة الشعر بجميع العمليات واستقبال المرضى حصرياً في عيادتنا الرئيسية في غازي عنتاب. تتيح شبكة النقل الإقليمية المريحة للمرضى القادمين من المدن المجاورة العودة براحة تامة. تتوفر استشارة رقمية أولية مجانية عبر واتساب قبل الحضور تحت إشراف الأخصائية إليف آي مباشرة."
+                  ? "يقوم مركز إليف آي لزراعة الشعر بجميع العمليات واستقبال المرضى حصرياً في عيادتنا الرئيسية في غازي عنتاب. تتيح شبكة النقل الإقليمية المريحة للمرضى القادمين من المدن المجاورة العودة براحة تامة. تتوفر استشارة رقمية أولية مجانية عبر واتساب قبل الحضور تحت إشراف منسقة ومستشارة زراعة الشعر إليف آي مباشرة."
                   : currentLang === 'de'
-                  ? "Das Elif Ay Haartransplantationszentrum führt alle Behandlungen und Patientenaufnahmen ausschließlich in unserer Hauptklinik in Gaziantep durch. Dank der guten regionalen Verkehrsanbindung können Patienten aus Nachbarstädten bequem anreisen. Vorab bieten wir eine kostenlose digitale Foto-Analyse via WhatsApp unter persönlicher Aufsicht von Spezialistin Elif Ay an."
-                  : "Elif Ay Saç Ekim Merkezi, operasyonlarını ve hasta kabulünü Gaziantep ana kliniğinde gerçekleştirmektedir. Gaziantep'in bölgedeki merkezi konumu ve gelişmiş ulaşım ağı sayesinde çevre illerden gelen hastalarımız aynı gün içinde operasyonunu tamamlayıp rahatlıkla dönebilmektedir. Gelmeden önce WhatsApp üzerinden ücretsiz uzaktan dijital ön analiz imkânı sağlanmaktadır. İlgili şehirde fiziksel şubemiz bulunmamakta olup tüm cerrahi işlemler bizzat Saç Ekim Uzmanı Elif Ay denetiminde Gaziantep'te yapılmaktadır."}
+                  ? "Das Elif Ay Haartransplantationszentrum führt alle Behandlungen und Patientenaufnahmen ausschließlich in unserer Hauptklinik in Gaziantep durch. Dank der guten regionalen Verkehrsanbindung können Patienten aus Nachbarstädten bequem anreisen. Vorab bieten wir eine kostenlose digitale Foto-Analyse via WhatsApp unter persönlicher Aufsicht von Haartransplantations-Koordinatorin & Beraterin Elif Ay an."
+                  : "Elif Ay Saç Ekim Merkezi, operasyonlarını ve hasta kabulünü Gaziantep ana kliniğinde gerçekleştirmektedir. Gaziantep'in bölgedeki merkezi konumu ve gelişmiş ulaşım ağı sayesinde çevre illerden gelen hastalarımız aynı gün içinde operasyonunu tamamlayıp rahatlıkla dönebilmektedir. Gelmeden önce WhatsApp üzerinden ücretsiz uzaktan dijital ön analiz imkânı sağlanmaktadır. İlgili şehirde fiziksel şubemiz bulunmamakta olup tüm cerrahi işlemler bizzat Saç Ekim Koordinatörü ve Danışmanı Elif Ay denetiminde Gaziantep'te yapılmaktadır."}
               </p>
               <a
                 className="regional-disclosure-link"
@@ -447,12 +447,12 @@ export function ArticlePage({
             </p>
             <h3>
               {currentLang === 'en'
-                ? "Get a Direct Consultation from Specialist Elif Ay"
+                ? "Get a Direct Consultation from Hair Transplant Coordinator & Consultant Elif Ay"
                 : currentLang === 'ar'
-                ? "احصل على استشارة مباشرة من الأخصائية إليف آي"
+                ? "احصل على استشارة مباشرة من منسقة ومستشارة زراعة الشعر إليف آي"
                 : currentLang === 'de'
-                ? "Direkte Beratung von Spezialistin Elif Ay erhalten"
-                : "Bu Konuda Saç Ekim Uzmanı Elif Ay'dan Doğrudan Görüş Alın"}
+                ? "Direkte Beratung von Haartransplantations-Koordinatorin & Beraterin Elif Ay erhalten"
+                : "Bu Konuda Saç Ekim Koordinatörü ve Danışmanı Elif Ay'dan Doğrudan Görüş Alın"}
             </h3>
             <p>
               {currentLang === 'en'

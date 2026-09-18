@@ -19,7 +19,7 @@ import { PortraitScrollTransition } from './PortraitScrollTransition';
 
 <PortraitScrollTransition
   name="Elif Ay"
-  title="Saç ekim uzmanı"
+  title="Saç Ekim Koordinatörü ve Danışmanı"
   portraitSrc="/images/elif-ay.webp"
   portraitPosition="50% 35%"
 />

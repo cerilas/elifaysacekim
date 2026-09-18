@@ -25,7 +25,7 @@ updateArticle('gaziantep-sac-ekimi', {
   metaKeywords: 'Gaziantep saç ekimi, Gaziantep en iyi saç ekim merkezi, Gaziantep saç ekimi yapan hastaneler, Gaziantep saç ekimi doktorları, Gaziantep saç ekimi fiyatları 2026, 3000 greft saç ekimi fiyatı, 5000 greft saç ekimi fiyatı, DHI saç ekimi Gaziantep, Safir FUE saç ekimi Gaziantep, İğnesiz ağrısız saç ekimi',
   contentHtml: `
     <h2>Gaziantep Saç Ekimi ve Bölgesel Liderlik</h2>
-    <p><strong>Gaziantep saç ekimi</strong> alanında son yıllarda Türkiye'nin ve bölgenin en önemli sağlık merkezlerinden biri haline gelmiştir. <strong>Gaziantep en iyi saç ekim merkezi</strong> arayışında olan hastalarımız için Saç Ekim Uzmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a>, 15 yılı aşkın mikrocerrahi tecrübesiyle kişiye özel doğal saç çizgisi tasarımı ve doku koruyucu Gold &amp; <a href="/tedaviler/safir-fue-sac-ekimi" class="text-gold hover:underline font-medium">Safir FUE saç ekimi Gaziantep</a> protokollerini uygulamaktadır.</p>
+    <p><strong>Gaziantep saç ekimi</strong> alanında son yıllarda Türkiye'nin ve bölgenin en önemli sağlık merkezlerinden biri haline gelmiştir. <strong>Gaziantep en iyi saç ekim merkezi</strong> arayışında olan hastalarımız için Saç Ekim Koordinatörü ve Danışmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a>, 15 yılı aşkın mikrocerrahi tecrübesiyle kişiye özel doğal saç çizgisi tasarımı ve doku koruyucu Gold &amp; <a href="/tedaviler/safir-fue-sac-ekimi" class="text-gold hover:underline font-medium">Safir FUE saç ekimi Gaziantep</a> protokollerini uygulamaktadır.</p>
     
     <h3>Gaziantep Saç Ekimi Yapan Hastaneler ve Klinik Standartları</h3>
     <p>Saç ekimi cerrahi bir operasyondur ve mutlaka Sağlık Bakanlığı onaylı, tam teşekküllü ameliyathane koşullarında gerçekleştirilmelidir. <strong>Gaziantep saç ekimi yapan hastaneler</strong> ve uzman klinikler arasında fark yaratan yaklaşımımız; her hastayı butik olarak ele almak, donör alanı homojen biçimde korumak ve 38 derecelik doğal çıkış açısıyla ömür boyu kalıcı sonuçlar inşa etmektir.</p>
@@ -47,7 +47,7 @@ updateArticle('gaziantep-sac-ekimi', {
     <h3>4. 3000 greft veya 5000 greft ekimi ne kadar alanı kapatır?</h3>
     <p>3000 greft ön çizgi ve orta alanı tamamen kapatabilirken; 5000 greftlik mega seanslar geniş kelliklerde tepe bölgesini de kapsayacak biçimde maksimum yoğunluk sağlar.</p>
     <h3>5. WhatsApp üzerinden ücretsiz greft analizi nasıl alınır?</h3>
-    <p>Ön, yan, tepe ve ense fotoğraflarınızı WhatsApp hattımıza (+90 536 491 60 40) ileterek 15 dakika içinde Uzman Elif Ay'dan analiz ve fiyat teklifi alabilirsiniz.</p>
+    <p>Ön, yan, tepe ve ense fotoğraflarınızı WhatsApp hattımıza (+90 536 491 60 40) ileterek 15 dakika içinde Saç Ekim Koordinatörü ve Danışmanı Elif Ay'dan analiz ve fiyat teklifi alabilirsiniz.</p>
   `
 });
 
@@ -62,7 +62,7 @@ updateArticle('gaziantep-en-iyi-sac-ekim-merkezi-nasil-secilir', {
     <p><strong>Gaziantep en iyi saç ekim merkezi</strong> seçimi, hayatınız boyunca taşıyacağınız saç çizginizin ve özgüveninizin garantisidir. Şehirde onlarca klinik ve hastane seçeneği bulunurken, doğru merkezi seçmek için şu altın kriterlere dikkat etmelisiniz:</p>
     
     <h3>1. Doğrudan Uzman ve Doktor Katılımı</h3>
-    <p>Saç ekimi bir ekip işi olmakla birlikte, operasyonun ön çizgi tasarımı, kanal açımı ve greft açılarının belirlenmesi mutlaka deneyimli bir <strong>saç ekimi uzmanı</strong> kontrolünde yapılmalıdır. Saç Ekim Uzmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a>, her hastanın konsültasyonunu bizzat gerçekleştirir.</p>
+    <p>Saç ekimi bir ekip işi olmakla birlikte, operasyonun ön çizgi tasarımı, kanal açımı ve greft açılarının belirlenmesi mutlaka deneyimli bir <strong>saç ekimi uzmanı</strong> kontrolünde yapılmalıdır. Saç Ekim Koordinatörü ve Danışmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a>, her hastanın konsültasyonunu bizzat gerçekleştirir.</p>
 
     <h3>2. Kullanılan Teknoloji: Safir FUE ve DHI Choi Kalem</h3>
     <p>Geleneksel metal bistüriler yerine doku dostu <strong>Safir FUE saç ekimi Gaziantep</strong> ve tıraşsız operasyon sağlayan <strong>DHI saç ekimi</strong> teknolojilerini sunabilen klinikler tercih edilmelidir. Safir uçlar doku travmasını minimuma indirerek iyileşmeyi 2 kat hızlandırır.</p>
@@ -98,7 +98,7 @@ updateArticle('gaziantep-sac-ekimi-fiyatlari-ve-merkezleri', {
     <h3>Her Şey Dahil Saç Ekim Paketi Gaziantep</h3>
     <p>Kliniğimizde sürpriz ücretlere yer yoktur. <strong>Her şey dahil saç ekim paketi</strong> kapsamında:
     <ul>
-      <li>Saç Ekim Uzmanı Elif Ay ile kişiye özel saç çizgisi tasarımı</li>
+      <li>Saç Ekim Koordinatörü ve Danışmanı Elif Ay ile kişiye özel saç çizgisi tasarımı</li>
       <li>İğnesiz ağrısız lokal anestezi (sedasyon seçeneği)</li>
       <li>Maksimum greft alımı ve Safir FUE / DHI uygulaması</li>
       <li>Operasyon sırasında medikal PRP veya kök hücre desteği</li>
@@ -123,7 +123,7 @@ updateArticle('sanliurfa-sac-ekimi', {
     <p><strong>Şanlıurfa saç ekimi</strong> arayışında olan yüzlerce danışanımız; Karaköprü, Haliliye, Eyyübiye, Birecik ve Siverek'ten yalnızca 1-1.5 saatlik mesafedeki <strong>Gaziantep Elif Ay Saç Ekim Merkezi</strong>'ni tercih etmektedir. <strong>Urfa'dan Gaziantep'e saç ekimine gidenler</strong> arasında en büyük tercih sebebi, yüksek cerrahi teknoloji ve doğal ön çizgi başarısıdır.</p>
 
     <h3>Neden Şanlıurfa Saç Ekim Merkezleri Yerine Gaziantep?</h3>
-    <p>Gaziantep merkez kliniğimizde Saç Ekim Uzmanı Elif Ay liderliğinde;
+    <p>Gaziantep merkez kliniğimizde Saç Ekim Koordinatörü ve Danışmanı Elif Ay öncülüğünde;
     <ul>
       <li>İğnesiz ve ağrısız lokal anesteziyle sıfır acı garantisi</li>
       <li>Safir FUE ve DHI Choi implanter kalemleri ile maksimum sıklık</li>
@@ -169,7 +169,7 @@ updateArticle('gaziantep-sakal-ekimi-ve-koselik-tedavisi', {
 updateArticle('gaziantep-sac-ekimi-tavsiye-ve-kullanici-yorumlari', {
   contentHtml: `
     <h2>Gaziantep Saç Ekimi Tavsiye ve Kullanıcı Deneyimleri</h2>
-    <p>Saç ekimi kararı alırken en önemli referans kaynağı, daha önce operasyon geçirmiş hastaların deneyimleridir. <strong>Gaziantep saç ekimi tavsiye</strong> başlıkları altında <em>Kadınlar Kulübü</em>, <em>Ekşi Sözlük</em> ve bağımsız hasta forumlarında kliniğimiz ve Saç Ekim Uzmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a> hakkında paylaşılan geri bildirimler yüksek memnuniyet oranını ortaya koymaktadır.</p>
+    <p>Saç ekimi kararı alırken en önemli referans kaynağı, daha önce operasyon geçirmiş hastaların deneyimleridir. <strong>Gaziantep saç ekimi tavsiye</strong> başlıkları altında <em>Kadınlar Kulübü</em>, <em>Ekşi Sözlük</em> ve bağımsız hasta forumlarında kliniğimiz ve Saç Ekim Koordinatörü ve Danışmanı <a href="#specialist" class="text-gold hover:underline font-medium">Elif Ay</a> hakkında paylaşılan geri bildirimler yüksek memnuniyet oranını ortaya koymaktadır.</p>
 
     <h3>Urfa'dan Gaziantep'e Saç Ekimine Gidenlerin Deneyimleri</h3>
     <p><strong>Urfa'dan Gaziantep'e saç ekimine gidenler</strong> için mesafe yalnızca 1.5 saattir. Danışanlarımız yerel sınırlı imkanlar yerine, Gaziantep'te tam donanımlı ameliyathane koşullarında Safir FUE ve DHI yöntemleriyle operasyon olmanın getirdiği konforu öne çıkarmaktadır. Kliniğimizin merkezi konumu ve uzaktan WhatsApp analizi sayesinde süreç stressiz ve günübirlik şekilde tamamlanmaktadır.</p>

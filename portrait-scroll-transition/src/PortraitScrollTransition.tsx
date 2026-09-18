@@ -14,7 +14,7 @@ export interface PortraitScrollTransitionProps {
 
 /** One portrait moves between two measured anchors. No duplicate moving images,
  * pinned screens, wheel interception, or timers driving the transition. */
-export function PortraitScrollTransition({ name = 'Elif Ay', title = 'Saç ekim uzmanı', portraitSrc, portraitPosition = '50% 35%', className = '' }: PortraitScrollTransitionProps) {
+export function PortraitScrollTransition({ name = 'Elif Ay', title = 'Saç Ekim Koordinatörü ve Danışmanı', portraitSrc, portraitPosition = '50% 35%', className = '' }: PortraitScrollTransitionProps) {
   const root = useRef<HTMLDivElement>(null);
   const start = useRef<HTMLSpanElement>(null);
   const end = useRef<HTMLDivElement>(null);

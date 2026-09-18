@@ -95,7 +95,7 @@ function main() {
           'performer': {
             '@type': 'Person',
             'name': 'Elif Ay',
-            'jobTitle': 'Saç Ekim Uzmanı',
+            'jobTitle': 'Saç Ekim Koordinatörü ve Danışmanı',
             'url': `${BASE_URL}/#specialist`
           },
           'offers': {
@@ -285,7 +285,7 @@ function main() {
           'author': {
             '@type': 'Person',
             'name': 'Elif Ay',
-            'jobTitle': 'Saç Ekim Uzmanı',
+            'jobTitle': 'Saç Ekim Koordinatörü ve Danışmanı',
             'url': `${BASE_URL}/#specialist`
           },
           'publisher': {
@@ -401,9 +401,9 @@ function main() {
               <h1 class="article-main-title">${escapeHtml(article.title)}</h1>
               <div class="article-meta-row">
                 <div class="article-author-chip">
-                  <img src="/elif-ay-portrait.jpg" alt="Saç Ekim Uzmanı Elif Ay" width="38" height="38" />
+                  <img src="/elif-ay-portrait.jpg" alt="Saç Ekim Koordinatörü ve Danışmanı Elif Ay" width="38" height="38" />
                   <div>
-                    <span class="article-author-name">Saç Ekim Uzmanı Elif Ay</span>
+                    <span class="article-author-name">Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
                     <span class="article-author-role">12+ Yıl Klinik Deneyim • Gold FUE</span>
                   </div>
                 </div>
@@ -420,7 +420,7 @@ function main() {
             </div>
             <div class="article-inline-cta">
               <p class="article-inline-cta-kicker">UZMAN DOKUNUŞU & ÜCRETSİZ DEĞERLENDİRME</p>
-              <h3>Bu Konuda Saç Ekim Uzmanı Elif Ay'dan Doğrudan Görüş Alın</h3>
+              <h3>Bu Konuda Saç Ekim Koordinatörü ve Danışmanı Elif Ay'dan Doğrudan Görüş Alın</h3>
               <p>Saç fotoğraflarınızı WhatsApp üzerinden ileterek durumunuza özel greft analizi ve kişiselleştirilmiş tedavi planınızı 15 dakika içinde ücretsiz öğrenebilirsiniz.</p>
               <div class="article-inline-cta-actions">
                 <a class="article-cta-btn-wa" href="https://wa.me/905364916040">WhatsApp ile Fotoğraf Gönder & Bilgi Al</a>
@@ -555,7 +555,7 @@ function main() {
           <div class="blog-card-footer">
             <div class="blog-card-author">
               <img src="/elif-ay-portrait.jpg" alt="Elif Ay" width="28" height="28" />
-              <span>Saç Ekim Uzmanı Elif Ay</span>
+              <span>Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
             </div>
             <a href="/bilgi-bankasi/${art.slug}" class="blog-read-btn">
               Rehberi Oku <span aria-hidden="true">→</span>

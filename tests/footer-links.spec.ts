@@ -12,20 +12,20 @@ test('footer faq links are connected to real articles and navigate to dedicated 
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
   await page.waitForTimeout(400);
 
-  // Check footer FAQ link for Istanbul best hair transplant center
-  const faqLink = page.locator('.seo-block').filter({ hasText: 'SIK SORULAN SORULAR' }).locator('a', { hasText: 'İstanbul en iyi saç ekim merkezi nasıl seçilir?' });
+  // Check footer FAQ link for Gaziantep best hair transplant center
+  const faqLink = page.locator('.seo-block').filter({ hasText: /SIK(ÇA)? SORULAN SORULAR/i }).locator('a', { hasText: 'Gaziantep en iyi saç ekim merkezi nasıl seçilir?' });
   await expect(faqLink).toBeVisible();
-  await expect(faqLink).toHaveAttribute('href', '/bilgi-bankasi/istanbul-en-iyi-sac-ekim-merkezi-nasil-secilir');
+  await expect(faqLink).toHaveAttribute('href', '/bilgi-bankasi/gaziantep-en-iyi-sac-ekim-merkezi-nasil-secilir');
 
   // Click the FAQ link
   await faqLink.click();
   await page.waitForTimeout(600);
 
   // Verify URL and dedicated article page
-  expect(page.url()).toContain('/bilgi-bankasi/istanbul-en-iyi-sac-ekim-merkezi-nasil-secilir');
-  await expect(page.locator('h1.article-main-title')).toContainText('İstanbul en iyi saç ekim merkezi nasıl seçilir?');
+  expect(page.url()).toContain('/bilgi-bankasi/gaziantep-en-iyi-sac-ekim-merkezi-nasil-secilir');
+  await expect(page.locator('h1.article-main-title')).toContainText('Gaziantep En İyi Saç Ekim Merkezi Nasıl Seçilir?');
   await expect(page.locator('.article-breadcrumbs')).toContainText('Sıkça Sorulan Sorular');
-  await expect(page.locator('.article-author-chip')).toContainText('Saç Ekim Uzmanı Elif Ay');
+  await expect(page.locator('.article-author-chip')).toContainText('Saç Ekim Koordinatörü ve Danışmanı Elif Ay');
 });
 
 test('footer regional links open corresponding city guides on dedicated URL', async ({ page }) => {

@@ -28,7 +28,7 @@ export const GALLERY_SLIDES_I18N: Record<Language, GallerySlide[]> = {
       title: 'Her Detayda Bireysel İlgi ve Estetik Vizyon',
       description:
         'Saç ekimi yalnızca bir cerrahi işlem değil, yüz simetrisi ve mimiklere uygun bir doku sanatıdır. Elif Ay, donör alan analizinden ekim aşamasına kadar tüm süreci bizzat sizinle planlar.',
-      metrics: ['15+ Yıl Klinik Deneyim', 'Gold FUE & DHI Uzmanlığı', 'Birebir Uzman Danışmanlığı'],
+      metrics: ['15+ Yıl Klinik Deneyim', 'Gold FUE & DHI Protokolleri', 'Birebir Koordinatör Danışmanlığı'],
     },
     {
       id: 'clinic-environment',
@@ -73,8 +73,8 @@ export const GALLERY_SLIDES_I18N: Record<Language, GallerySlide[]> = {
       kicker: 'FACE-TO-FACE PLANNING WITH ELIF AY',
       title: 'Individual Attention & Aesthetic Vision',
       description:
-        'Hair restoration is an artistic blend of facial harmony, donor dynamics, and surgical precision. Specialist Elif Ay plans every single stage directly with you.',
-      metrics: ['15+ Years Clinical Experience', 'Gold FUE & DHI Expertise', 'Direct Specialist Consultation'],
+        'Hair restoration is an artistic blend of facial harmony, donor dynamics, and surgical precision. Hair Transplant Coordinator & Consultant Elif Ay plans every single stage directly with you.',
+      metrics: ['15+ Years Clinical Experience', 'Gold FUE & DHI Protocols', 'Direct Coordinator Consultation'],
     },
     {
       id: 'clinic-environment',
@@ -116,7 +116,7 @@ export const GALLERY_SLIDES_I18N: Record<Language, GallerySlide[]> = {
       image: '/gallery/elif-ay-portrait-yellow.webp',
       tag: '01 · لمسة تخصصية',
       badge: 'عناية فردية مخصصة',
-      kicker: 'تخطيط مباشر مع الأخصائية إليف آي',
+      kicker: 'تخطيط مباشر مع منسقة ومستشارة زراعة الشعر إليف آي',
       title: 'اهتمام شخصي ورؤية جمالية في كل تفصيل',
       description:
         'زراعة الشعر فن دقيق يعتمد على تناسق ملامح الوجه وحيوية البصيلات. تقوم الأخصائية إليف آي بتخطيط كل خطوة مباشرة معكم.',
@@ -165,7 +165,7 @@ export const GALLERY_SLIDES_I18N: Record<Language, GallerySlide[]> = {
       kicker: 'PERSÖNLICHE PLANUNG MIT ELIF AY',
       title: 'Persönliche Betreuung und ästhetische Vision',
       description:
-        'Haartransplantation ist die Verbindung aus Gesichtssymmetrie und chirurgischer Präzision. Spezialistin Elif Ay plant jeden Schritt direkt mit Ihnen.',
+        'Haartransplantation ist die Verbindung aus Gesichtssymmetrie und chirurgischer Präzision. Haartransplantations-Koordinatorin & Beraterin Elif Ay plant jeden Schritt direkt mit Ihnen.',
       metrics: ['15+ Jahre Klinikerfahrung', 'Gold FUE & DHI Spezialisierung', 'Persönliche Beratung'],
     },
     {

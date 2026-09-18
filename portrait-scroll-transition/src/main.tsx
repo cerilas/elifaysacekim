@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')!).render(
     <main>
       <PortraitScrollTransition
         name="Elif Ay"
-        title="Saç ekim uzmanı"
+        title="Saç Ekim Koordinatörü ve Danışmanı"
         portraitSrc="/gallery/elif-ay-clinic-standing.webp"
         portraitPosition="50% 30%"
       />

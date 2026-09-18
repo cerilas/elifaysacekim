@@ -66,7 +66,7 @@ const BLOG_I18N = {
   tr: {
     badge: 'UZMAN SAÇ RESTORASYONU VE MEDİKAL REHBER',
     title: 'Gaziantep Saç Ekimi Rehberi, Makaleler ve Bilgi Bankası',
-    lead: "Saç ekimi cerrahisinde doğru bilgi en önemli adımdır. Safir FUE ve DHI yöntemlerinden operasyon sonrası şok dökülme evrelerine, greft sağlığından 2026 saç ekimi fiyatlarına kadar tüm merak edilenleri Saç Ekim Uzmanı Elif Ay'ın klinik deneyimiyle hazırlanan kapsamlı rehberlerimizde keşfedin.",
+    lead: "Saç ekimi cerrahisinde doğru bilgi en önemli adımdır. Safir FUE ve DHI yöntemlerinden operasyon sonrası şok dökülme evrelerine, greft sağlığından 2026 saç ekimi fiyatlarına kadar tüm merak edilenleri Saç Ekim Koordinatörü ve Danışmanı Elif Ay'ın klinik deneyimiyle hazırlanan kapsamlı rehberlerimizde keşfedin.",
     placeholder: 'Konu, şehir veya yöntem arayın (Örn: Safir FUE, DHI, 3000 greft, Şanlıurfa, Sakal ekimi...)',
     resultsCount: (filtered: number, total: number, page: number, totalPages: number) =>
       `${filtered} makale listeleniyor (Toplam ${total} içerik) · Sayfa ${page} / ${totalPages}`,
@@ -77,7 +77,7 @@ const BLOG_I18N = {
     prevPage: '← Önceki',
     nextPage: 'Sonraki →︎',
     metaTitle: 'Saç Ekimi Rehberi ve Bilgi Bankası | Elif Ay Saç Ekim Merkezi Gaziantep',
-    metaDesc: 'Gaziantep saç ekimi fiyatları 2026, Safir FUE, DHI Choi kalemi, kadınlarda saç ve kaş ekimi ile şok dökülme evreleri hakkında Saç Ekim Uzmanı Elif Ay tarafından hazırlanan kapsamlı medikal rehber.',
+    metaDesc: 'Gaziantep saç ekimi fiyatları 2026, Safir FUE, DHI Choi kalemi, kadınlarda saç ve kaş ekimi ile şok dökülme evreleri hakkında Saç Ekim Koordinatörü ve Danışmanı Elif Ay tarafından hazırlanan kapsamlı medikal rehber.',
     breadcrumbsHome: 'Ana Sayfa',
     breadcrumbsBlog: 'Bilgi Bankası & Blog',
     topicChips: [
@@ -92,7 +92,7 @@ const BLOG_I18N = {
   en: {
     badge: 'SPECIALIST HAIR RESTORATION & MEDICAL GUIDE',
     title: 'Hair Transplant Guide, Clinical Articles & Knowledge Base',
-    lead: 'Accurate clinical insights are the cornerstone of successful hair restoration. Explore comprehensive medical guides on Sapphire FUE, DHI implanter pens, shock loss timelines, graft survival, and 2026 hair transplant pricing authored by Hair Specialist Elif Ay.',
+    lead: 'Accurate clinical insights are the cornerstone of successful hair restoration. Explore comprehensive medical guides on Sapphire FUE, DHI implanter pens, shock loss timelines, graft survival, and 2026 hair transplant pricing authored by Hair Transplant Coordinator & Consultant Elif Ay.',
     placeholder: 'Search topic, city or technique (e.g. Sapphire FUE, DHI, 3000 grafts, recovery...)',
     resultsCount: (filtered: number, total: number, page: number, totalPages: number) =>
       `${filtered} articles listed (${total} total) · Page ${page} of ${totalPages}`,
@@ -103,7 +103,7 @@ const BLOG_I18N = {
     prevPage: '← Previous',
     nextPage: 'Next →︎',
     metaTitle: 'Hair Restoration Guide & Knowledge Base | Elif Ay Gaziantep',
-    metaDesc: 'Comprehensive clinical guide on Sapphire FUE, DHI techniques, shock loss recovery, and 2026 hair transplant costs by Hair Restoration Specialist Elif Ay in Gaziantep.',
+    metaDesc: 'Comprehensive clinical guide on Sapphire FUE, DHI techniques, shock loss recovery, and 2026 hair transplant costs by Hair Transplant Coordinator & Consultant Elif Ay in Gaziantep.',
     breadcrumbsHome: 'Home',
     breadcrumbsBlog: 'Knowledge Base & Blog',
     topicChips: [
@@ -118,7 +118,7 @@ const BLOG_I18N = {
   ar: {
     badge: 'دليل استعادة الشعر التخصصي وبنك المعلومات الطبي',
     title: 'دليل زراعة الشعر، المقالات الطبية وبنك المعلومات',
-    lead: 'المعلومة الطبية الدقيقة هي الخطوة الأولى نحو نتائج طبيعية تدوم مدى الحياة. استكشف أدلتنا التخصصية حول تقنيات السفير وDHI، ومراحل تساقط الصدمة، ونمو البصيلات وأسعار زراعة الشعر بإشراف الأخصائية إليف آي.',
+    lead: 'المعلومة الطبية الدقيقة هي الخطوة الأولى نحو نتائج طبيعية تدوم مدى الحياة. استكشف أدلتنا التخصصية حول تقنيات السفير وDHI، ومراحل تساقط الصدمة، ونمو البصيلات وأسعار زراعة الشعر بإشراف منسقة ومستشارة زراعة الشعر إليف آي.',
     placeholder: 'ابحث عن موضوع أو مدينة أو تقنية (مثال: سفير، DHI، 3000 بصيلة، أسعار...)',
     resultsCount: (filtered: number, total: number, page: number, totalPages: number) =>
       `تم العثور على ${filtered} مقال (إجمالي ${total}) · صفحة ${page} من ${totalPages}`,
@@ -129,7 +129,7 @@ const BLOG_I18N = {
     prevPage: '← السابق',
     nextPage: 'التالي →︎',
     metaTitle: 'دليل زراعة الشعر وبنك المعلومات الطبي | عيادة إليف آي غازي عنتاب',
-    metaDesc: 'دليل طبي شامل حول زراعة الشعر بتقنيات السفير وDHI ومراحل التعافي والأسعار بإشراف الأخصائية إليف آي في غازي عنتاب.',
+    metaDesc: 'دليل طبي شامل حول زراعة الشعر بتقنيات السفير وDHI ومراحل التعافي والأسعار بإشراف منسقة ومستشارة زراعة الشعر إليف آي في غازي عنتاب.',
     breadcrumbsHome: 'الرئيسية',
     breadcrumbsBlog: 'بنك المعلومات والمدونة',
     topicChips: [
@@ -143,7 +143,7 @@ const BLOG_I18N = {
   de: {
     badge: 'FACHRATGEBER FÜR HAARRESTORATION & KLINISCHE LEITFÄDEN',
     title: 'Haartransplantation Ratgeber, Fachartikel & Wissensdatenbank',
-    lead: 'Fundierte medizinische Informationen sind der Schlüssel zu natürlichem und dauerhaftem Haarwuchs. Entdecken Sie umfassende Leitfäden zu Saphir FUE, DHI Choi-Methode, Schockausfall-Phasen und aktuellen Kosten, verfasst von Haarspezialistin Elif Ay.',
+    lead: 'Fundierte medizinische Informationen sind der Schlüssel zu natürlichem und dauerhaftem Haarwuchs. Entdecken Sie umfassende Leitfäden zu Saphir FUE, DHI Choi-Methode, Schockausfall-Phasen und aktuellen Kosten, verfasst von Haartransplantations-Koordinatorin & Beraterin Elif Ay.',
     placeholder: 'Thema, Stadt oder Technik suchen (z. B. Saphir FUE, DHI, 3000 Grafts, Kosten...)',
     resultsCount: (filtered: number, total: number, page: number, totalPages: number) =>
       `${filtered} Artikel gelistet (${total} gesamt) · Seite ${page} von ${totalPages}`,
@@ -154,7 +154,7 @@ const BLOG_I18N = {
     prevPage: '← Zurück',
     nextPage: 'Weiter →︎',
     metaTitle: 'Haartransplantation Ratgeber & Wissensdatenbank | Elif Ay Gaziantep',
-    metaDesc: 'Umfassender Ratgeber zu Saphir FUE, DHI, Heilungsphasen und Kosten für Haartransplantationen in der Klinik von Elif Ay.',
+    metaDesc: 'Umfassender Ratgeber zu Saphir FUE, DHI, Heilungsphasen und Kosten für Haartransplantationen unter der Leitung von Haartransplantations-Koordinatorin & Beraterin Elif Ay in Gaziantep.',
     breadcrumbsHome: 'Startseite',
     breadcrumbsBlog: 'Wissensdatenbank & Blog',
     topicChips: [

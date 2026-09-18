@@ -87,7 +87,7 @@ export const KB_I18N = {
     badge: 'KLİNİK REHBERİ & GAZİANTEP SAÇ EKİMİ BİLGİ BANKASI',
     stats: (n: number) => `TOPLAM ${n} BİLİMSEL VE UZMAN İÇERİK`,
     title: <>Gaziantep Saç Ekimi Rehberi &amp;<br /><em>Uzman Görüşleri.</em></>,
-    lead: "Gaziantep saç ekimi fiyatları 2026, Safir FUE و DHI yöntemleri, köselik tedavisi sakal ekimi, kadınlarda kaş ekimi ve şok dökülme evreleri; Saç Ekim Uzmanı Elif Ay'ın deneyimiyle aydınlanıyor.",
+    lead: "Gaziantep saç ekimi fiyatları 2026, Safir FUE ve DHI yöntemleri, köselik tedavisi sakal ekimi, kadınlarda kaş ekimi ve şok dökülme evreleri; Saç Ekim Koordinatörü ve Danışmanı Elif Ay'ın deneyimiyle aydınlanıyor.",
     placeholder: 'Konu, şehir veya yöntem arayın (Örn: Gaziantep saç ekimi fiyatları, Şanlıurfa, DHI, Sakal ekimi, 3000 greft...)',
     resultsCount: (n: number) => `${n} makale listeleniyor`,
     noArticles: 'Aradığınız kriterlere uygun makale bulunamadı',
@@ -579,7 +579,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
                 <div className="article-modal-meta">
                   <div className="author-badge">
                     <img src="/elif-ay-portrait.jpg" alt="Elif Ay" />
-                    <span>Saç Ekim Uzmanı Elif Ay</span>
+                    <span>Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
                   </div>
                   <span>•</span>
                   <span>{getReadingTime(selectedArticle.contentHtml)}</span>
@@ -609,7 +609,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
               <div className="article-modal-cta">
                 <h3>Kişiselleştirilmiş Saç Analizi Almak İster Misiniz?</h3>
                 <p>
-                  Saç Ekim Uzmanı Elif Ay ile doğrudan ön görüşme yapın. Greft ihtiyacınızı ve size özel 
+                  Saç Ekim Koordinatörü ve Danışmanı Elif Ay ile doğrudan ön görüşme yapın. Greft ihtiyacınızı ve size özel 
                   doğal saç çizgisi planlamanızı birlikte değerlendirelim.
                 </p>
                 <div className="modal-cta-actions">

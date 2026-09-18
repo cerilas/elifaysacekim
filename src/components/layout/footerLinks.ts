@@ -44,7 +44,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     bannerTitleMain: 'Gaziantep Saç Ekimi Fiyatları &',
     bannerTitleEm: 'Ücretsiz Greft Analizi.',
     bannerDesc:
-      "Gaziantep, çevre iller ve yurt dışından gelen hastalarımız için: Saç veya sakal fotoğraflarınızı WhatsApp üzerinden ileterek Saç Ekim Uzmanı Elif Ay'dan 15 dakika içinde 3000-5000 greft ihtiyacınızı ve şeffaf paket fiyatını öğrenin.",
+      "Gaziantep, çevre iller ve yurt dışından gelen hastalarımız için: Saç veya sakal fotoğraflarınızı WhatsApp üzerinden ileterek Saç Ekim Koordinatörü ve Danışmanı Elif Ay'dan 15 dakika içinde 3000-5000 greft ihtiyacınızı ve şeffaf paket fiyatını öğrenin.",
     bannerWa: 'WhatsApp ile Fotoğraf Gönder & Ücretsiz Analiz Al',
     bannerWaMsg:
       'Merhaba, saç fotoğraflarımı gönderip Gaziantep saç ekimi için ücretsiz greft analizi ve fiyat bilgisi almak istiyorum.',
@@ -79,7 +79,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     bannerTitleMain: 'Gaziantep Hair Transplant Prices &',
     bannerTitleEm: 'Free Graft Analysis.',
     bannerDesc:
-      'For patients from Turkey and abroad: Send your hair or beard photos via WhatsApp to receive a detailed 3,000–5,000 graft assessment and transparent all-inclusive quote from Specialist Elif Ay within 15 minutes.',
+      'For patients from Turkey and abroad: Send your hair or beard photos via WhatsApp to receive a detailed 3,000–5,000 graft assessment and transparent all-inclusive quote from Hair Transplant Coordinator & Consultant Elif Ay within 15 minutes.',
     bannerWa: 'Send Photos via WhatsApp & Get Free Analysis',
     bannerWaMsg:
       'Hello, I would like to send my hair photos to receive a free graft analysis and price details for hair transplantation in Gaziantep.',
@@ -114,7 +114,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     bannerTitleMain: 'أسعار زراعة الشعر في غازي عنتاب &',
     bannerTitleEm: 'وتحليل مجاني للبصيلات.',
     bannerDesc:
-      'لكافة مرضانا من تركيا ومختلف دول العالم: أرسل صور شعرك أو لحيتك عبر واتساب لتلقي تحليل مفصل للبصيلات (3000-5000 بصيلة) وعرض سعر شامل وشفاف من الأخصائية إليف آي خلال 15 دقيقة.',
+      'لكافة مرضانا من تركيا ومختلف دول العالم: أرسل صور شعرك أو لحيتك عبر واتساب لتلقي تحليل مفصل للبصيلات (3000-5000 بصيلة) وعرض سعر شامل وشفاف من منسقة ومستشارة زراعة الشعر إليف آي خلال 15 دقيقة.',
     bannerWa: 'أرسل الصور عبر واتساب واحصل على تحليل مجاني',
     bannerWaMsg:
       'مرحباً، أود إرسال صور شعري للحصول على تحليل مجاني وعرض سعر لزراعة الشعر في غازي عنتاب.',
@@ -149,7 +149,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     bannerTitleMain: 'Haartransplantation Preise Gaziantep &',
     bannerTitleEm: 'Kostenlose Graft-Analyse.',
     bannerDesc:
-      'Für Patienten aus der Region und dem Ausland: Senden Sie Ihre Fotos bequem per WhatsApp und erhalten Sie innerhalb von 15 Minuten eine Analyse von 3.000–5.000 Grafts und ein transparentes Angebot von Spezialistin Elif Ay.',
+      'Für Patienten aus der Region und dem Ausland: Senden Sie Ihre Fotos bequem per WhatsApp und erhalten Sie innerhalb von 15 Minuten eine Analyse von 3.000–5.000 Grafts und ein transparentes Angebot von Haartransplantations-Koordinatorin & Beraterin Elif Ay.',
     bannerWa: 'Fotos per WhatsApp senden & Gratis-Analyse erhalten',
     bannerWaMsg:
       'Hallo, ich möchte Fotos senden, um eine kostenlose Haartransplantations-Analyse und Preise für Gaziantep zu erhalten.',

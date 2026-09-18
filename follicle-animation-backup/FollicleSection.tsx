@@ -217,7 +217,7 @@ export function FollicleSection({
             <div className="ht-avatar-wrapper">
               <img
                 src="/elif-ay-portrait.jpg"
-                alt="Saç Ekim Uzmanı Elif Ay"
+                alt="Saç Ekim Koordinatörü ve Danışmanı Elif Ay"
                 className="ht-avatar-img"
               />
             </div>

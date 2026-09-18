@@ -43,12 +43,12 @@ export function SiteHeader({
   };
 
   const brandSubtitle = currentLang === 'en'
-    ? 'HAIR TRANSPLANT CENTER'
+    ? 'HAIR TRANSPLANT COORDINATOR & CONSULTANT'
     : currentLang === 'ar'
-    ? 'مركز زراعة الشعر'
+    ? 'منسقة ومستشارة زراعة الشعر'
     : currentLang === 'de'
-    ? 'HAARTRANSPLANTATIONSZENTRUM'
-    : 'SAÇ EKİM MERKEZİ';
+    ? 'HAARTRANSPLANTATIONS-KOORDINATORIN & BERATERIN'
+    : 'SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI';
 
   return (
     <div className={`site-header-wrapper ${isSubpage ? 'site-header-wrapper--subpage' : ''}`}>
@@ -64,7 +64,7 @@ export function SiteHeader({
         className="wordmark"
         href={isSubpage ? '/' : '#top'}
         onClick={(e) => handleLinkClick(e, '/')}
-        aria-label="Elif Ay home"
+        aria-label="Elif Ay - Saç Ekim Koordinatörü ve Danışmanı"
       >
         <span className="brand-symbol" aria-hidden="true">
           <i />

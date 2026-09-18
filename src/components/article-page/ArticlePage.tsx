@@ -250,7 +250,7 @@ export function ArticlePage({
             </span>
             ELİF AY
           </a>
-          <span className="article-brand-badge">SAÇ EKİM MERKEZİ</span>
+          <span className="article-brand-badge">SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI</span>
         </div>
 
         <div className="header-actions">

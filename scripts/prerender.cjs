@@ -374,7 +374,7 @@ function main() {
               <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
               ELİF AY
             </a>
-            <span class="article-brand-badge">SAÇ EKİM MERKEZİ</span>
+            <span class="article-brand-badge">SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI</span>
           </div>
           <div class="header-actions">
             <a class="header-icon-btn header-phone-btn" href="tel:+905364916040" aria-label="Telefonla ara: 0 536 491 60 40">
@@ -574,7 +574,7 @@ function main() {
             <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
             ELİF AY
           </a>
-          <span class="blog-brand-badge">SAÇ EKİM MERKEZİ</span>
+          <span class="blog-brand-badge">SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI</span>
         </div>
         <div class="header-actions">
           <a class="header-icon-btn header-phone-btn" href="tel:+905364916040" aria-label="Telefonla ara: 0 536 491 60 40">

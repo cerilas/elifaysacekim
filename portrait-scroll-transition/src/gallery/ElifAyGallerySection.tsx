@@ -193,7 +193,7 @@ export function ElifAyGallerySection({
             </h2>
           </div>
           <div className="gallery-header-right">
-            <span className="gallery-brand-sub">ELİF AY SAÇ EKİM MERKEZİ</span>
+            <span className="gallery-brand-sub">ELİF AY - SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI</span>
             <span className="gallery-brand-note">
               Operasyon odalarımız, ön çizgi planlamamız ve doku uygulamalarımızın gerçek klinik kareleri.
             </span>

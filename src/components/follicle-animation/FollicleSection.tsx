@@ -179,10 +179,10 @@ export function FollicleSection({
   };
 
   const wordmarkSubs: Record<Language, string> = {
-    tr: 'SAÇ EKİM MERKEZİ',
-    en: 'HAIR RESTORATION CENTER',
-    ar: 'مركز زراعة الشعر',
-    de: 'HAARTRANSPLANTATIONS-ZENTRUM',
+    tr: 'SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI',
+    en: 'HAIR TRANSPLANT COORDINATOR & CONSULTANT',
+    ar: 'منسقة ومستشارة زراعة الشعر',
+    de: 'HAARTRANSPLANTATIONS-KOORDINATORIN & BERATERIN',
   };
 
   const kickers: Record<Language, string> = {

@@ -579,7 +579,7 @@ export function KnowledgeBaseSection({ onNavigate, currentLang = 'tr' }: Knowled
                 <div className="article-modal-meta">
                   <div className="author-badge">
                     <img src="/elif-ay-portrait.jpg" alt="Elif Ay" />
-                    <span>Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
+                    <span>Saç Ekim Koordinatörü Elif Ay</span>
                   </div>
                   <span>•</span>
                   <span>{getReadingTime(selectedArticle.contentHtml)}</span>

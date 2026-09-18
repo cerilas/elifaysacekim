@@ -401,9 +401,9 @@ function main() {
               <h1 class="article-main-title">${escapeHtml(article.title)}</h1>
               <div class="article-meta-row">
                 <div class="article-author-chip">
-                  <img src="/elif-ay-portrait.jpg" alt="Saç Ekim Koordinatörü ve Danışmanı Elif Ay" width="38" height="38" />
+                  <img src="/elif-ay-portrait.jpg" alt="Saç Ekim Koordinatörü Elif Ay" width="38" height="38" />
                   <div>
-                    <span class="article-author-name">Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
+                    <span class="article-author-name">Saç Ekim Koordinatörü Elif Ay</span>
                     <span class="article-author-role">12+ Yıl Klinik Deneyim • Gold FUE</span>
                   </div>
                 </div>
@@ -555,7 +555,7 @@ function main() {
           <div class="blog-card-footer">
             <div class="blog-card-author">
               <img src="/elif-ay-portrait.jpg" alt="Elif Ay" width="28" height="28" />
-              <span>Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
+              <span>Saç Ekim Koordinatörü Elif Ay</span>
             </div>
             <a href="/bilgi-bankasi/${art.slug}" class="blog-read-btn">
               Rehberi Oku <span aria-hidden="true">→</span>

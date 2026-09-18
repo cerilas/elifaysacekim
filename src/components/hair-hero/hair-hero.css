@@ -178,7 +178,7 @@
   .hh-actions {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     gap: 8px;
     width: 100%;
@@ -193,7 +193,9 @@
     justify-content: center;
   }
   .hh-mini-profile {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    max-width: 100%;
+    min-width: 0;
     gap: 8px;
     padding: 3px 12px 3px 3px;
     min-height: 44px;
@@ -204,13 +206,24 @@
     height: 36px;
     flex: 0 0 36px;
   }
+  .hh-mini-profile-info {
+    min-width: 0;
+    overflow: hidden;
+  }
   .hh-mini-profile-info strong {
     font-size: 11px;
     line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .hh-mini-profile-info span {
     font-size: 8.5px;
     letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
   }
   .hh-mini-profile-arrow {
     display: none;

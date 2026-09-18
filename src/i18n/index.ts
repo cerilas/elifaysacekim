@@ -109,7 +109,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     themeToggleLight: 'Açık temaya geç',
     themeToggleMed: 'Medikal temaya geç (Med)',
     clinicTagline: 'Doğal Çizgi. Hassas Planlama. Kalıcı Sonuç.',
-    expertTitle: 'Saç Ekim Koordinatörü ve Danışmanı',
+    expertTitle: 'Saç Ekim Koordinatörü',
     gaziantepCenter: 'Gaziantep Merkez & Çevre İllerden Kolay Ulaşım',
     allRightsReserved: 'Tüm hakları saklıdır.',
 
@@ -128,7 +128,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bottomCtaBtn: 'Hemen Analiz Başlatın',
 
     readingTimeSuffix: 'dk okuma',
-    articleAuthorLabel: 'Saç Ekim Koordinatörü ve Danışmanı',
+    articleAuthorLabel: 'Saç Ekim Koordinatörü',
     articleShare: 'Paylaş',
     articleRelated: 'İlgili Klinik Rehberleri',
     articleBackToKnowledge: 'Tüm Makalelere Dön',
@@ -153,7 +153,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     themeToggleLight: 'Switch to light theme',
     themeToggleMed: 'Switch to medical theme (Med)',
     clinicTagline: 'Natural Hairline. Precision Planning. Permanent Results.',
-    expertTitle: 'Hair Transplant Coordinator & Consultant',
+    expertTitle: 'Hair Transplant Coordinator',
     gaziantepCenter: 'Gaziantep Central Clinic & Regional Access',
     allRightsReserved: 'All rights reserved.',
 
@@ -172,7 +172,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bottomCtaBtn: 'Start Free Analysis Now',
 
     readingTimeSuffix: 'min read',
-    articleAuthorLabel: 'Hair Transplant Coordinator & Consultant',
+    articleAuthorLabel: 'Hair Transplant Coordinator',
     articleShare: 'Share',
     articleRelated: 'Related Clinical Guides',
     articleBackToKnowledge: 'Back to Knowledge Base',
@@ -197,7 +197,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     themeToggleLight: 'الوضع الفاتح',
     themeToggleMed: 'الوضع الطبي (Med)',
     clinicTagline: 'خط شعر طبيعي. تخطيط دقيق. نتائج دائمة.',
-    expertTitle: 'منسقة ومستشارة زراعة الشعر',
+    expertTitle: 'منسقة زراعة الشعر',
     gaziantepCenter: 'مركز غازي عنتاب وسهولة الوصول من المدن المجاورة',
     allRightsReserved: 'جميع الحقوق محفوظة.',
 
@@ -216,7 +216,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bottomCtaBtn: 'ابدأ التحليل المجاني الآن',
 
     readingTimeSuffix: 'دقائق قراءة',
-    articleAuthorLabel: 'منسقة ومستشارة زراعة الشعر',
+    articleAuthorLabel: 'منسقة زراعة الشعر',
     articleShare: 'مشاركة',
     articleRelated: 'أدلة إكلينيكية ذات صلة',
     articleBackToKnowledge: 'العودة لبنك المعلومات',
@@ -241,7 +241,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     themeToggleLight: 'Helles Design',
     themeToggleMed: 'Medizinisches Design (Med)',
     clinicTagline: 'Natürlicher Haaransatz. Präzise Planung. Dauerhafte Ergebnisse.',
-    expertTitle: 'Haartransplantations-Koordinatorin & Beraterin',
+    expertTitle: 'Haartransplantations-Koordinatorin',
     gaziantepCenter: 'Gaziantep Zentralklinik & Regionale Anbindung',
     allRightsReserved: 'Alle Rechte vorbehalten.',
 
@@ -260,7 +260,7 @@ export const TRANSLATIONS: Record<Language, Translations> = {
     bottomCtaBtn: 'Kostenlose Analyse starten',
 
     readingTimeSuffix: 'Min. Lesezeit',
-    articleAuthorLabel: 'Haartransplantations-Koordinatorin & Beraterin',
+    articleAuthorLabel: 'Haartransplantations-Koordinatorin',
     articleShare: 'Teilen',
     articleRelated: 'Verwandte Ratgeber',
     articleBackToKnowledge: 'Zurück zur Wissensdatenbank',

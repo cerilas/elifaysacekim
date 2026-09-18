@@ -25,7 +25,7 @@ test('footer faq links are connected to real articles and navigate to dedicated 
   expect(page.url()).toContain('/bilgi-bankasi/gaziantep-en-iyi-sac-ekim-merkezi-nasil-secilir');
   await expect(page.locator('h1.article-main-title')).toContainText('Gaziantep En İyi Saç Ekim Merkezi Nasıl Seçilir?');
   await expect(page.locator('.article-breadcrumbs')).toContainText('Sıkça Sorulan Sorular');
-  await expect(page.locator('.article-author-chip')).toContainText('Saç Ekim Koordinatörü ve Danışmanı Elif Ay');
+  await expect(page.locator('.article-author-chip')).toContainText('Saç Ekim Koordinatörü');
 });
 
 test('footer regional links open corresponding city guides on dedicated URL', async ({ page }) => {

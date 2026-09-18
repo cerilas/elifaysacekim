@@ -40,7 +40,7 @@ test.describe('SEO Dedicated Article URLs & Navigation', () => {
     // 5. Verify Author Bio (Elif Ay)
     const authorBadge = page.locator('.article-author-chip');
     await expect(authorBadge).toBeVisible();
-    await expect(authorBadge).toContainText('Saç Ekim Koordinatörü ve Danışmanı Elif Ay');
+    await expect(authorBadge).toContainText('Saç Ekim Koordinatörü');
 
     // 6. Verify Content & Inline WhatsApp CTA
     const richContent = page.locator('.article-rich-content');

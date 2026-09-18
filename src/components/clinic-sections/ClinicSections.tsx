@@ -26,7 +26,7 @@ const SPECIALIST_I18N: Record<Language, {
   imageAlt: string;
 }> = {
   tr: {
-    kickerNum: '02 / SAÇ EKİM KOORDİNATÖRÜ VE DANIŞMANI',
+    kickerNum: '02 / SAÇ EKİM KOORDİNATÖRÜ',
     kickerLabel: 'GAZİANTEP EN İYİ SAÇ EKİM MERKEZİ & KİŞİYE ÖZEL GOLD FUE',
     portraitCaption: 'ÖNCE SİZİ DİNLİYORUZ.',
     eyebrow: 'GAZİANTEP EN İYİ SAÇ EKİM MERKEZİ & GÜNEYDOĞU BÖLGE UZMANLIĞI',
@@ -40,7 +40,7 @@ const SPECIALIST_I18N: Record<Language, {
     imageAlt: 'Saç Ekim Koordinatörü ve Danışmanı Elif Ay - Gaziantep Saç Ekim Merkezi',
   },
   en: {
-    kickerNum: '02 / HAIR TRANSPLANT COORDINATOR & CONSULTANT',
+    kickerNum: '02 / HAIR TRANSPLANT COORDINATOR',
     kickerLabel: 'GAZİANTEP CLINICAL EXCELLENCE & PERSONALIZED GOLD FUE',
     portraitCaption: 'WE LISTEN TO YOU FIRST.',
     eyebrow: 'GAZİANTEP TOP CLINIC & REGIONAL RESTORATION EXPERTISE',
@@ -54,7 +54,7 @@ const SPECIALIST_I18N: Record<Language, {
     imageAlt: 'Hair Transplant Coordinator & Consultant Elif Ay - Gaziantep Clinic',
   },
   ar: {
-    kickerNum: '02 / منسقة ومستشارة زراعة الشعر',
+    kickerNum: '02 / منسقة زراعة الشعر',
     kickerLabel: 'المركز الرائد في غازي عنتاب وتخطيط غولد FUE المخصص',
     portraitCaption: 'نستمع إليك أولاً.',
     eyebrow: 'التميز الطبي في غازي عنتاب والخبرة الإقليمية الموثوقة',
@@ -68,7 +68,7 @@ const SPECIALIST_I18N: Record<Language, {
     imageAlt: 'منسقة ومستشارة زراعة الشعر إليف آي - مركز غازي عنتاب',
   },
   de: {
-    kickerNum: '02 / HAARTRANSPLANTATIONS-KOORDINATORIN & BERATERIN',
+    kickerNum: '02 / HAARTRANSPLANTATIONS-KOORDINATORIN',
     kickerLabel: 'KLINISCHE EXZELLENZ IN GAZIANTEP & GOLD FUE',
     portraitCaption: 'WIR HÖREN IHNEN ZU.',
     eyebrow: 'FÜHRENDE KLINIK IN GAZIANTEP & REGIONALE EXPERTISE',

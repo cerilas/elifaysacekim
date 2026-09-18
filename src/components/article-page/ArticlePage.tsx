@@ -367,7 +367,7 @@ export function ArticlePage({
                   height="38"
                 />
                 <div>
-                  <span className="article-author-name">Saç Ekim Koordinatörü ve Danışmanı Elif Ay</span>
+                  <span className="article-author-name">Saç Ekim Koordinatörü Elif Ay</span>
                   <span className="article-author-role">12+ Yıl Klinik Deneyim • Gold FUE</span>
                 </div>
               </div>

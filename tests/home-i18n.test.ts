@@ -76,6 +76,7 @@ test('Footer i18n: Quick links, treatments, contact, FAQs, and regions are local
     assert.ok(f.contactTitle, `contactTitle must exist for ${lang}`);
     assert.ok(f.faqTitle, `faqTitle must exist for ${lang}`);
     assert.ok(f.regionsTitle, `regionsTitle must exist for ${lang}`);
+    assert.ok(f.developedBy, `developedBy must exist for ${lang}`);
     assert.ok(f.navPhilosophy, `navPhilosophy must exist for ${lang}`);
     assert.ok(f.navSpecialist, `navSpecialist must exist for ${lang}`);
     assert.ok(f.navTreatments, `navTreatments must exist for ${lang}`);
@@ -84,7 +85,10 @@ test('Footer i18n: Quick links, treatments, contact, FAQs, and regions are local
     assert.ok(f.navContact, `navContact must exist for ${lang}`);
 
     // Verify quickLinksTitle translations are distinct per language
-    if (lang === 'tr') assert.equal(f.quickLinksTitle, 'HIZLI BAĞLANTILAR');
+    if (lang === 'tr') {
+      assert.equal(f.quickLinksTitle, 'HIZLI BAĞLANTILAR');
+      assert.equal(f.developedBy, 'Cerilas tarafından geliştirildi');
+    }
     if (lang === 'en') assert.equal(f.quickLinksTitle, 'QUICK LINKS');
     if (lang === 'ar') assert.equal(f.quickLinksTitle, 'روابط سريعة');
     if (lang === 'de') assert.equal(f.quickLinksTitle, 'SCHNELLZUGRIFF');
@@ -103,6 +107,12 @@ test('Footer i18n: Quick links, treatments, contact, FAQs, and regions are local
       assert.ok(reg.label && reg.label.length > 5, `region label must be populated for ${reg.slug} in ${lang}`);
     }
   }
+
+  // Verify SiteFooter includes Cerilas link
+  const footerPath = path.join(ROOT_DIR, 'src/components/layout/SiteFooter.tsx');
+  const footerContent = fs.readFileSync(footerPath, 'utf8');
+  assert.ok(footerContent.includes('href="https://www.cerilas.com"'), 'SiteFooter must link to https://www.cerilas.com');
+  assert.ok(footerContent.includes('footer-cerilas-link'), 'SiteFooter must have footer-cerilas-link class');
 
   // Verify ArticlePage and TreatmentPage use SiteFooter
   const articlePath = path.join(ROOT_DIR, 'src/components/article-page/ArticlePage.tsx');

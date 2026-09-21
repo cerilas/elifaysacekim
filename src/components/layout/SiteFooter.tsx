@@ -1,5 +1,5 @@
 import React from 'react';
-import { type Language } from '../../i18n';
+import { type Language, TRANSLATIONS } from '../../i18n';
 import {
   FOOTER_I18N,
   getFooterFaqLinks,
@@ -18,6 +18,7 @@ export function SiteFooter({
   isSubpage = false,
 }: SiteFooterProps) {
   const lang = currentLang || 'tr';
+  const t = TRANSLATIONS[lang] || TRANSLATIONS.tr;
   const footer = FOOTER_I18N[lang] || FOOTER_I18N.tr;
   const faqLinks = getFooterFaqLinks(lang);
   const regionLinks = getFooterRegionLinks(lang);
@@ -325,6 +326,26 @@ export function SiteFooter({
                 {item.label}
               </a>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer Bottom / Copyright & Developer Credit */}
+      <div className="footer-bottom">
+        <div className="footer-bottom-inner">
+          <p className="footer-copyright">
+            © {new Date().getFullYear()} Elif Ay Saç Ekim Koordinatörlüğü. {t.allRightsReserved}
+          </p>
+          <div className="footer-credit">
+            <a
+              href="https://www.cerilas.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-cerilas-link"
+              title="Cerilas"
+            >
+              {footer.developedBy}
+            </a>
           </div>
         </div>
       </div>

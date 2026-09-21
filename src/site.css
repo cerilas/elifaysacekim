@@ -154,6 +154,46 @@ a:focus-visible { outline: 2px solid var(--accent-gold-bright); outline-offset: 
 .seo-links a { color: #5a5245; text-decoration: none; font-size: 11px; transition: color 0.3s ease; }
 .seo-links a:hover { color: #d8bb91; }
 
+.footer-bottom {
+  max-width: 1200px;
+  margin: 50px auto 0;
+  padding-top: 25px;
+  border-top: 1px solid #2a251d;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-copyright {
+  margin: 0;
+  color: #827461;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.footer-credit {
+  margin: 0;
+}
+
+.footer-cerilas-link {
+  color: #827461;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+
+.footer-cerilas-link:hover {
+  color: #d8bb91;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Header Actions (Call & WhatsApp & Free Analysis CTA) */
 .header-actions {
   display: flex;
@@ -420,6 +460,22 @@ a:focus-visible { outline: 2px solid var(--accent-gold-bright); outline-offset: 
   color: #8c652f;
 }
 
+[data-theme="light"] .footer-bottom {
+  border-top: 1px solid rgba(74, 58, 41, 0.12);
+}
+
+[data-theme="light"] .footer-copyright {
+  color: #7a6b57;
+}
+
+[data-theme="light"] .footer-cerilas-link {
+  color: #7a6b57;
+}
+
+[data-theme="light"] .footer-cerilas-link:hover {
+  color: #8c652f;
+}
+
 /* Care section Light Mode */
 [data-theme="light"] .care-section {
   background: #f4efe6;
@@ -625,6 +681,17 @@ a:focus-visible { outline: 2px solid var(--accent-gold-bright); outline-offset: 
   .footer-cta-actions { width: 100%; }
   .footer-whatsapp-cta, .footer-phone-cta { width: 100%; box-sizing: border-box; white-space: normal; text-align: center; }
   .footer-whatsapp-cta img, .footer-phone-cta svg { flex-shrink: 0; }
+
+  .footer-bottom {
+    margin-top: 35px;
+    padding-top: 20px;
+  }
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+  }
 
   /* Mobile Sticky Action Bar */
   .mobile-sticky-bar {
@@ -1006,6 +1073,22 @@ a:focus-visible { outline: 2px solid var(--accent-gold-bright); outline-offset: 
 }
 
 [data-theme="med"] .seo-links a:hover {
+  color: #8FA9FF;
+}
+
+[data-theme="med"] .footer-bottom {
+  border-top: 1px solid #D7C6FF;
+}
+
+[data-theme="med"] .footer-copyright {
+  color: #4A587D;
+}
+
+[data-theme="med"] .footer-cerilas-link {
+  color: #4A587D;
+}
+
+[data-theme="med"] .footer-cerilas-link:hover {
   color: #8FA9FF;
 }
 

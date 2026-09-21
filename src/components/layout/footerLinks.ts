@@ -36,6 +36,7 @@ export interface FooterTranslations {
   hours: string;
   faqTitle: string;
   regionsTitle: string;
+  developedBy: string;
 }
 
 export const FOOTER_I18N: Record<Language, FooterTranslations> = {
@@ -73,6 +74,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     hours: 'Pazartesi – Cumartesi, 09:00 – 19:00',
     faqTitle: 'SIK SORULAN SORULAR',
     regionsTitle: 'HİZMET BÖLGELERİMİZ',
+    developedBy: 'Cerilas tarafından geliştirildi',
   },
   en: {
     kicker: 'DIRECT SPECIALIST CONSULTATION & CLINICAL CARE',
@@ -108,6 +110,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     hours: 'Monday – Saturday, 09:00 – 19:00',
     faqTitle: 'FREQUENTLY ASKED QUESTIONS',
     regionsTitle: 'SERVICE REGIONS',
+    developedBy: 'Developed by Cerilas',
   },
   ar: {
     kicker: 'استشارة مباشرة مع الأخصائية ورعاية طبية موثوقة',
@@ -143,6 +146,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     hours: 'الإثنين – السبت، 09:00 – 19:00',
     faqTitle: 'الأسئلة الشائعة',
     regionsTitle: 'المناطق المخدومة',
+    developedBy: 'تم التطوير بواسطة Cerilas',
   },
   de: {
     kicker: 'DIREKTE FACHBERATUNG & ERSTKLASSIGE KLINISCHE BETREUUNG',
@@ -178,6 +182,7 @@ export const FOOTER_I18N: Record<Language, FooterTranslations> = {
     hours: 'Montag – Samstag, 09:00 – 19:00',
     faqTitle: 'HÄUFIG GESTELLTE FRAGEN',
     regionsTitle: 'EINZUGSGEBIETE',
+    developedBy: 'Entwickelt von Cerilas',
   },
 };
 

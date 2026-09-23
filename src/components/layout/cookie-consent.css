@@ -10,10 +10,13 @@
   border-radius: 12px;
   padding: 20px;
   z-index: 99999;
+  animation: slideUpConsent 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cookie-consent-content {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  animation: slideUpConsent 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  gap: 16px;
 }
 
 [data-theme="light"] .cookie-consent-overlay {

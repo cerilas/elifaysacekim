@@ -6,6 +6,7 @@ import './site.css';
 import { HeroSpecialistTransition, SpecialistSection, TreatmentsSection } from './components/clinic-sections/ClinicSections';
 import { KnowledgeBaseSection, openArticleBySlug, type Article } from './components/knowledge-base';
 import { ElifAyGallerySection } from './components/gallery';
+import { PatientResultsSection } from './components/patient-results';
 import { ArticlePage } from './components/article-page';
 import { TreatmentPage } from './components/treatment-page';
 import { BlogPage } from './components/blog-page';
@@ -360,6 +361,7 @@ function App() {
         </section>
         <TreatmentsSection currentLang={lang} />
       </HeroSpecialistTransition>
+      <PatientResultsSection currentLang={lang} />
       <ElifAyGallerySection currentLang={lang} />
       <KnowledgeBaseSection onNavigate={navigateTo} currentLang={lang} />
     </main>

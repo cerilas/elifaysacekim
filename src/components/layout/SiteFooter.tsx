@@ -307,7 +307,7 @@ export function SiteFooter({
             loading="lazy" 
             referrerPolicy="no-referrer-when-downgrade"
             title="Elif Ay Clinic Location"
-          />
+          ></iframe>
         </div>
       </div>
 

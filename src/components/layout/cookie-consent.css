@@ -1,4 +1,5 @@
 .cookie-consent-overlay {
+  box-sizing: border-box;
   position: fixed;
   bottom: 20px;
   left: 20px;
@@ -75,6 +76,7 @@
     bottom: 80px; /* Above the mobile sticky bar */
     left: 15px;
     right: 15px;
+    width: calc(100% - 30px);
     max-width: none;
   }
 }

@@ -87,7 +87,7 @@ export function FollicleSection({
         meter.current.style.transform = `scaleX(${p})`;
       }
       if (percent.current) {
-        percent.current.textContent = String(Math.round(p * 100)).padStart(2, '0');
+        percent.current.textContent = String(Math.max(1, Math.round(p * 12)));
       }
 
       texts.current.forEach((el, j) => {
@@ -150,7 +150,7 @@ export function FollicleSection({
       progress.current.value = activeChapters[i].start + 0.025;
       setActive(i);
       if (percent.current) {
-        percent.current.textContent = String(Math.round(progress.current.value * 100));
+        percent.current.textContent = String(Math.max(1, Math.round(progress.current.value * 12)));
       }
       if (meter.current) {
         meter.current.style.transform = `scaleX(${progress.current.value})`;
@@ -312,8 +312,8 @@ export function FollicleSection({
             </div>
           </div>
           <div className="ht-bottom-right">
-            İNTERAKTİF RESTORASYON SÜRECİ <span ref={percent}>00</span>
-            <small>/ 100</small>
+            İNTERAKTİF RESTORASYON SÜRECİ <span ref={percent}>1</span>
+            <small>. AY / 12 AY</small>
           </div>
         </div>
 

@@ -83,3 +83,26 @@
     max-width: none;
   }
 }
+
+/* Med Theme */
+[data-theme="med"] .cookie-consent-overlay {
+  background-color: #FFFFFF;
+  border-color: #D7C6FF;
+  box-shadow: 0 16px 45px rgba(143, 169, 255, 0.16);
+}
+
+[data-theme="med"] .cookie-consent-content p {
+  color: #4A587D;
+}
+
+[data-theme="med"] .cookie-consent-btn {
+  background-color: #FBE7F1;
+  color: #2D3A5E;
+  border: 1px solid #D7C6FF;
+}
+
+[data-theme="med"] .cookie-consent-btn:hover {
+  background-color: #8FA9FF;
+  color: #FFFFFF;
+  border-color: #8FA9FF;
+}

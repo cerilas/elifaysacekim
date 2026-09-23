@@ -21,6 +21,15 @@ if (typeof window !== 'undefined') {
 
 gsap.registerPlugin(ScrollTrigger);
 
+const calculateMonth = (p: number) => {
+  if (p <= 0.65) return 1;
+  if (p <= 0.82) {
+    const ratio = (p - 0.65) / (0.17); // 0.82 - 0.65 = 0.17
+    return Math.round(1 + ratio * 1);
+  }
+  const ratio = (p - 0.82) / (0.18); // 1.0 - 0.82 = 0.18
+  return Math.round(2 + ratio * 10);
+};
 class SceneBoundary extends React.Component<
   { children: React.ReactNode },
   { failed: boolean }
@@ -87,7 +96,7 @@ export function FollicleSection({
         meter.current.style.transform = `scaleX(${p})`;
       }
       if (percent.current) {
-        percent.current.textContent = String(Math.max(1, Math.round(p * 12)));
+        percent.current.textContent = String(calculateMonth(p));
       }
 
       texts.current.forEach((el, j) => {
@@ -150,7 +159,7 @@ export function FollicleSection({
       progress.current.value = activeChapters[i].start + 0.025;
       setActive(i);
       if (percent.current) {
-        percent.current.textContent = String(Math.max(1, Math.round(progress.current.value * 12)));
+        percent.current.textContent = String(calculateMonth(progress.current.value));
       }
       if (meter.current) {
         meter.current.style.transform = `scaleX(${progress.current.value})`;

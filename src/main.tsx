@@ -10,7 +10,7 @@ import { PatientResultsSection } from './components/patient-results';
 import { ArticlePage } from './components/article-page';
 import { TreatmentPage } from './components/treatment-page';
 import { BlogPage } from './components/blog-page';
-import { SiteHeader, MobileStickyBar, SiteFooter } from './components/layout';
+import { SiteHeader, MobileStickyBar, SiteFooter, CookieConsent } from './components/layout';
 import articlesDataRaw from './data/articles.json';
 import { getTreatmentBySlug } from './data/treatmentData';
 import { type Language, type Theme, LANGUAGES } from './i18n';
@@ -268,42 +268,51 @@ function App() {
 
   if (isBlogHub) {
     return (
-      <BlogPage
-        onNavigate={navigateTo}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-        onSelectTheme={setTheme}
-        currentLang={lang}
-        onLanguageChange={setLang}
-      />
+      <>
+        <BlogPage
+          onNavigate={navigateTo}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onSelectTheme={setTheme}
+          currentLang={lang}
+          onLanguageChange={setLang}
+        />
+        <CookieConsent currentLang={lang} />
+      </>
     );
   }
 
   if (activeArticle) {
     return (
-      <ArticlePage
-        article={activeArticle}
-        onNavigate={navigateTo}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-        onSelectTheme={setTheme}
-        currentLang={lang}
-        onLanguageChange={setLang}
-      />
+      <>
+        <ArticlePage
+          article={activeArticle}
+          onNavigate={navigateTo}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onSelectTheme={setTheme}
+          currentLang={lang}
+          onLanguageChange={setLang}
+        />
+        <CookieConsent currentLang={lang} />
+      </>
     );
   }
 
   if (activeTreatment) {
     return (
-      <TreatmentPage
-        treatment={activeTreatment}
-        onNavigate={navigateTo}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-        onSelectTheme={setTheme}
-        currentLang={lang}
-        onLanguageChange={setLang}
-      />
+      <>
+        <TreatmentPage
+          treatment={activeTreatment}
+          onNavigate={navigateTo}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onSelectTheme={setTheme}
+          currentLang={lang}
+          onLanguageChange={setLang}
+        />
+        <CookieConsent currentLang={lang} />
+      </>
     );
   }
 
@@ -367,6 +376,7 @@ function App() {
     </main>
     <SiteFooter currentLang={lang} onNavigate={navigateTo} />
     <MobileStickyBar currentLang={lang} />
+    <CookieConsent currentLang={lang} />
   </>;
 }
 

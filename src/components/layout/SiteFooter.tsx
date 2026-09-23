@@ -295,6 +295,20 @@ export function SiteFooter({
             <a href="mailto:elifcetin540@gmail.com">elifcetin540@gmail.com</a>
           </p>
         </div>
+        
+        {/* Map Column */}
+        <div className="footer-map">
+          <iframe 
+            src="https://maps.google.com/maps?q=Sa%C3%A7+Ekim+Uzman%C4%B1+Elif+Ay+-+Gaziantep&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            width="100%" 
+            height="100%" 
+            style={{ border: 0, borderRadius: '12px', display: 'block' }}
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Elif Ay Clinic Location"
+          />
+        </div>
       </div>
 
       {/* SEO Links: FAQs & Regional Guides */}

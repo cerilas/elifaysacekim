@@ -106,6 +106,13 @@ export function SiteHeader({
         >
           {t.navKnowledge}
         </a>
+        <a
+          href="/randevu"
+          onClick={(e) => handleLinkClick(e, '/randevu')}
+          style={{ color: 'var(--accent-gold)' }}
+        >
+          {currentLang === 'en' ? 'Book Online' : currentLang === 'ar' ? 'حجز موعد' : currentLang === 'de' ? 'Online Termin' : 'Online Randevu'}
+        </a>
       </nav>
 
       <div className="header-actions">
@@ -152,10 +159,10 @@ export function SiteHeader({
 
         <a
           className="header-cta"
-          href={isSubpage ? '/#care' : '#care'}
-          onClick={(e) => handleLinkClick(e, '/#care')}
+          href="/randevu"
+          onClick={(e) => handleLinkClick(e, '/randevu')}
         >
-          Ücretsiz Analiz <span aria-hidden="true">↗︎</span>
+          {currentLang === 'en' ? 'Book Online' : currentLang === 'ar' ? 'حجز موعد' : currentLang === 'de' ? 'Termin Buchen' : 'Randevu Al'} <span aria-hidden="true">↗︎</span>
         </a>
       </div>
     </header>

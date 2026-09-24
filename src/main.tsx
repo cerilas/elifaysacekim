@@ -10,7 +10,10 @@ import { PatientResultsSection } from './components/patient-results';
 import { ArticlePage } from './components/article-page';
 import { TreatmentPage } from './components/treatment-page';
 import { BlogPage } from './components/blog-page';
+import { BookingPage } from './components/booking';
 import { SiteHeader, MobileStickyBar, SiteFooter, CookieConsent } from './components/layout';
+import { ReelsGallerySection } from './components/reels-gallery';
+import { AnalyticsTracker } from './components/analytics/AnalyticsTracker';
 import articlesDataRaw from './data/articles.json';
 import { getTreatmentBySlug } from './data/treatmentData';
 import { type Language, type Theme, LANGUAGES } from './i18n';
@@ -164,10 +167,11 @@ function App() {
   let treatmentSlug = '';
 
   const isBlogHub = pathOnly === '/bilgi-bankasi' || pathOnly === '/bilgi-bankasi/' || pathOnly === '/blog' || pathOnly === '/blog/';
+  const isBooking = pathOnly === '/randevu' || pathOnly === '/randevu/' || pathOnly === '/appointment' || pathOnly === '/appointment/';
 
-  if (!isBlogHub && pathOnly.startsWith('/bilgi-bankasi/')) {
+  if (!isBlogHub && !isBooking && pathOnly.startsWith('/bilgi-bankasi/')) {
     articleSlug = pathOnly.replace(/^\/bilgi-bankasi\/?/, '').replace(/\/$/, '');
-  } else if (pathOnly.startsWith('/tedaviler/')) {
+  } else if (!isBooking && pathOnly.startsWith('/tedaviler/')) {
     treatmentSlug = pathOnly.replace(/^\/tedaviler\/?/, '').replace(/\/$/, '');
   } else if (currentPath.includes('#article-')) {
     const match = currentPath.match(/#article-([^&?#]+)/);
@@ -181,7 +185,7 @@ function App() {
   const activeTreatment = treatmentSlug ? getTreatmentBySlug(treatmentSlug) : null;
 
   useEffect(() => {
-    if (activeArticle || activeTreatment || isBlogHub) return; // Dedicated subpage handles its own scroll/tween
+    if (activeArticle || activeTreatment || isBlogHub || isBooking) return; // Dedicated subpage handles its own scroll/tween
 
     let activeTween: gsap.core.Tween | null = null;
 
@@ -266,9 +270,26 @@ function App() {
     };
   }, [activeArticle, activeTreatment]);
 
+  if (isBooking) {
+    return (
+      <>
+        <AnalyticsTracker currentPath={currentPath} />
+        <BookingPage
+          onNavigate={navigateTo}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+          onSelectTheme={setTheme}
+          currentLang={lang}
+          onLanguageChange={setLang}
+        />
+      </>
+    );
+  }
+
   if (isBlogHub) {
     return (
       <>
+        <AnalyticsTracker currentPath={currentPath} />
         <BlogPage
           onNavigate={navigateTo}
           theme={theme}
@@ -285,6 +306,7 @@ function App() {
   if (activeArticle) {
     return (
       <>
+        <AnalyticsTracker currentPath={currentPath} />
         <ArticlePage
           article={activeArticle}
           onNavigate={navigateTo}
@@ -302,6 +324,7 @@ function App() {
   if (activeTreatment) {
     return (
       <>
+        <AnalyticsTracker currentPath={currentPath} />
         <TreatmentPage
           treatment={activeTreatment}
           onNavigate={navigateTo}
@@ -330,6 +353,7 @@ function App() {
   const care = CARE_I18N[lang] || CARE_I18N.tr;
 
   return <>
+    <AnalyticsTracker currentPath={currentPath} />
     <main id="top">
       <HeroSpecialistTransition portraitSrc="/elif-ay-portrait.jpg">
         <HairTransplantHero header={headerContent} currentLang={lang} />
@@ -371,6 +395,7 @@ function App() {
         <TreatmentsSection currentLang={lang} />
       </HeroSpecialistTransition>
       <PatientResultsSection currentLang={lang} />
+      <ReelsGallerySection currentLang={lang} />
       <ElifAyGallerySection currentLang={lang} />
       <KnowledgeBaseSection onNavigate={navigateTo} currentLang={lang} />
     </main>

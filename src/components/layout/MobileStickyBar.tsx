@@ -3,9 +3,10 @@ import { type Language, TRANSLATIONS } from '../../i18n';
 export interface MobileStickyBarProps {
   whatsappMessage?: string;
   currentLang?: Language;
+  onOpenBooking?: () => void;
 }
 
-export function MobileStickyBar({ whatsappMessage, currentLang = 'tr' }: MobileStickyBarProps) {
+export function MobileStickyBar({ whatsappMessage, currentLang = 'tr', onOpenBooking }: MobileStickyBarProps) {
   const t = TRANSLATIONS[currentLang] || TRANSLATIONS.tr;
   const defaultMsg = currentLang === 'en'
     ? 'Hello, I would like to get information about Elif Ay hair transplant and free analysis.'
@@ -20,6 +21,38 @@ export function MobileStickyBar({ whatsappMessage, currentLang = 'tr' }: MobileS
 
   return (
     <aside className="mobile-sticky-bar mobile-cta-bar" aria-label="Hızlı İletişim">
+      {onOpenBooking && (
+        <button
+          type="button"
+          className="sticky-btn"
+          onClick={onOpenBooking}
+          style={{ background: 'var(--accent-gold)', color: '#12100e', border: 'none', cursor: 'pointer' }}
+          aria-label="Online Randevu Al"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+            <line x1="16" x2="16" y1="2" y2="6" />
+            <line x1="8" x2="8" y1="2" y2="6" />
+            <line x1="3" x2="21" y1="10" y2="10" />
+          </svg>
+          <div className="sticky-btn-text">
+            <strong>Randevu</strong>
+            <small>Online Al</small>
+          </div>
+        </button>
+      )}
+
       <a
         className="sticky-btn sticky-btn-call"
         href="tel:+905364916040"
